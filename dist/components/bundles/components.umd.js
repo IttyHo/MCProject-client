@@ -169,7 +169,6 @@
     var TableComponent = /** @class */ (function () {
         function TableComponent(dialog) {
             this.dialog = dialog;
-            // @Input() tableType:tableTypeEnum;
             this.dbClick = new core.EventEmitter();
             this.displayedColumns = [];
         }

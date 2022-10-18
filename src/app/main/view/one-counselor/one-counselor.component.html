@@ -2,7 +2,7 @@
 <span [innerText]="'שם המנהל :'" class="span"></span>
 <span class="detail" [innerText]="selectedService.counselor.CounselorOfficeManager"></span> &nbsp;&nbsp;&nbsp; 
 <span [innerText]="'טלפון המנהל :'" class="span"></span>
-<span class="detail" [innerText]="selectedService.counselor.CounselorOfficeManagerPhone"></span> &nbsp;&nbsp;&nbsp; 
+<a class="detail" href="tel:{{selectedService.counselor.CounselorOfficeManagerPhone}}" class="text" [innerText]="selectedService.counselor.CounselorOfficeManagerPhone"></a> &nbsp;&nbsp;&nbsp; 
 <span [innerText]="'מייל המנהל :'" class="span"></span>
 <a class="mail" href="mailto:{{selectedService.counselor.CounselorOfficeManagerMail}}" class="detail" [innerText]="selectedService.counselor.CounselorOfficeManagerMail"></a> &nbsp;&nbsp;&nbsp; 
 <span [innerText]="'מייל מזכירה ראשית :'" class="span"></span>

@@ -170,7 +170,6 @@ var ComponentsModule = /** @class */ (function () {
 var TableComponent = /** @class */ (function () {
     function TableComponent(dialog) {
         this.dialog = dialog;
-        // @Input() tableType:tableTypeEnum;
         this.dbClick = new EventEmitter();
         this.displayedColumns = [];
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EntrepreneurDetailsService } from 'services';
 import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-one-entrepreneur',
   templateUrl: './one-entrepreneur.component.html',

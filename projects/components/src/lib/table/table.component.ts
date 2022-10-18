@@ -13,7 +13,6 @@ import { MatDialog, MatPaginator, MatTableDataSource } from '@angular/material';
 export class TableComponent implements OnInit, OnChanges {
   @Input() columns:Column[];
   @Input() rows:any[];
-  // @Input() tableType:tableTypeEnum;
   @Output() dbClick = new EventEmitter<any>();
   displayedColumns: string[] =[]
   dataSource 

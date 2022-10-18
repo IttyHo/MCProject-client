@@ -14,8 +14,6 @@ import { SelectedNevigationService } from '../../services/selected-nevigation.se
   styleUrls: ['./entrepreneur.component.scss']
 })
 export class EntrepreneurComponent implements OnInit {
-  entrepreneur$:Observable<Entrepreneur[]>=NEVER;
-  entrepreneurs:Entrepreneur[]=[];
   columns$: Observable<Column[]> = NEVER;
   constructor(
     public entrepreneurService:GetEntrepreneurService,
@@ -28,9 +26,8 @@ export class EntrepreneurComponent implements OnInit {
      this.columns$ = this.readColumns.getColumns$(environment.enrepreneursTableColumns)
     }
     getEntrepreneurDetalis(entrepreneur){
-      console.log(entrepreneur,"entrepreneur in getEntrepreneurDetalis before");
-      
-     this.entrepreneurs.forEach(el => {
+      // console.log(entrepreneur,"entrepreneur in getEntrepreneurDetalis before");
+     this.entrepreneurService.entrepreneurs.forEach(el => {
       console.log({el});      
         if(el === entrepreneur)
          {

@@ -1,11 +1,13 @@
 :host {
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+
     input {
         margin-right: 50px;
     }
 
     .buttons {
-
+        position: absolute;
+        margin-top: 150px;
     }
 }

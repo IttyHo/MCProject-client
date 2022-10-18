@@ -156,7 +156,6 @@ class TableComponent {
      */
     constructor(dialog) {
         this.dialog = dialog;
-        // @Input() tableType:tableTypeEnum;
         this.dbClick = new EventEmitter();
         this.displayedColumns = [];
     }

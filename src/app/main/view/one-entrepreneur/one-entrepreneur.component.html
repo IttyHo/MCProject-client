@@ -10,7 +10,7 @@
     </div>
     <div class="oneDetail">
         <span [innerText]="'טלפון:'" class="Mail"></span>&nbsp; &nbsp;
-        <div class="text details" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurCompanyPhone"></div>
+        <a href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurCompanyPhone}}" class="text details" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurCompanyPhone"></a>
     </div>
     <div class="oneDetail">
         <span [innerText]="'פקס:'" class="Mail"></span>&nbsp; &nbsp;
@@ -32,8 +32,7 @@
             <img [src]="phone" alt="phone">&nbsp; &nbsp;
             <h1>טלפון מנהל: </h1>
         </div>
-        <div class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurPhone">
-        </div>
+        <a href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurPhone}}" class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurPhone"></a>
         <div>
             <img [src]="email" alt="email">&nbsp; &nbsp;
             <h1>מייל מנהל: </h1>
@@ -50,8 +49,7 @@
             <img [src]="phone">&nbsp; &nbsp;
             <h1 id="yazam">טלפון מזכירה ראשית: </h1>
         </div>
-        <div class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone"></div>
-
+        <a href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone}}" class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone"></a>
         <div>
             <img [src]="email">&nbsp; &nbsp;
             <h1 id="yazam">מייל מזכירה ראשית: </h1>
@@ -59,4 +57,3 @@
         <a href="mailto:{{entrepreneurDetails.entrepreneur.EntrepreneurSecretaryMail}}" class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryMail"></a>
     </div>
 </section>
-<!-- <a href="mailto:{{emailAddress}}">לשליחת אימייל</a> -->
