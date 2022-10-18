@@ -10,7 +10,7 @@
     </div>
     <div class="oneDetail">
         <span [innerText]="'טלפון:'" class="Mail"></span>&nbsp; &nbsp;
-        <a href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurCompanyPhone}}" class="text details" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurCompanyPhone"></a>
+        <a href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurCompanyPhone}}" class="text details phone" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurCompanyPhone"></a>
     </div>
     <div class="oneDetail">
         <span [innerText]="'פקס:'" class="Mail"></span>&nbsp; &nbsp;
@@ -32,12 +32,12 @@
             <img [src]="phone" alt="phone">&nbsp; &nbsp;
             <h1>טלפון מנהל: </h1>
         </div>
-        <a href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurPhone}}" class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurPhone"></a>
+        <a class="text" href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurPhone}} " [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurPhone"></a>
         <div>
             <img [src]="email" alt="email">&nbsp; &nbsp;
             <h1>מייל מנהל: </h1>
         </div>
-        <a href="mailto:{{entrepreneurDetails.entrepreneur.EntrepreneurMail}}" class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurMail"></a>
+        <a class="text" href="mailto:{{entrepreneurDetails.entrepreneur.EntrepreneurMail}}" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurMail"></a>
     </div>
     <div class="SecretaryDetalis">
         <div>
@@ -49,11 +49,11 @@
             <img [src]="phone">&nbsp; &nbsp;
             <h1 id="yazam">טלפון מזכירה ראשית: </h1>
         </div>
-        <a href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone}}" class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone"></a>
+        <a class="text" href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone}}" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone"></a>
         <div>
             <img [src]="email">&nbsp; &nbsp;
             <h1 id="yazam">מייל מזכירה ראשית: </h1>
         </div>
-        <a href="mailto:{{entrepreneurDetails.entrepreneur.EntrepreneurSecretaryMail}}" class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryMail"></a>
+        <a class="text" href="mailto:{{entrepreneurDetails.entrepreneur.EntrepreneurSecretaryMail}}"  [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryMail"></a>
     </div>
 </section>
