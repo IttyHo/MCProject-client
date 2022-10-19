@@ -493,6 +493,17 @@ class GetEntrepreneurService extends HttpServiceBase {
             body: entrepreneur
         }));
     }
+    /**
+     * @param {?} entrepreneur
+     * @return {?}
+     */
+    deleteEntrepreneur$(entrepreneur) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'deleteEntrepreneur',
+            body: entrepreneur,
+        }));
+    }
 }
 GetEntrepreneurService.decorators = [
     { type: Injectable, args: [{ providedIn: 'root' },] }
@@ -511,15 +522,9 @@ if (false) {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class EntrepreneurDetailsService {
-    // :Entrepreneur={
-    //   EntrepreneurCompany: '',
-    //   EntrepreneurName: '',
-    //   EntrepreneurPhone: '',
-    //   EntrepreneurMail: '',
-    //   EntrepreneurSecretary: ''
-    // }
     constructor() {
         this.entrepreneur = {};
+        this.entrepreneurToDelete = {};
     }
 }
 EntrepreneurDetailsService.decorators = [
@@ -533,6 +538,8 @@ EntrepreneurDetailsService.ctorParameters = () => [];
 if (false) {
     /** @type {?} */
     EntrepreneurDetailsService.prototype.entrepreneur;
+    /** @type {?} */
+    EntrepreneurDetailsService.prototype.entrepreneurToDelete;
 }
 
 /**

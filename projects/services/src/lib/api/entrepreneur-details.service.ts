@@ -6,12 +6,6 @@ import { Entrepreneur } from 'types';
 })
 export class EntrepreneurDetailsService {
   entrepreneur={}
-  // :Entrepreneur={
-  //   EntrepreneurCompany: '',
-  //   EntrepreneurName: '',
-  //   EntrepreneurPhone: '',
-  //   EntrepreneurMail: '',
-  //   EntrepreneurSecretary: ''
-  // }
+  entrepreneurToDelete={}
   constructor() { }
 }

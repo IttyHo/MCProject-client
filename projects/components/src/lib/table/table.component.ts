@@ -46,12 +46,7 @@ export class TableComponent implements OnInit, OnChanges {
       this.dbClick.emit(row);   
   }
 
-  //  nnn(){
-  //   // switch(this.tableType){
-  //     // case tableTypeEnum.Project:
-  //    console.log("trdfghjkhj");
 
-  //    }
    
 
 }

@@ -7,4 +7,5 @@ export declare class GetEntrepreneurService extends HttpServiceBase {
     entrepreneurs: Entrepreneur[];
     getEntrepreneurList$(): Observable<Entrepreneur[]>;
     addEntrepreneur$(entrepreneur: Entrepreneur): Observable<boolean>;
+    deleteEntrepreneur$(entrepreneur: Entrepreneur): Observable<boolean>;
 }

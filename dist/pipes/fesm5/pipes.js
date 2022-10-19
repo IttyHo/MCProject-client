@@ -1,7 +1,6 @@
 import { Injectable, ɵɵdefineInjectable, Component, NgModule, Pipe } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GetOptionsService } from 'services';
-import { __spread } from 'tslib';
 import { FormsModule } from '@angular/forms';
 
 /**
@@ -155,23 +154,16 @@ var GetErrorPipe = /** @class */ (function () {
         }
         /** @type {?} */
         var errorsToDisplay = [];
-        Object.keys(errors).forEach((/**
-         * @param {?} error
-         * @return {?}
-         */
-        function (error) {
-            switch (error) {
-                case 'required':
-                    errorsToDisplay = __spread(errorsToDisplay, ['שדה חובה']);
-                    break;
-                case 'invalidEmailAddress':
-                    errorsToDisplay = __spread(errorsToDisplay, ['כתובת אמייל לא נכונה']);
-                    break;
-                case 'maxlength':
-                    errorsToDisplay = __spread(errorsToDisplay, ['מספר תווים לא תקין']);
-                    break;
-            }
-        }));
+        // Object.keys(errors).forEach(error => {
+        //   switch(error){
+        //     case'required': errorsToDisplay= [...errorsToDisplay, 'שדה חובה']
+        //          break;
+        //     case'invalidEmailAddress': errorsToDisplay= [...errorsToDisplay, 'כתובת אמייל לא נכונה']
+        //          break;
+        //     case'maxlength': errorsToDisplay= [...errorsToDisplay, 'מספר תווים לא תקין']
+        //          break;
+        //   }
+        // }); 
         return errorsToDisplay;
     };
     GetErrorPipe.decorators = [

@@ -796,6 +796,21 @@
                 body: entrepreneur
             }));
         };
+        /**
+         * @param {?} entrepreneur
+         * @return {?}
+         */
+        GetEntrepreneurService.prototype.deleteEntrepreneur$ = /**
+         * @param {?} entrepreneur
+         * @return {?}
+         */
+        function (entrepreneur) {
+            return this.post$(new types.HttpRequestModel({
+                url: this._serverUrl,
+                action: 'deleteEntrepreneur',
+                body: entrepreneur,
+            }));
+        };
         GetEntrepreneurService.decorators = [
             { type: core.Injectable, args: [{ providedIn: 'root' },] }
         ];
@@ -815,15 +830,9 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var EntrepreneurDetailsService = /** @class */ (function () {
-        // :Entrepreneur={
-        //   EntrepreneurCompany: '',
-        //   EntrepreneurName: '',
-        //   EntrepreneurPhone: '',
-        //   EntrepreneurMail: '',
-        //   EntrepreneurSecretary: ''
-        // }
         function EntrepreneurDetailsService() {
             this.entrepreneur = {};
+            this.entrepreneurToDelete = {};
         }
         EntrepreneurDetailsService.decorators = [
             { type: core.Injectable, args: [{
@@ -838,6 +847,8 @@
     if (false) {
         /** @type {?} */
         EntrepreneurDetailsService.prototype.entrepreneur;
+        /** @type {?} */
+        EntrepreneurDetailsService.prototype.entrepreneurToDelete;
     }
 
     /**

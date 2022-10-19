@@ -29,6 +29,15 @@ export class GetEntrepreneurService extends HttpServiceBase {
       action: 'addEntrepreneur',
       body: entrepreneur
   }));
+
+  
+}
+deleteEntrepreneur$(entrepreneur:Entrepreneur):Observable<boolean>{
+  return this.post$(new HttpRequestModel({
+    url: this._serverUrl,
+    action: 'deleteEntrepreneur',
+    body: entrepreneur,
+}));
 }
 }
 
