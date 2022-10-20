@@ -36,18 +36,14 @@ export class EntrepreneurComponent implements OnInit {
       console.log(this.en, "logging");
       this.func(this.en);
     }
-    else {
-      alert("Outside div");
-    }
+    
 
   }
   func(en) {
     this.entrepreneurService.entrepreneurs.forEach(el => {
       if (el.EntrepreneurCompany === en) {
         this.entrepreneurDetails.entrepreneurToDelete = el
-        // alert("האם למחוק יזם זה?");
         if (confirm("האם למחוק יזם זה?") === true) {
-          // window.open("entrepreneur.html", "Thanks for Visiting!");  
           this.entrepreneurService.deleteEntrepreneur$(el).pipe(
             tap(_ => this.entrepreneurService.entrepreneur$ = this.entrepreneurService.getEntrepreneurList$())
           ).subscribe()

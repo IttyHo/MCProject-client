@@ -39,8 +39,7 @@
         margin-top :2vh; 
         font-size: 1.3rem;
         justify-content: space-between;
-        flex-direction: column;
-        margin-left: 33vw;
+        flex-direction: column; 
     }
     .hide {
         visibility: hidden;
@@ -59,12 +58,17 @@
     .details {
         margin-top: 0.1vh;
     }
+    .details-top{
+        text-align: right;
+    }
     .oneDetail {
         display: flex;
         flex-direction: row !important;
         color: $blue;
-        margin-bottom: 1.5vh;
-        margin-right: 33vw;
+        margin-bottom: 1.5vh; 
+        min-width: 400px;
+        justify-content: start;
+        margin-right: 10px;
     }
   }
 img {

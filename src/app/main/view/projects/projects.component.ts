@@ -48,15 +48,12 @@ export class ProjectsComponent implements OnInit {
       console.log(this.projectDetails[1], "logging");
       this.func(this.projectDetails[1]);
     }
-    else {
-      alert("Outside div");
-    }
 
   }
   func(en) {
     this.projectService.projects.forEach(el => {
       if (el.ProjectAdress === en) {
-        if (confirm("האם למחוק פרויקט זה?") === true) {
+        if (confirm(`האם למחוק את הפרויקט  ? ${en}`) === true) {
           this.projectService.deleteProject$(el).pipe(
             tap(_ => this.projectService.project$ = this.projectService.getProjectList$())
           ).subscribe()
