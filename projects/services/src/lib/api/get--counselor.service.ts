@@ -10,7 +10,8 @@ export class GetCounselorService extends HttpServiceBase {
   counselors$: Observable<Cunselor[]> = NEVER;
   counselors:Cunselor[]=[];
   cunselorsOfficeType$:Observable<Cunselor[]>
-
+  counselorToDelete={}
+  historyDeletedCounselos=[]
   private get _serverUrl(): string {
     return `${this.config.ips.servicePath}counselor/`;
   }
@@ -46,5 +47,11 @@ export class GetCounselorService extends HttpServiceBase {
     body: counselor
 }));
 }
-
+deleteCounselor$(counselor:Cunselor):Observable<boolean>{
+  return this.post$(new HttpRequestModel({
+    url: this._serverUrl,
+    action: 'deleteCounselor',
+    body: counselor
+}));
+}
 }

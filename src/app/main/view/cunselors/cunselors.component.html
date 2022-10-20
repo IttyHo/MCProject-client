@@ -3,7 +3,8 @@
   [rows]="cunselors$ | async" ></lib-table>  -->
  <div class="div" >
 <div *ngFor="let c of counselorService.cunselorsOfficeType$ | async">
-    <div class="counselor" (click)="getCounselorsOfficeTypeDetalis(c)">
+    <div class="counselor"
+     (click)="getCounselorsOfficeTypeDetalis(c)">
         <span [innerText]="c.TypeName"></span> &nbsp;&nbsp;&nbsp;        
     </div>
 </div>

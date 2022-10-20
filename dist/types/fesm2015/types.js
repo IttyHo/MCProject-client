@@ -310,19 +310,19 @@ if (false) {
  */
 function Project() { }
 if (false) {
-    /** @type {?|undefined} */
+    /** @type {?} */
     Project.prototype.ProjectId;
     /** @type {?} */
     Project.prototype.ProjectName;
-    /** @type {?} */
+    /** @type {?|undefined} */
     Project.prototype.ProjectCompany;
     /** @type {?} */
     Project.prototype.ProjectAdress;
-    /** @type {?} */
+    /** @type {?|undefined} */
     Project.prototype.ProjectType;
-    /** @type {?} */
+    /** @type {?|undefined} */
     Project.prototype.EntrepreneurId;
-    /** @type {?} */
+    /** @type {?|undefined} */
     Project.prototype.ProjectRova;
 }
 

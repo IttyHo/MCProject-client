@@ -20,7 +20,8 @@ export class CunselorsComponent implements OnInit, OnChanges {
   cunselors:Cunselor[]=[];
   cunselorsOfficeType$:Observable<Cunselor[]>
   columns$: Observable<Column[]> = NEVER;
-  
+  en = {}
+
   constructor(
     public counselorService:GetCounselorService,
     private readColumns: ReadColumnsService,
@@ -41,6 +42,8 @@ export class CunselorsComponent implements OnInit, OnChanges {
    this.columns$ = this.readColumns.getColumns$(environment.counselorsTableColumns)
    
   }
+
+  
   getCounselorsOfficeTypeDetalis(counselorType){
     console.log(counselorType,"      type");    
     this.selectedService.counselorType=counselorType
@@ -50,3 +53,4 @@ export class CunselorsComponent implements OnInit, OnChanges {
     this.cunselors$ = this.counselorService.getCounselorList$(counselorType.TypeName); 
   }
 }
+//deleteCounselor$

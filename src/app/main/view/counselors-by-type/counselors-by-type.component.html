@@ -4,6 +4,7 @@
         <div class="counselor">
             <span [innerText]="c.CounselorOfficeName" 
             (click)="getCounselorOfficeDetails(c.CounselorOfficeName)"
+            (contextmenu)="f($event)"
             ></span> &nbsp;&nbsp;&nbsp;
         </div>
     </div>

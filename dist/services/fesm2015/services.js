@@ -334,6 +334,8 @@ class GetCounselorService extends HttpServiceBase {
         super(...arguments);
         this.counselors$ = NEVER;
         this.counselors = [];
+        this.counselorToDelete = {};
+        this.historyDeletedCounselos = [];
     }
     /**
      * @private
@@ -386,6 +388,17 @@ class GetCounselorService extends HttpServiceBase {
             body: counselor
         }));
     }
+    /**
+     * @param {?} counselor
+     * @return {?}
+     */
+    deleteCounselor$(counselor) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'deleteCounselor',
+            body: counselor
+        }));
+    }
 }
 GetCounselorService.decorators = [
     { type: Injectable, args: [{ providedIn: 'root' },] }
@@ -398,6 +411,10 @@ if (false) {
     GetCounselorService.prototype.counselors;
     /** @type {?} */
     GetCounselorService.prototype.cunselorsOfficeType$;
+    /** @type {?} */
+    GetCounselorService.prototype.counselorToDelete;
+    /** @type {?} */
+    GetCounselorService.prototype.historyDeletedCounselos;
 }
 
 /**
@@ -436,6 +453,17 @@ class GetProjectService extends HttpServiceBase {
         return this.post$(new HttpRequestModel({
             url: this._serverUrl,
             action: 'addProject',
+            body: project
+        }));
+    }
+    /**
+     * @param {?} project
+     * @return {?}
+     */
+    deleteProject$(project) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'deleteProject',
             body: project
         }));
     }

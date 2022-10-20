@@ -11,31 +11,66 @@ import { SelectedNevigationService } from '../../services/selected-nevigation.se
   styleUrls: ['./counselors-by-type.component.scss']
 })
 export class CounselorsByTypeComponent implements OnInit {
-  emailAddress="itty@gmail.com"
+  emailAddress = "itty@gmail.com"
   counselors$: Observable<Cunselor[]> = NEVER;
-  counselors:Cunselor[]=[]; 
+  counselors: Cunselor[] = [];
   entrepreneur$: Observable<Entrepreneur[]>;
   entrepreneurs: Entrepreneur[] = [];
-   constructor(
-    public selectedService:SelectedNevigationService,
-    public counselorService:GetCounselorService,
-    private entrepreneurService:GetEntrepreneurService,
-    ) { }
+  en = {}
 
-  ngOnInit() {     
-  this.counselorService.counselors$ = this.counselorService.getCounselorList$(this.selectedService.counselorType.TypeName)
-  .pipe(
-    map(result=>this.counselorService.counselors=result),
-    tap(result => console.log('counselors:' , result))    
-        );
-         
+  constructor(
+    public selectedService: SelectedNevigationService,
+    public counselorService: GetCounselorService,
+    private entrepreneurService: GetEntrepreneurService,
+  ) { }
+
+  ngOnInit() {
+    this.counselorService.counselors$ = this.counselorService.getCounselorList$(this.selectedService.counselorType.TypeName)
+      .pipe(
+        map(result => this.counselorService.counselors = result),
+        tap(result => console.log('counselors:', result))
+      );
+
   }
-  getCounselorOfficeDetails(counselor){
+  f(e) {
+    console.log("fffffffffffffffffffffffffffffff");
+    e.preventDefault()
+    if (e.srcElement.localName == 'span') {
+      console.log(e.srcElement);
+      this.en = e.srcElement.innerText;
+      console.log(this.en, "logging");
+      this.func(this.en);
+    }
+    else {
+      alert("Outside div");
+    }
+
+  }
+  func(en) {
+    this.counselorService.counselors.forEach(el => {
+      if (el.CounselorOfficeName === en) {
+        this.counselorService.counselorToDelete = el
+        if (confirm("האם למחוק יועץ זה?") === true) {
+          this.counselorService.deleteCounselor$(el).pipe(
+            tap(_ => this.counselorService.counselors$ = this.counselorService.getCounselorList$(el.CounselorOfficeType)),
+            map(_ => this.counselorService.historyDeletedCounselos.push(el)),
+            tap(_=>console.log(this.counselorService.historyDeletedCounselos,"history"))   
+          ).subscribe()
+        }
+        else {
+          console.log("cancel");
+        }
+      }
+    })
+  }
+
+
+  getCounselorOfficeDetails(counselor) {
     this.counselorService.counselors.forEach(el => {
       if (el.CounselorOfficeName == counselor) {
-        console.log(el,"selected");
-        this.selectedService.counselor=el
-        this.selectedService.updateSelected('OneCounselor')  ;      
+        console.log(el, "selected");
+        this.selectedService.counselor = el
+        this.selectedService.updateSelected('OneCounselor');
       }
     })
   }

@@ -11,9 +11,10 @@
      
   </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>  
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="getRecord(row)"></mat-row>
-  
-  </mat-table>  
+    <mat-row *matRowDef="let row; columns: displayedColumns;"  (dblclick)="getRecord(row)"></mat-row>
+      
+    <!-- (contextmenu)="f($event)" -->
+    </mat-table>  
 
 <!-- <div class="paginator">
   <mat-paginator  [pageSizeOptions]="[5, 10, 20]"  showFirstLastButtons ></mat-paginator>  

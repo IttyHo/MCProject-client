@@ -30,6 +30,16 @@ projects: Project[] = [];
       body: project
   }));
 }
+
+deleteProject$(project:Project):Observable<boolean>{
+  return this.post$(new HttpRequestModel({
+    url: this._serverUrl,
+    action: 'deleteProject',
+    body: project
+}));
+}
+
+
 }
 
   

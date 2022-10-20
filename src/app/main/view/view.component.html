@@ -9,7 +9,8 @@
     </mat-form-field>
   </div> -->
   <div class="views">
-<app-date-and-clock></app-date-and-clock>
+    <!-- <app-payment></app-payment> -->
+    <app-date-and-clock></app-date-and-clock>
     <app-projects *ngIf="selectedService.selected=='פרויקטים'"  ></app-projects>
     <app-cunselors *ngIf="selectedService.selected=='יועצים'" [selectedCunselor]="selectedService.selectedCounselor"></app-cunselors>
     <app-entrepreneur *ngIf="selectedService.selected=='יזמים'"></app-entrepreneur>

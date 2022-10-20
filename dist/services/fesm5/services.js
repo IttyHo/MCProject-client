@@ -393,6 +393,8 @@ var GetCounselorService = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.counselors$ = NEVER;
         _this.counselors = [];
+        _this.counselorToDelete = {};
+        _this.historyDeletedCounselos = [];
         return _this;
     }
     Object.defineProperty(GetCounselorService.prototype, "_serverUrl", {
@@ -465,6 +467,21 @@ var GetCounselorService = /** @class */ (function (_super) {
             body: counselor
         }));
     };
+    /**
+     * @param {?} counselor
+     * @return {?}
+     */
+    GetCounselorService.prototype.deleteCounselor$ = /**
+     * @param {?} counselor
+     * @return {?}
+     */
+    function (counselor) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'deleteCounselor',
+            body: counselor
+        }));
+    };
     GetCounselorService.decorators = [
         { type: Injectable, args: [{ providedIn: 'root' },] }
     ];
@@ -478,6 +495,10 @@ if (false) {
     GetCounselorService.prototype.counselors;
     /** @type {?} */
     GetCounselorService.prototype.cunselorsOfficeType$;
+    /** @type {?} */
+    GetCounselorService.prototype.counselorToDelete;
+    /** @type {?} */
+    GetCounselorService.prototype.historyDeletedCounselos;
 }
 
 /**
@@ -529,6 +550,21 @@ var GetProjectService = /** @class */ (function (_super) {
         return this.post$(new HttpRequestModel({
             url: this._serverUrl,
             action: 'addProject',
+            body: project
+        }));
+    };
+    /**
+     * @param {?} project
+     * @return {?}
+     */
+    GetProjectService.prototype.deleteProject$ = /**
+     * @param {?} project
+     * @return {?}
+     */
+    function (project) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'deleteProject',
             body: project
         }));
     };

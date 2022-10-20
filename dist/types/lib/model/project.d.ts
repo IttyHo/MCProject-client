@@ -1,9 +1,9 @@
 export interface Project {
-    ProjectId?: number;
+    ProjectId: number;
     ProjectName: string;
-    ProjectCompany: string;
+    ProjectCompany?: string;
     ProjectAdress: string;
-    ProjectType: number;
-    EntrepreneurId: string;
-    ProjectRova: string;
+    ProjectType?: number;
+    EntrepreneurId?: string;
+    ProjectRova?: string;
 }

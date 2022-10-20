@@ -8,4 +8,5 @@ export declare class GetProjectService extends HttpServiceBase {
     private readonly _serverUrl;
     getProjectList$(): Observable<Project[]>;
     addProject$(project: Project): Observable<boolean>;
+    deleteProject$(project: Project): Observable<boolean>;
 }

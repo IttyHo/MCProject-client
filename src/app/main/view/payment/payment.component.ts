@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-payment',
@@ -11,5 +12,7 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit() {
   }
+  func(el){
 
+   }
 }

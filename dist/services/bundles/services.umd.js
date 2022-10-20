@@ -589,6 +589,8 @@
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.counselors$ = rxjs.NEVER;
             _this.counselors = [];
+            _this.counselorToDelete = {};
+            _this.historyDeletedCounselos = [];
             return _this;
         }
         Object.defineProperty(GetCounselorService.prototype, "_serverUrl", {
@@ -661,6 +663,21 @@
                 body: counselor
             }));
         };
+        /**
+         * @param {?} counselor
+         * @return {?}
+         */
+        GetCounselorService.prototype.deleteCounselor$ = /**
+         * @param {?} counselor
+         * @return {?}
+         */
+        function (counselor) {
+            return this.post$(new types.HttpRequestModel({
+                url: this._serverUrl,
+                action: 'deleteCounselor',
+                body: counselor
+            }));
+        };
         GetCounselorService.decorators = [
             { type: core.Injectable, args: [{ providedIn: 'root' },] }
         ];
@@ -674,6 +691,10 @@
         GetCounselorService.prototype.counselors;
         /** @type {?} */
         GetCounselorService.prototype.cunselorsOfficeType$;
+        /** @type {?} */
+        GetCounselorService.prototype.counselorToDelete;
+        /** @type {?} */
+        GetCounselorService.prototype.historyDeletedCounselos;
     }
 
     /**
@@ -725,6 +746,21 @@
             return this.post$(new types.HttpRequestModel({
                 url: this._serverUrl,
                 action: 'addProject',
+                body: project
+            }));
+        };
+        /**
+         * @param {?} project
+         * @return {?}
+         */
+        GetProjectService.prototype.deleteProject$ = /**
+         * @param {?} project
+         * @return {?}
+         */
+        function (project) {
+            return this.post$(new types.HttpRequestModel({
+                url: this._serverUrl,
+                action: 'deleteProject',
                 body: project
             }));
         };
