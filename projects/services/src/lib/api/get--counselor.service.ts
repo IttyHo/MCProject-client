@@ -10,8 +10,8 @@ export class GetCounselorService extends HttpServiceBase {
   counselors$: Observable<Cunselor[]> = NEVER;
   counselors:Cunselor[]=[];
   cunselorsOfficeType$:Observable<Cunselor[]>
-  counselorToDelete={}
   historyDeletedCounselos=[]
+  counselorToDelete:any=null
   private get _serverUrl(): string {
     return `${this.config.ips.servicePath}counselor/`;
   }

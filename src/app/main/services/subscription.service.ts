@@ -9,8 +9,8 @@ close:any;
 dialogRef:any;
 flag=false;
 Type='';
-detail='';
-
+detail:any=null;
+counselorType:any
 value:{}
   constructor() { }
 }

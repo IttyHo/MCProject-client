@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectsComponent } from './projects.component';
 import { TableModule } from 'components';
+import { DeleteElementModule } from '../../components/delete-element/delete-element.module';
 
 
 
@@ -9,7 +10,8 @@ import { TableModule } from 'components';
   declarations: [ProjectsComponent],
   imports: [
     CommonModule,
-    TableModule
+    TableModule,
+    DeleteElementModule
   ],
   exports:[ProjectsComponent]
 })

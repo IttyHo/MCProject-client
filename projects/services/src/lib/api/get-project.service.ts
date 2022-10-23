@@ -9,6 +9,7 @@ import { HttpServiceBase } from './http-service.base';
 })
 export class GetProjectService extends HttpServiceBase {
 selectedProject:any;
+projectToDelete:any=null
 project$: Observable<Project[]> = NEVER;
 projects: Project[] = [];
   private get _serverUrl(): string {

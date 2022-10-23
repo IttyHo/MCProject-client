@@ -412,14 +412,6 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var ProjectDetailsService = /** @class */ (function () {
-        // ={
-        // ProjectName: '',
-        // ProjectCompany: '',
-        // ProjectAdress: '',
-        // ProjectType: 0,
-        // EntrepreneurId: '',
-        // ProjectRova:''
-        // };
         function ProjectDetailsService() {
         }
         ProjectDetailsService.decorators = [
@@ -589,8 +581,8 @@
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.counselors$ = rxjs.NEVER;
             _this.counselors = [];
-            _this.counselorToDelete = {};
             _this.historyDeletedCounselos = [];
+            _this.counselorToDelete = null;
             return _this;
         }
         Object.defineProperty(GetCounselorService.prototype, "_serverUrl", {
@@ -692,9 +684,9 @@
         /** @type {?} */
         GetCounselorService.prototype.cunselorsOfficeType$;
         /** @type {?} */
-        GetCounselorService.prototype.counselorToDelete;
-        /** @type {?} */
         GetCounselorService.prototype.historyDeletedCounselos;
+        /** @type {?} */
+        GetCounselorService.prototype.counselorToDelete;
     }
 
     /**
@@ -706,6 +698,7 @@
         __extends(GetProjectService, _super);
         function GetProjectService() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.projectToDelete = null;
             _this.project$ = rxjs.NEVER;
             _this.projects = [];
             return _this;
@@ -775,6 +768,8 @@
     if (false) {
         /** @type {?} */
         GetProjectService.prototype.selectedProject;
+        /** @type {?} */
+        GetProjectService.prototype.projectToDelete;
         /** @type {?} */
         GetProjectService.prototype.project$;
         /** @type {?} */

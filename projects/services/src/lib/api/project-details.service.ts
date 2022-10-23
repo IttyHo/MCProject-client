@@ -6,14 +6,6 @@ import { Project } from 'types';
 })
 export class ProjectDetailsService {
 project:Project
-// ={
-  // ProjectName: '',
-  // ProjectCompany: '',
-  // ProjectAdress: '',
-  // ProjectType: 0,
-  // EntrepreneurId: '',
-  // ProjectRova:''
-// };
 
   constructor() { }
 }

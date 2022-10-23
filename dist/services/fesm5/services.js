@@ -216,14 +216,6 @@ if (false) {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var ProjectDetailsService = /** @class */ (function () {
-    // ={
-    // ProjectName: '',
-    // ProjectCompany: '',
-    // ProjectAdress: '',
-    // ProjectType: 0,
-    // EntrepreneurId: '',
-    // ProjectRova:''
-    // };
     function ProjectDetailsService() {
     }
     ProjectDetailsService.decorators = [
@@ -393,8 +385,8 @@ var GetCounselorService = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.counselors$ = NEVER;
         _this.counselors = [];
-        _this.counselorToDelete = {};
         _this.historyDeletedCounselos = [];
+        _this.counselorToDelete = null;
         return _this;
     }
     Object.defineProperty(GetCounselorService.prototype, "_serverUrl", {
@@ -496,9 +488,9 @@ if (false) {
     /** @type {?} */
     GetCounselorService.prototype.cunselorsOfficeType$;
     /** @type {?} */
-    GetCounselorService.prototype.counselorToDelete;
-    /** @type {?} */
     GetCounselorService.prototype.historyDeletedCounselos;
+    /** @type {?} */
+    GetCounselorService.prototype.counselorToDelete;
 }
 
 /**
@@ -510,6 +502,7 @@ var GetProjectService = /** @class */ (function (_super) {
     __extends(GetProjectService, _super);
     function GetProjectService() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.projectToDelete = null;
         _this.project$ = NEVER;
         _this.projects = [];
         return _this;
@@ -579,6 +572,8 @@ var GetProjectService = /** @class */ (function (_super) {
 if (false) {
     /** @type {?} */
     GetProjectService.prototype.selectedProject;
+    /** @type {?} */
+    GetProjectService.prototype.projectToDelete;
     /** @type {?} */
     GetProjectService.prototype.project$;
     /** @type {?} */

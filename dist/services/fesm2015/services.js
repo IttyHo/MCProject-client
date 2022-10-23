@@ -189,14 +189,6 @@ if (false) {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ProjectDetailsService {
-    // ={
-    // ProjectName: '',
-    // ProjectCompany: '',
-    // ProjectAdress: '',
-    // ProjectType: 0,
-    // EntrepreneurId: '',
-    // ProjectRova:''
-    // };
     constructor() { }
 }
 ProjectDetailsService.decorators = [
@@ -333,8 +325,8 @@ class GetCounselorService extends HttpServiceBase {
         super(...arguments);
         this.counselors$ = NEVER;
         this.counselors = [];
-        this.counselorToDelete = {};
         this.historyDeletedCounselos = [];
+        this.counselorToDelete = null;
     }
     /**
      * @private
@@ -411,9 +403,9 @@ if (false) {
     /** @type {?} */
     GetCounselorService.prototype.cunselorsOfficeType$;
     /** @type {?} */
-    GetCounselorService.prototype.counselorToDelete;
-    /** @type {?} */
     GetCounselorService.prototype.historyDeletedCounselos;
+    /** @type {?} */
+    GetCounselorService.prototype.counselorToDelete;
 }
 
 /**
@@ -424,6 +416,7 @@ if (false) {
 class GetProjectService extends HttpServiceBase {
     constructor() {
         super(...arguments);
+        this.projectToDelete = null;
         this.project$ = NEVER;
         this.projects = [];
     }
@@ -476,6 +469,8 @@ GetProjectService.decorators = [
 if (false) {
     /** @type {?} */
     GetProjectService.prototype.selectedProject;
+    /** @type {?} */
+    GetProjectService.prototype.projectToDelete;
     /** @type {?} */
     GetProjectService.prototype.project$;
     /** @type {?} */

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { Observable, NEVER } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { GetCounselorService, GetEntrepreneurService } from 'services';
 import { Cunselor, Entrepreneur } from 'types';
+import { DeleteElementComponent } from '../../components/delete-element/delete-element.component';
 import { SelectedNevigationService } from '../../services/selected-nevigation.service';
+import { SubscriptionService } from '../../services/subscription.service';
 
 @Component({
   selector: 'app-counselors-by-type',
@@ -21,7 +24,8 @@ export class CounselorsByTypeComponent implements OnInit {
   constructor(
     public selectedService: SelectedNevigationService,
     public counselorService: GetCounselorService,
-    private entrepreneurService: GetEntrepreneurService,
+    private dialog: MatDialog,
+    private subscriptionService:SubscriptionService
   ) { }
 
   ngOnInit() {
@@ -49,7 +53,7 @@ export class CounselorsByTypeComponent implements OnInit {
   func(en) {
     this.counselorService.counselors.forEach(el => {
       if (el.CounselorOfficeName === en) {
-        // this.counselorService.counselorToDelete = el
+        this.counselorService.counselorToDelete = el
         // if (confirm("האם למחוק יועץ זה?") === true) {
         //   this.counselorService.deleteCounselor$(el).pipe(
         //     tap(_ => this.counselorService.counselors$ = this.counselorService.getCounselorList$(el.CounselorOfficeType)),
@@ -61,7 +65,14 @@ export class CounselorsByTypeComponent implements OnInit {
         //   console.log("cancel");
         // }
 
-        
+        this.subscriptionService.Type='יועץ';
+        this.subscriptionService.detail=el.CounselorOfficeName
+        this.subscriptionService.counselorType=el.CounselorOfficeType
+        this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
+          height: '200px',
+          width: '250px',
+          disableClose: true
+        })      
       }
     })
   }
