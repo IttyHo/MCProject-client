@@ -49,17 +49,19 @@ export class CounselorsByTypeComponent implements OnInit {
   func(en) {
     this.counselorService.counselors.forEach(el => {
       if (el.CounselorOfficeName === en) {
-        this.counselorService.counselorToDelete = el
-        if (confirm("האם למחוק יועץ זה?") === true) {
-          this.counselorService.deleteCounselor$(el).pipe(
-            tap(_ => this.counselorService.counselors$ = this.counselorService.getCounselorList$(el.CounselorOfficeType)),
-            map(_ => this.counselorService.historyDeletedCounselos.push(el)),
-            tap(_=>console.log(this.counselorService.historyDeletedCounselos,"history"))   
-          ).subscribe()
-        }
-        else {
-          console.log("cancel");
-        }
+        // this.counselorService.counselorToDelete = el
+        // if (confirm("האם למחוק יועץ זה?") === true) {
+        //   this.counselorService.deleteCounselor$(el).pipe(
+        //     tap(_ => this.counselorService.counselors$ = this.counselorService.getCounselorList$(el.CounselorOfficeType)),
+        //     map(_ => this.counselorService.historyDeletedCounselos.push(el)),
+        //     tap(_=>console.log(this.counselorService.historyDeletedCounselos,"history"))   
+        //   ).subscribe()
+        // }
+        // else {
+        //   console.log("cancel");
+        // }
+
+        
       }
     })
   }

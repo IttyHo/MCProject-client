@@ -6,6 +6,9 @@ import { ReadColumnsService } from 'src/app/services/read-columns.service';
 import { Entrepreneur, Column } from 'types';
 import { SelectedNevigationService } from '../../services/selected-nevigation.service';
 import { environment } from 'src/environments/environment';
+import { MatDialog } from '@angular/material';
+import { SubscriptionService } from '../../services/subscription.service';
+import { DeleteElementComponent } from '../../components/delete-element/delete-element.component';
 
 
 @Component({
@@ -20,8 +23,10 @@ export class EntrepreneurComponent implements OnInit {
   constructor(
     public entrepreneurService: GetEntrepreneurService,
     private readColumns: ReadColumnsService,
-    private entrepreneurDetails: EntrepreneurDetailsService,
-    private selectedService: SelectedNevigationService
+    public entrepreneurDetails: EntrepreneurDetailsService,
+    private selectedService: SelectedNevigationService,
+    public dialog: MatDialog,
+    public subscriptionService: SubscriptionService,
   ) { }
   ngOnInit() {
     const Delete = this.deleteImg.imgPath + this.deleteImg.img;
@@ -43,15 +48,14 @@ export class EntrepreneurComponent implements OnInit {
     this.entrepreneurService.entrepreneurs.forEach(el => {
       if (el.EntrepreneurCompany === en) {
         this.entrepreneurDetails.entrepreneurToDelete = el
-        if (confirm("האם למחוק יזם זה?") === true) {
-          this.entrepreneurService.deleteEntrepreneur$(el).pipe(
-            tap(_ => this.entrepreneurService.entrepreneur$ = this.entrepreneurService.getEntrepreneurList$())
-          ).subscribe()
-        }
-        else {
-          console.log("cancel");
-        }
-      }
+        this.subscriptionService.Type='יזם'
+        this.subscriptionService.detail=el.EntrepreneurCompany
+        this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
+          height: '200px',
+          width: '250px',
+          disableClose: true
+        })      
+      }    
     })
   }
 
@@ -63,7 +67,6 @@ export class EntrepreneurComponent implements OnInit {
         this.entrepreneurDetails.entrepreneur = el
         this.selectedService.updateSelected('oneEntrepreneur')
         this.selectedService['oneYazam'] = el;
-        // console.log(this.entrepreneurDetails.entrepreneur,"entrepreneur in getEntrepreneurDetalis after");
       }
     });
   }

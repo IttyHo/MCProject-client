@@ -1,5 +1,6 @@
 export declare class EntrepreneurDetailsService {
     entrepreneur: {};
-    entrepreneurToDelete: {};
+    entrepreneurToDelete: any;
+    delete: any;
     constructor();
 }

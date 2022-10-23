@@ -5,14 +5,15 @@ import { Project } from 'types';
   providedIn: 'root'
 })
 export class ProjectDetailsService {
-project:Project={
-  ProjectName: '',
-  ProjectCompany: '',
-  ProjectAdress: '',
-  ProjectType: 0,
-  EntrepreneurId: '',
-  ProjectRova:''
-};
+project:Project
+// ={
+  // ProjectName: '',
+  // ProjectCompany: '',
+  // ProjectAdress: '',
+  // ProjectType: 0,
+  // EntrepreneurId: '',
+  // ProjectRova:''
+// };
 
   constructor() { }
 }

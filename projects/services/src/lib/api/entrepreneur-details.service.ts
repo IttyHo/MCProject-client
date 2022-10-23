@@ -6,6 +6,7 @@ import { Entrepreneur } from 'types';
 })
 export class EntrepreneurDetailsService {
   entrepreneur={}
-  entrepreneurToDelete={}
+  entrepreneurToDelete:any
+delete:any;
   constructor() { }
 }

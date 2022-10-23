@@ -8,6 +8,9 @@ projectSubsciption:boolean=false
 close:any;
 dialogRef:any;
 flag=false;
+Type='';
+detail='';
+
 value:{}
   constructor() { }
 }

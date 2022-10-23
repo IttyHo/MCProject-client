@@ -216,15 +216,15 @@ if (false) {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var ProjectDetailsService = /** @class */ (function () {
+    // ={
+    // ProjectName: '',
+    // ProjectCompany: '',
+    // ProjectAdress: '',
+    // ProjectType: 0,
+    // EntrepreneurId: '',
+    // ProjectRova:''
+    // };
     function ProjectDetailsService() {
-        this.project = {
-            ProjectName: '',
-            ProjectCompany: '',
-            ProjectAdress: '',
-            ProjectType: 0,
-            EntrepreneurId: '',
-            ProjectRova: ''
-        };
     }
     ProjectDetailsService.decorators = [
         { type: Injectable, args: [{
@@ -672,7 +672,6 @@ if (false) {
 var EntrepreneurDetailsService = /** @class */ (function () {
     function EntrepreneurDetailsService() {
         this.entrepreneur = {};
-        this.entrepreneurToDelete = {};
     }
     EntrepreneurDetailsService.decorators = [
         { type: Injectable, args: [{
@@ -689,6 +688,8 @@ if (false) {
     EntrepreneurDetailsService.prototype.entrepreneur;
     /** @type {?} */
     EntrepreneurDetailsService.prototype.entrepreneurToDelete;
+    /** @type {?} */
+    EntrepreneurDetailsService.prototype.delete;
 }
 
 /**

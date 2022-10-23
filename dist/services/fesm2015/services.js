@@ -189,16 +189,15 @@ if (false) {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class ProjectDetailsService {
-    constructor() {
-        this.project = {
-            ProjectName: '',
-            ProjectCompany: '',
-            ProjectAdress: '',
-            ProjectType: 0,
-            EntrepreneurId: '',
-            ProjectRova: ''
-        };
-    }
+    // ={
+    // ProjectName: '',
+    // ProjectCompany: '',
+    // ProjectAdress: '',
+    // ProjectType: 0,
+    // EntrepreneurId: '',
+    // ProjectRova:''
+    // };
+    constructor() { }
 }
 ProjectDetailsService.decorators = [
     { type: Injectable, args: [{
@@ -552,7 +551,6 @@ if (false) {
 class EntrepreneurDetailsService {
     constructor() {
         this.entrepreneur = {};
-        this.entrepreneurToDelete = {};
     }
 }
 EntrepreneurDetailsService.decorators = [
@@ -568,6 +566,8 @@ if (false) {
     EntrepreneurDetailsService.prototype.entrepreneur;
     /** @type {?} */
     EntrepreneurDetailsService.prototype.entrepreneurToDelete;
+    /** @type {?} */
+    EntrepreneurDetailsService.prototype.delete;
 }
 
 /**
