@@ -25,6 +25,7 @@
     "@aspnet/signalr": "1.1.4",
     "@aspnet/signalr-protocol-msgpack": "1.1.0",
     "@auth0/angular-jwt": "3.0.1",
+    "@ionic/angular": "^6.3.2",
     "@mdi/font": "4.9.95",
     "@ng-idle/core": "6.0.0-beta.3",
     "@ng-idle/keepalive": "6.0.0-beta.3",
@@ -60,7 +61,7 @@
     "validator": "12.2.0",
     "web-animations-js": "2.3.2",
     "xml-js": "1.6.11",
-    "zone.js": "~0.10.2" 
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.24",

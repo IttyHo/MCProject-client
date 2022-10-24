@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -20,13 +20,14 @@ import { DirectivesModule } from 'directives';
     MatButtonModule, 
     MainModule,
     DirectivesModule,
-    // IonicModule.forRoot()
  ],
   providers: [
     {provide: APP_INITIALIZER, useFactory: initOptions, deps: [GetOptionsService], multi: true},
     {provide: APP_INITIALIZER, useFactory: initConfig, deps: [ConfigurationService], multi: true},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+
 })
 export class AppModule { }
 
