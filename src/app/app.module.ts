@@ -7,6 +7,7 @@ import { MainModule } from './main/main.module';
 import { environment } from 'src/environments/environment';
 import { GetOptionsService, ConfigurationService } from 'services';
 import { DirectivesModule } from 'directives';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DirectivesModule } from 'directives';
     BrowserAnimationsModule,
     MatButtonModule, 
     MainModule,
-    DirectivesModule
+    DirectivesModule,
+    IonicModule.forRoot()
  ],
   providers: [
     {provide: APP_INITIALIZER, useFactory: initOptions, deps: [GetOptionsService], multi: true},

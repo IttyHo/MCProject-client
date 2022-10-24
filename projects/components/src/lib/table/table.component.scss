@@ -1,22 +1,25 @@
 @import '../.././../../../src/style/main.scss';
 @import '../.././../../../src/style/elements.scss';
 
-:host{
-  display:flex;
+:host {
+  display: flex;
   flex-direction: column;
   overflow: hidden !important;
-   .example-container.mat-elevation-z8 {    
+
+  .example-container.mat-elevation-z8 {
     overflow-y: auto;
   }
-  mat-table{
-    overflow: hidden ;
+
+  mat-table {
+    overflow: hidden;
     overflow-y: auto;
   }
-  .newButton{
+
+  .newButton {
     top: 250px;
-  } 
+  }
 }
- 
+
 mat-cell,
 mat-footer-cell,
 mat-header-cell {
@@ -24,7 +27,8 @@ mat-header-cell {
   // flex: none;
   justify-content: center;
 }
-::ng-deep .mat-elevation-z8{
+
+::ng-deep .mat-elevation-z8 {
   overflow: scroll !important;
 }
 
@@ -51,6 +55,9 @@ mat-header-cell {
   border-right: 1px solid;
   border-bottom: 1px solid;
   cursor: col-resize;
+  font-size: larger;
+  font-weight: bold;
+  text-shadow: 3px;
 }
 
 .mat-table mat-cell {
@@ -61,11 +68,12 @@ mat-header-cell {
 // .newButton{
 //   top: 250px;
 // }
-.mat-button-base{
+.mat-button-base {
   top: 37vh !important;
   box-sizing: border-box;
   position: relative;
 }
+
 // .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
 //   top:250px !important;
 // }

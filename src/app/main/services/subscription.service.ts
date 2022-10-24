@@ -12,5 +12,7 @@ Type='';
 detail:any=null;
 counselorType:any
 value:{}
-  constructor() { }
+
+constructor() { }
+
 }
