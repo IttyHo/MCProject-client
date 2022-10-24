@@ -60,8 +60,7 @@
     "validator": "12.2.0",
     "web-animations-js": "2.3.2",
     "xml-js": "1.6.11",
-    "zone.js": "~0.10.2",
-    "@ionic/angular": "latest"
+    "zone.js": "~0.10.2" 
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.24",
@@ -95,7 +94,6 @@
     "tsickle": "0.37.1",
     "tslib": "1.9.0",
     "tslint": "6.0.0",
-    "typescript": "3.5.3",
-    "@ionic/angular-toolkit": "latest"
+    "typescript": "3.5.3"
   }
 }
