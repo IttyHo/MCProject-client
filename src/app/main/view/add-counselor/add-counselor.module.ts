@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddCounselorComponent } from './add-counselor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatOptionModule, MatSelectModule } from '@angular/material';
-
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, Mat
     MatButtonModule,
     MatOptionModule,
     MatSelectModule,
+    IonicModule
   ],
   exports:[AddCounselorComponent],
   entryComponents:[AddCounselorComponent]

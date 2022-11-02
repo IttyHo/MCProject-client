@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 import { MatDialog } from '@angular/material';
 import { SubscriptionService } from '../../services/subscription.service';
 import { DeleteElementComponent } from '../../components/delete-element/delete-element.component';
+import { AlertController } from '@ionic/angular';
+import { async } from 'rxjs/internal/scheduler/async';
 
 
 @Component({
@@ -20,6 +22,8 @@ export class EntrepreneurComponent implements OnInit {
   columns$: Observable<Column[]> = NEVER;
   deleteImg = { imgPath: environment.imgesPath, img: '/delete.png' };
   en = {}
+  flag:Boolean=false;
+
   constructor(
     public entrepreneurService: GetEntrepreneurService,
     private readColumns: ReadColumnsService,
@@ -27,13 +31,14 @@ export class EntrepreneurComponent implements OnInit {
     private selectedService: SelectedNevigationService,
     public dialog: MatDialog,
     public subscriptionService: SubscriptionService,
+    private alertController: AlertController
   ) { }
   ngOnInit() {
     const Delete = this.deleteImg.imgPath + this.deleteImg.img;
     this.init();
     this.columns$ = this.readColumns.getColumns$(environment.enrepreneursTableColumns)
   }
-  f(e) {
+  delete(e) {
     console.log("fffffffffffffffffffffffffffffff");
     e.preventDefault()
     if (e.srcElement.localName == 'span') {
@@ -41,20 +46,56 @@ export class EntrepreneurComponent implements OnInit {
       console.log(this.en, "logging");
       this.func(this.en);
     }
-    
-
   }
   func(en) {
-    this.entrepreneurService.entrepreneurs.forEach(el => {
+    this.entrepreneurService.entrepreneurs.forEach(async el => {
       if (el.EntrepreneurCompany === en) {
         this.entrepreneurDetails.entrepreneurToDelete = el
         this.subscriptionService.Type='יזם'
         this.subscriptionService.detail=el.EntrepreneurCompany
-        this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
-          height: '200px',
-          width: '250px',
-          disableClose: true
-        })      
+
+        const alert = this.alertController.create({
+          header: ` ${this.subscriptionService.detail}האם אתה בטוח שאתה רוצה למחוק את היזם?`,
+          cssClass: 'custom-alert',
+          buttons: [
+            {
+              text: 'No',
+              role:'no',
+              cssClass: 'alert-button-cancel',
+              handler: () => {
+                this.flag = false;
+              },
+            },
+            {
+              text: 'Yes',
+              role:'yes',
+              cssClass: 'alert-button-confirm',
+              handler: () => {
+                this.flag = true;
+              },
+            },
+          ],
+        });
+    
+         (await alert).present();
+        const { role } = await (await alert).onDidDismiss();
+        console.log('onDidDismiss resolved with role', role);
+        if(this.flag===false){
+          console.log('false');
+        }
+        else{
+          console.log('yes');
+          this.entrepreneurService.deleteEntrepreneur$(this.entrepreneurDetails.entrepreneurToDelete)
+          .pipe(
+            tap(_ => this.entrepreneurService.entrepreneur$ = this.entrepreneurService.getEntrepreneurList$())
+          )
+          .subscribe()
+        }
+        // this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
+        //   height: '200px',
+        //   width: '250px',
+        //   disableClose: true
+        // })      
       }    
     })
   }

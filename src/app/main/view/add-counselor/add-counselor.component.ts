@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { map, tap } from 'rxjs/operators';
 import { GetCounselorService } from 'services';
 import { environment } from 'src/environments/environment';
@@ -89,4 +89,11 @@ export class AddCounselorComponent implements OnInit {
       console.log("i am closed");
     }
   }
+  removeSecretary(index: number) {
+    // this.phoneList.removeAt(index);
+ }
+
+ addSecretary() {
+  //  this.phoneList.push(new FormControl(''));
+ }
 }

@@ -1,68 +1,3 @@
-// :host {
-//     // width: 100%;
-//     // height: 100%;
-//     border: 5px darkcyan dashed ;
-
-//     .hide{
-//         visibility: hidden;
-//     }
-
-
-//     form {
-//         display: flex;
-//         flex-direction: column;
-
-//         .mat-button {
-//             margin-top: -60vh;
-//             width: 6vw;
-//         }
-
-//         .formLabel {
-//             margin-bottom: -2px;
-
-//             &.required {
-//                 position: relative;
-
-//                 &:after {
-//                     position: absolute;
-//                     top: 0;
-//                     left: -8px;
-//                     color: #c00000;
-//                 }
-//             }
-//         }
-
-//         //   .ng-invalid {
-//         //     // border-color: #c00000;
-//         //   }
-//         .ng-valid {
-//             border-color: rgb(145, 236, 7);
-//         }
-
-//         .errors {
-//             display: flex;
-//             flex-direction: column;
-//             color: red;
-//         }
-
-//         //   .buttons{
-//         //     position: absolute;
-//         //     // background-color: #c00000;
-//         //     margin-top: -250px;
-//         //   }
-//         //   mat-button{
-//         //     top: 50vh;
-//         //     background-color: aquamarine;
-//         //   }
-//     } 
-// }
-// img{
-//     width: 1.5rem;
-//     height: 1.5rem;
-//     margin-top:2vh ;
-//     margin-right:28vw ;
-//    }
-
 :host {
     display: flex;
     flex-direction: column !important;
@@ -71,7 +6,16 @@
     .hide {
         visibility: hidden;
     }
-
+    ion-input{
+        direction: rtl;
+    }
+    ion-list{
+        display: flex;
+        flex-direction: column !important;
+    }
+    .item-highlight{
+        color: black;
+    }
     form {
         margin: 15px !important;
         flex-direction: column !important;
@@ -81,11 +25,6 @@
             flex-direction: column;
             margin: 15px !important;
         }
-
-        // .mat-button {
-        //     margin-top: -60vh;
-        //     width: 6vw;
-        // }
         mat-select {
             text-align: center;
         }
@@ -104,10 +43,6 @@
                 }
             }
         }
-
-        //   .ng-invalid {
-        //     // border-color: #c00000;
-        //   }
         .ng-valid {
             border-color: rgb(145, 236, 7);
         }
@@ -120,9 +55,7 @@
 
         .buttons {
             position: relative;
-            // background-color: #c00000;
-            // margin-top: 410px;
-            // left: 30vw;
+            
         }
     }
 }
@@ -133,8 +66,3 @@ img {
     margin-top: 2vh;
     margin-right: 28vw;
 }
-
-// .cdk-overlay-containe{
-//     text-align: center;
-//     align-items: center;
-// }

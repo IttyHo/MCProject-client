@@ -1,12 +1,16 @@
 <img [src]="x" (click)="cancel()">
 <form [formGroup]="formGroup">
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text" placeholder=" שם היועץ" formControlName="CounselorOfficeName">
-  </mat-form-field>
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="search" placeholder="כתובת חברת הייעוץ" formControlName="CounselorOfficeAdress">
-  </mat-form-field>
-  <mat-form-field class="formLabel required matInput">
+  <ion-list>
+  <ion-item class="formLabel required matInput">
+    <ion-label position="floating" [innerText]="'שם היועץ'"></ion-label>
+    <ion-input formControlName="CounselorOfficeName"></ion-input>
+  </ion-item>
+  <ion-item class="formLabel required matInput">
+    <ion-label position="floating" [innerText]="'כתובת חברת הייעוץ'"></ion-label>
+    <ion-input formControlName="CounselorOfficeAdress"></ion-input>
+  </ion-item>
+  </ion-list>
+  <!-- <mat-form-field class="formLabel required matInput">
     <mat-select  formControlName="CounselorOfficeType" [innerText]="selectedService.counselorType.TypeName">
       <mat-option *ngFor="let t of counselorType" [value]="t.value" [innerText]="t.viewValue">
       </mat-option>
@@ -34,10 +38,10 @@
   <mat-form-field class="formLabel required matInput">
     <input matInput type="text" placeholder="מייל מזכירה ראשית" formControlName="CounselorOfficeMainSecretaryMail">
   </mat-form-field>
-
+ -->
 
 <div class="buttons">
-  <button mat-button class="mat-button" type="submit" (click)="save()">אישור</button>
-  <button mat-button class="mat-button" type="submit" (click)="reset()">ביטול</button>
+  <ion-button mat-button class="mat-button" type="submit" (click)="save()">אישור</ion-button>
+  <ion-button mat-button class="mat-button" type="submit" (click)="reset()">ביטול</ion-button>
 </div>
 </form>

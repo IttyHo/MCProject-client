@@ -1,13 +1,23 @@
 :host {
     display: flex;
     flex-direction: column;
-
+    // border: 5px darkcyan dashed;
+    // margin: -16px -16px !important;
     input {
         margin-right: 50px;
     }
+    mat-dialog-container{
+        border: 5px darkcyan dashed;
+        // margin: -16px -16px !important;
 
+    }
     .buttons {
         position: absolute;
-        margin-top: 150px;
+        margin-top: 145px;
     }
+}
+::ng-deep .mat-form-field-label{
+    width: 143px;
+    color: crimson;
+
 }
