@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ViewEncapsulation, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Column } from 'types'; 
-import { MatDialog, MatPaginator, MatTableDataSource } from '@angular/material';
+import {   MatPaginator, MatTableDataSource } from '@angular/material';
 
  
 
@@ -21,7 +21,7 @@ export class TableComponent implements OnInit, OnChanges {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   constructor(
-    public dialog: MatDialog
+    // public dialog: MatDialog
     ) { }
 
   ngOnInit() {

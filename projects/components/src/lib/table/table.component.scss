@@ -64,7 +64,15 @@ mat-header-cell {
   border-right: 1px solid;
   border-bottom: 1px solid;
 }
+.header-row {
+  background: #c0c545;
+  color: #fff;
+  font-size: 18px;
+}
 
+ion-col {
+  border: 1px solid #ECEEEF;
+}
 // .newButton{
 //   top: 250px;
 // }

@@ -1,51 +1,64 @@
-  <img [src]="x" (click)="cancel()">
-<form [formGroup]="formGroup" >
-   <div class="data">
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text"  placeholder=" שם החברה היוזמת" formControlName="EntrepreneurCompany">
-  </mat-form-field>
-    <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder=" שם היזם" formControlName="EntrepreneurName">
-      </mat-form-field>
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder="כתובת החברה" formControlName="EntrepreneurCompanyAddress">
-      </mat-form-field> 
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder="כתובת החברה למשלוח דואר" formControlName="EntrepreneurCompanyAddressToSend">
-      </mat-form-field>
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"   placeholder="טלפון החברה" formControlName="EntrepreneurCompanyPhone">
-      </mat-form-field>
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder="מייל החברה" formControlName="EntrepreneurCompanyMail">
-      </mat-form-field>
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder="פקס החברה" formControlName="EntrepreneurCompanyFax">
-      </mat-form-field>
-        </div>
-    <div  class="data">
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder="טלפון היזם" formControlName="EntrepreneurPhone">
-      </mat-form-field>
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder="מייל היזם" formControlName="EntrepreneurMail">
-      </mat-form-field> 
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder="כתובת המשרד" formControlName="OfficeAdress">
-      </mat-form-field>
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder="מזכירה ראשית" formControlName="EntrepreneurSecretary">
-      </mat-form-field>
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder=" טלפון מזכירה ראשית" formControlName="EntrepreneurSecretaryPhone">
-      </mat-form-field>
-      <mat-form-field class="formLabel required matInput">
-        <input matInput type="text"  placeholder=" מייל מזכירה ראשית"  formControlName="EntrepreneurSecretaryMail">
-      </mat-form-field>      
-    </div>
-  </form>
-  <div class="buttons">       
-    <button mat-button class="mat-button save"  (click)="save()">אישור</button>
-    <button mat-button class="mat-button"  (click)="reset()">ביטול</button>
+<img [src]="x" (click)="cancel()">
+<form [formGroup]="formGroup">
+  <div class="data">
+    <ion-item>
+      <ion-label position="floating"> שם החברה היוזמת</ion-label>
+      <ion-input clearInput   formControlName="EntrepreneurCompany"></ion-input>
+    </ion-item>
+    <ion-item  >
+      <ion-label position="floating"> שם היזם</ion-label>
+      <ion-input clearInput   formControlName="EntrepreneurName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" > כתובת החברה </ion-label>
+      <ion-input clearInput  formControlName="EntrepreneurCompanyAddress"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">כתובת החברה למשלוח דואר</ion-label>
+      <ion-input clearInput   formControlName="EntrepreneurCompanyAddressToSend">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">טלפון החברה</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurCompanyPhone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מייל החברה</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurCompanyMail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> פקס החברה</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurCompanyFax"></ion-input>
+    </ion-item>
   </div>
-  
+  <div class="data">
+    <ion-item>
+      <ion-label position="floating"> טלפון היזם</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurPhone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מייל היזם</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurMail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> כתובת המשרד</ion-label>
+      <ion-input clearInput formControlName="OfficeAdress"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מזכירה ראשית</ion-label>
+      <ion-input clearInput  formControlName="EntrepreneurSecretary"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> טלפון מזכירה ראשית</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurSecretaryPhone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מייל מזכירה ראשית</ion-label>
+      <ion-input clearInput  formControlName="EntrepreneurSecretaryMail"></ion-input>
+    </ion-item>
+  </div>
+</form>
+<div class="buttons">
+  <ion-button class="mat-button" type="submit" color="success" fill="clear" (click)="save()">אישור</ion-button>
+  <ion-button class="mat-button" type="submit" color="danger" fill="clear" (click)="reset()">ביטול</ion-button>
+</div>

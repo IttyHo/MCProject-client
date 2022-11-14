@@ -325,7 +325,7 @@ class GetCounselorService extends HttpServiceBase {
         super(...arguments);
         this.counselors$ = NEVER;
         this.counselors = [];
-        this.historyDeletedCounselos = [];
+        // historyDeletedCounselors=[]
         this.counselorToDelete = null;
     }
     /**
@@ -397,13 +397,15 @@ GetCounselorService.decorators = [
 /** @nocollapse */ GetCounselorService.ngInjectableDef = ɵɵdefineInjectable({ factory: function GetCounselorService_Factory() { return new GetCounselorService(ɵɵinject(HttpClient), ɵɵinject(ConfigurationService)); }, token: GetCounselorService, providedIn: "root" });
 if (false) {
     /** @type {?} */
+    GetCounselorService.prototype.aaaaa;
+    /** @type {?} */
+    GetCounselorService.prototype.cunselorsType;
+    /** @type {?} */
     GetCounselorService.prototype.counselors$;
     /** @type {?} */
     GetCounselorService.prototype.counselors;
     /** @type {?} */
     GetCounselorService.prototype.cunselorsOfficeType$;
-    /** @type {?} */
-    GetCounselorService.prototype.historyDeletedCounselos;
     /** @type {?} */
     GetCounselorService.prototype.counselorToDelete;
 }

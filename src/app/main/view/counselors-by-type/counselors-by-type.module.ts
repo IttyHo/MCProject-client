@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CounselorsByTypeComponent } from './counselors-by-type.component';
 import { MatDialogModule } from '@angular/material';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -10,6 +11,7 @@ import { MatDialogModule } from '@angular/material';
   imports: [
     CommonModule,
     MatDialogModule,
+    IonicModule
   ],
   exports:[CounselorsByTypeComponent]
 })

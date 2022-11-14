@@ -2,10 +2,11 @@ import { Observable } from 'rxjs';
 import { Cunselor } from 'types';
 import { HttpServiceBase } from './http-service.base';
 export declare class GetCounselorService extends HttpServiceBase {
+    aaaaa: any;
+    cunselorsType: any;
     counselors$: Observable<Cunselor[]>;
     counselors: Cunselor[];
-    cunselorsOfficeType$: Observable<Cunselor[]>;
-    historyDeletedCounselos: any[];
+    cunselorsOfficeType$: Observable<any>;
     counselorToDelete: any;
     private readonly _serverUrl;
     getCounselorOfficeTypeList$(): Observable<Cunselor[]>;

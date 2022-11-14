@@ -15,25 +15,27 @@ export class AddCounselorComponent implements OnInit {
   xImg={imgPath:environment.imgesPath,img: '/close.png'};
   x=this.xImg.imgPath+this.xImg.img
   formGroup: FormGroup;
-  counselorType=[
-              {value: 1, viewValue: 'נגישות'},
-              {value: 2, viewValue: 'אינסטלציה'},
-              {value: 3, viewValue: 'מיזוג אויר'},
-              {value: 4, viewValue: 'חשמל'},
-              {value: 5, viewValue: 'פיתוח'},
-              {value: 6, viewValue: 'קונסטרוקציה'},
-              {value: 7, viewValue: 'תנועה'},
-              {value: 8, viewValue: 'בטיחות'}
-            ];
+  // counselorType=[
+  //             {value: 1, viewValue: 'נגישות'},
+  //             {value: 2, viewValue: 'אינסטלציה'},
+  //             {value: 3, viewValue: 'מיזוג אויר'},
+  //             {value: 4, viewValue: 'חשמל'},
+  //             {value: 5, viewValue: 'פיתוח'},
+  //             {value: 6, viewValue: 'קונסטרוקציה'},
+  //             {value: 7, viewValue: 'תנועה'},
+  //             {value: 8, viewValue: 'בטיחות'}
+  //           ];
 
   constructor(
-    private formBuilder: FormBuilder,
+    public formBuilder: FormBuilder,
     private subscriptionService: SubscriptionService,
     public counselorService:GetCounselorService,
     public selectedService:SelectedNevigationService
   ) { }
 
   ngOnInit() {
+    console.log('i am in add counselor');
+    
     this.initForm();
   }
 

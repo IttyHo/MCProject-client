@@ -5,7 +5,10 @@
 <div *ngFor="let c of counselorService.cunselorsOfficeType$ | async">
     <div class="counselor"
      (click)="getCounselorsOfficeTypeDetalis(c)">
-        <span [innerText]="c.TypeName"></span> &nbsp;&nbsp;&nbsp;        
+     <ion-button size="small" fill="outline"      
+     (contextmenu)="delete($event)"
+     [innerText]="c.TypeName"></ion-button>  
+     <!-- <span [innerText]="c.TypeName"></span> &nbsp;&nbsp;&nbsp;         -->
     </div>
 </div>
 </div>

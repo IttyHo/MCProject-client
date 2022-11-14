@@ -56,6 +56,7 @@ export class ProjectsComponent implements OnInit {
 
   }
   func(en) {
+    en=en.toLowerCase();
     this.projectService.projects.forEach(el => {
       if (el.ProjectAdress === en) {
         this.projectService.projectToDelete=el;
@@ -64,9 +65,11 @@ export class ProjectsComponent implements OnInit {
         this.projectService.projectToDelete=el
         console.log(this.projectService.projectToDelete," this.projectService.projectToDelete");
         this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
-          height: '200px',
-          width: '250px',
-          disableClose: true
+          height: '0px',
+          width: '0px',
+          disableClose: true, 
+          panelClass:'deleteDialog'
+          
         })   
       }
     })

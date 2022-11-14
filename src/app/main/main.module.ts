@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { MenuModule } from './menu/menu.module';
 import { ViewModule } from './view/view.module';
 import { DirectivesModule } from 'directives';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { DirectivesModule } from 'directives';
     CommonModule,
     MenuModule,
     ViewModule,
-    DirectivesModule
+    DirectivesModule,
+    // IonicModule
   ],
   exports:[MainComponent]
 })

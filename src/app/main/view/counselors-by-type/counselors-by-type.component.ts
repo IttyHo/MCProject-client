@@ -36,42 +36,32 @@ export class CounselorsByTypeComponent implements OnInit {
       );
 
   }
-  f(e) {
+  delete(e) {
     console.log("fffffffffffffffffffffffffffffff");
     e.preventDefault()
-    if (e.srcElement.localName == 'span') {
+    console.log(e,"eeeeeeee");
+    if (e.srcElement.localName == 'ion-button') {
       console.log(e.srcElement);
       this.en = e.srcElement.innerText;
       console.log(this.en, "logging");
       this.func(this.en);
     }
-    else {
-      alert("Outside div");
-    }
-
+     
   }
   func(en) {
     this.counselorService.counselors.forEach(el => {
-      if (el.CounselorOfficeName === en) {
+      if (el.CounselorOfficeName.toUpperCase() === en) {
         this.counselorService.counselorToDelete = el
-        // if (confirm("האם למחוק יועץ זה?") === true) {
-        //   this.counselorService.deleteCounselor$(el).pipe(
-        //     tap(_ => this.counselorService.counselors$ = this.counselorService.getCounselorList$(el.CounselorOfficeType)),
-        //     map(_ => this.counselorService.historyDeletedCounselos.push(el)),
-        //     tap(_=>console.log(this.counselorService.historyDeletedCounselos,"history"))   
-        //   ).subscribe()
-        // }
-        // else {
-        //   console.log("cancel");
-        // }
-
         this.subscriptionService.Type='יועץ';
         this.subscriptionService.detail=el.CounselorOfficeName
         this.subscriptionService.counselorType=el.CounselorOfficeType
         this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
-          height: '200px',
-          width: '250px',
-          disableClose: true
+          height: '0px',
+          width: '0px',
+          disableClose: true,
+          data:true,
+          panelClass:'deleteDialog'
+
         })      
       }
     })

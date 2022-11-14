@@ -26,7 +26,7 @@ export class AddEntrepreneurComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.getEntrepreneurs();
+    console.log('i am in add entrepreneur');
     this.initForm();
   }
 

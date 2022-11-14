@@ -1,47 +1,58 @@
-<img [src]="x" (click)="cancel()">
+<img class="img" [src]="x" (click)="cancel()">
 <form [formGroup]="formGroup">
-  <ion-list>
-  <ion-item class="formLabel required matInput">
-    <ion-label position="floating" [innerText]="'שם היועץ'"></ion-label>
-    <ion-input formControlName="CounselorOfficeName"></ion-input>
+  <div class="top">
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+      <ion-input clearInput type="text" placeholder=" שם היועץ" formControlName="CounselorOfficeName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+    <ion-input  clearInput  placeholder="כתובת חברת הייעוץ" formControlName="CounselorOfficeAdress"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating"></ion-label> 
+      <ion-option class="ion-option"  formControlName="CounselorOfficeType" [innerText]="selectedService.counselorType.TypeName"></ion-option>
+      <!-- <ion-input  formControlName="CounselorOfficeType" [innerText]="selectedService.counselorType.TypeName"></ion-input> -->
   </ion-item>
-  <ion-item class="formLabel required matInput">
-    <ion-label position="floating" [innerText]="'כתובת חברת הייעוץ'"></ion-label>
-    <ion-input formControlName="CounselorOfficeAdress"></ion-input>
+    <ion-item>
+    <ion-label position="floating"></ion-label>
+    <ion-input clearInput class="formLabel required matInput"  type="text" placeholder=" טלפון חברה היועצת" formControlName="CounselorOfficePhone"></ion-input>
   </ion-item>
-  </ion-list>
-  <!-- <mat-form-field class="formLabel required matInput">
-    <mat-select  formControlName="CounselorOfficeType" [innerText]="selectedService.counselorType.TypeName">
-      <mat-option *ngFor="let t of counselorType" [value]="t.value" [innerText]="t.viewValue">
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <ion-item>
+    <ion-label position="floating"></ion-label>
+    <ion-input clearInput class="formLabel required matInput" type="text" placeholder="מנהל המשרד" formControlName="CounselorOfficeManager"></ion-input>
+  </ion-item>
+</div>
 
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text" placeholder=" טלפון חברה היועצת" formControlName="CounselorOfficePhone">
-  </mat-form-field>
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text" placeholder="מנהל המשרד" formControlName="CounselorOfficeManager">
-  </mat-form-field>
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text" placeholder="טלפון מנהל המשרד" formControlName="CounselorOfficeManagerPhone">
-  </mat-form-field>
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text" placeholder="מייל מנהל המשרד" formControlName="CounselorOfficeManagerMail">
-  </mat-form-field>
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text" placeholder="מזכירה ראשית" formControlName="CounselorOfficeMainSecretary">
-  </mat-form-field>
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text" placeholder="טלפון מזכירה ראשית" formControlName="CounselorOfficeMainSecretaryPhone">
-  </mat-form-field>
-  <mat-form-field class="formLabel required matInput">
-    <input matInput type="text" placeholder="מייל מזכירה ראשית" formControlName="CounselorOfficeMainSecretaryMail">
-  </mat-form-field>
- -->
+<div class="bottom">
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+    <ion-input clearInput class="formLabel required matInput" type="text" placeholder="טלפון מנהל המשרד" formControlName="CounselorOfficeManagerPhone"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+    <ion-input clearInput class="formLabel required matInput"  type="text" placeholder="מייל מנהל המשרד" formControlName="CounselorOfficeManagerMail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+    <ion-input clearInput class="formLabel required matInput" type="text" placeholder="מזכירה ראשית" formControlName="CounselorOfficeMainSecretary"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+    <ion-input clearInput class="formLabel required matInput"  type="text" placeholder="טלפון מזכירה ראשית" formControlName="CounselorOfficeMainSecretaryPhone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"></ion-label>
+    <ion-input clearInput class="formLabel required matInput" type="text" placeholder="מייל מזכירה ראשית" formControlName="CounselorOfficeMainSecretaryMail"></ion-input>
+    </ion-item>
+     
 
 <div class="buttons">
-  <ion-button mat-button class="mat-button" type="submit" (click)="save()">אישור</ion-button>
-  <ion-button mat-button class="mat-button" type="submit" (click)="reset()">ביטול</ion-button>
+  <ion-button class="mat-button" type="submit" color="success" fill="clear" (click)="save()">אישור</ion-button>
+  <ion-button class="mat-button" type="submit" color="danger" fill="clear"  (click)="reset()">ביטול</ion-button>
 </div>
+ </div>
+
 </form>

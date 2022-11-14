@@ -20,10 +20,11 @@
     <app-one-counselor *ngIf="selectedService.selected=='OneCounselor'"></app-one-counselor>
   </div>
   <div class="actions">
-    <button class="newButton" *ngIf="selectedService.selected&&selectedService.selected!='oneProject'
+    <ion-button fill="outline" color="medium"
+     class="newButton" *ngIf="selectedService.selected&&selectedService.selected!='oneProject'
     &&selectedService.selected!='oneEntrepreneur'&&selectedService.selected!='OneCounselor'"
-     mat-stroked-button color="primary" [innerText]="'חדש'" (click)="openDialog()">
-    </button>
+       [innerText]="'חדש'" (click)="openDialog()">
+    </ion-button>
   </div>
 </section>
 

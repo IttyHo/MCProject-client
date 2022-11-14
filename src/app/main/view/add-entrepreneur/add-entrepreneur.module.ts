@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddEntrepreneurComponent } from './add-entrepreneur.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatOptionModule, MatSelectModule } from '@angular/material';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -18,6 +19,7 @@ import { MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, Mat
     MatButtonModule,
     MatOptionModule,
     MatSelectModule,
+    IonicModule
   ],
   exports:[AddEntrepreneurComponent],
   entryComponents:[AddEntrepreneurComponent]

@@ -1,9 +1,10 @@
 import { Injectable, ɵɵdefineInjectable, Component, NgZone, ChangeDetectorRef, NgModule, EventEmitter, ViewEncapsulation, Input, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableDataSource, MatDialog, MatPaginator, MatPaginatorModule, MatButtonModule, MatDialogModule } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatPaginatorModule, MatButtonModule, MatDialogModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { DirectivesModule } from 'directives';
 import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 
 /**
  * @fileoverview added by tsickle
@@ -168,8 +169,7 @@ var ComponentsModule = /** @class */ (function () {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var TableComponent = /** @class */ (function () {
-    function TableComponent(dialog) {
-        this.dialog = dialog;
+    function TableComponent() {
         this.dbClick = new EventEmitter();
         this.displayedColumns = [];
     }
@@ -228,13 +228,11 @@ var TableComponent = /** @class */ (function () {
                     selector: 'lib-table',
                     template: " \r\n<div class=\"mat-elevation-z8 mat-table\">\r\n  <mat-table [dataSource]=\"dataSource\" >\r\n  <ng-container *ngFor=\"let column of columns\" [matColumnDef]=  \"column.name\">\r\n \r\n      <mat-header-cell *matHeaderCellDef [innerText]=\"column.header\"> </mat-header-cell>\r\n       <mat-cell *matCellDef=\"let element\" > \r\n            <span [innerText]=\"element[column.name]\" libCopy></span> \r\n\r\n       </mat-cell> \r\n     \r\n  </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\" ></mat-header-row>  \r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"  (dblclick)=\"getRecord(row)\"></mat-row>\r\n      \r\n    <!-- (contextmenu)=\"f($event)\" -->\r\n    </mat-table>  \r\n\r\n<!-- <div class=\"paginator\">\r\n  <mat-paginator  [pageSizeOptions]=\"[5, 10, 20]\"  showFirstLastButtons ></mat-paginator>  \r\n  </div> -->\r\n</div>\r\n\r\n ",
                     encapsulation: ViewEncapsulation.None,
-                    styles: ["body{font-family:\"Segoe UI\",Tahoma,Geneva,Verdana,sans-serif;direction:rtl}body *{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:flex;justify-content:center;align-items:center;text-decoration:none}body a{color:#000}body .mat-select-panel.custom-select .mat-option{height:100px}:host{display:flex;flex-direction:column;overflow:hidden!important}:host .example-container.mat-elevation-z8{overflow-y:auto}:host mat-table{overflow:hidden;overflow-y:auto}:host .newButton{top:250px}mat-cell,mat-footer-cell,mat-header-cell{width:150px;justify-content:center}::ng-deep .mat-elevation-z8{overflow:scroll!important}.mat-table mat-header-cell{border-top:1px solid;border-right:1px solid;border-bottom:1px solid;cursor:col-resize;font-size:larger;font-weight:700;text-shadow:3px}.mat-table mat-cell{border-right:1px solid;border-bottom:1px solid}.mat-button-base{top:37vh!important;box-sizing:border-box;position:relative}"]
+                    styles: ["body{font-family:\"Segoe UI\",Tahoma,Geneva,Verdana,sans-serif;direction:rtl}body *{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:flex;justify-content:center;align-items:center;text-decoration:none}body a{color:#000}body .mat-select-panel.custom-select .mat-option{height:100px}:host{display:flex;flex-direction:column;overflow:hidden!important}:host .example-container.mat-elevation-z8{overflow-y:auto}:host mat-table{overflow:hidden;overflow-y:auto}:host .newButton{top:250px}mat-cell,mat-footer-cell,mat-header-cell{width:150px;justify-content:center}::ng-deep .mat-elevation-z8{overflow:scroll!important}.mat-table mat-header-cell{border-top:1px solid;border-right:1px solid;border-bottom:1px solid;cursor:col-resize;font-size:larger;font-weight:700;text-shadow:3px}.mat-table mat-cell{border-right:1px solid;border-bottom:1px solid}.header-row{background:#c0c545;color:#fff;font-size:18px}ion-col{border:1px solid #eceeef}.mat-button-base{top:37vh!important;box-sizing:border-box;position:relative}"]
                 }] }
     ];
     /** @nocollapse */
-    TableComponent.ctorParameters = function () { return [
-        { type: MatDialog }
-    ]; };
+    TableComponent.ctorParameters = function () { return []; };
     TableComponent.propDecorators = {
         columns: [{ type: Input }],
         rows: [{ type: Input }],
@@ -256,8 +254,6 @@ if (false) {
     TableComponent.prototype.dataSource;
     /** @type {?} */
     TableComponent.prototype.paginator;
-    /** @type {?} */
-    TableComponent.prototype.dialog;
 }
 
 /**
@@ -394,6 +390,7 @@ var TableModule = /** @class */ (function () {
                         MatDialogModule,
                         FormsModule,
                         ClockModule,
+                        IonicModule
                     ],
                     exports: [TableComponent],
                 },] }

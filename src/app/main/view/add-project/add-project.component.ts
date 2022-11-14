@@ -35,6 +35,7 @@ export class AddProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('i am in add project');
     this.getEntrepreneurs();
     this.initForm();
   }

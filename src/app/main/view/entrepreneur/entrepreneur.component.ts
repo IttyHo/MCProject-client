@@ -41,7 +41,7 @@ export class EntrepreneurComponent implements OnInit {
   delete(e) {
     console.log("fffffffffffffffffffffffffffffff");
     e.preventDefault()
-    if (e.srcElement.localName == 'span') {
+    if (e.srcElement.localName == 'ion-button') {
       this.en = e.srcElement.innerText;
       console.log(this.en, "logging");
       this.func(this.en);
@@ -53,49 +53,59 @@ export class EntrepreneurComponent implements OnInit {
         this.entrepreneurDetails.entrepreneurToDelete = el
         this.subscriptionService.Type='יזם'
         this.subscriptionService.detail=el.EntrepreneurCompany
-
-        const alert = this.alertController.create({
-          header: ` ${this.subscriptionService.detail}האם אתה בטוח שאתה רוצה למחוק את היזם?`,
-          cssClass: 'custom-alert',
-          buttons: [
-            {
-              text: 'No',
-              role:'no',
-              cssClass: 'alert-button-cancel',
-              handler: () => {
-                this.flag = false;
-              },
-            },
-            {
-              text: 'Yes',
-              role:'yes',
-              cssClass: 'alert-button-confirm',
-              handler: () => {
-                this.flag = true;
-              },
-            },
-          ],
-        });
+        this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
+          height: '0px',
+          width: '0px',
+          disableClose: true,
+          panelClass:'deleteDialog'
+        }) 
+        // const alert = this.alertController.create({
+        //   header: ` ${this.subscriptionService.detail}האם אתה בטוח שאתה רוצה למחוק את היזם?`,
+        //   cssClass: 'custom-alert',
+        //   buttons: [
+        //     {
+        //       text: 'No',
+        //       role:'no',
+        //       cssClass: 'alert-button-cancel',
+        //       handler: () => {
+        //         this.flag = false;
+        //       },
+        //     },
+        //     {
+        //       text: 'Yes',
+        //       role:'yes',
+        //       cssClass: 'alert-button-confirm',
+        //       handler: () => {
+        //         this.flag = true;
+        //       },
+        //     },
+        //   ],
+        // });
     
-         (await alert).present();
-        const { role } = await (await alert).onDidDismiss();
-        console.log('onDidDismiss resolved with role', role);
-        if(this.flag===false){
-          console.log('false');
-        }
-        else{
-          console.log('yes');
-          this.entrepreneurService.deleteEntrepreneur$(this.entrepreneurDetails.entrepreneurToDelete)
-          .pipe(
-            tap(_ => this.entrepreneurService.entrepreneur$ = this.entrepreneurService.getEntrepreneurList$())
-          )
-          .subscribe()
-        }
+        //  (await alert).present();
+        // const { role } = await (await alert).onDidDismiss();
+        // console.log('onDidDismiss resolved with role', role);
+        // if(this.flag===false){
+        //   console.log('false');
+        // }
+        // else{
+        //   console.log('yes');
+        //   this.entrepreneurService.deleteEntrepreneur$(this.entrepreneurDetails.entrepreneurToDelete)
+        //   .pipe(
+        //     tap(_ => this.entrepreneurService.entrepreneur$ = this.entrepreneurService.getEntrepreneurList$())
+        //   )
+        //   .subscribe()
+        // }
         // this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
         //   height: '200px',
         //   width: '250px',
         //   disableClose: true
         // })      
+    //  if(this.subscriptionService.role=='cancel') {
+        // console.log(false);
+        // this.subscriptionService.dialogRef.close()
+      
+    //  }
       }    
     })
   }

@@ -1,5 +1,15 @@
 @import '../../../../style//elements.scss';
-
+:host{
+    ion-button {
+        position: relative;
+        flex: 1 1 auto;
+        font-size: 2rem;
+        flex-direction: row !important;
+        border: 2.5px $dark-gray ;
+        color: $dark-gray;  
+        // background-color: $dark-gray;     
+    }
+}
 span {
     padding: 5px;
     border: 3px dotted $dark-gray;
@@ -9,3 +19,6 @@ span {
 .hide {
     visibility: hidden;
 }
+ ::ng-deep .deleteDialog{
+        visibility: hidden;
+    }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EntrepreneurComponent } from './entrepreneur.component';
 import { TableModule } from 'components';
 import { DeleteElementModule } from '../../components/delete-element/delete-element.module';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -11,7 +12,8 @@ import { DeleteElementModule } from '../../components/delete-element/delete-elem
   imports: [
     CommonModule,
     TableModule,
-    DeleteElementModule
+    DeleteElementModule,
+    IonicModule
   ],
   exports:[EntrepreneurComponent]
 })

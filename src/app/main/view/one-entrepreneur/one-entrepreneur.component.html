@@ -17,39 +17,39 @@
         <div class="text details" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurCompanyFax"></div>
     </div>
 </div>
-<section class="section">
+<div class="details-bottom">
     <div class="manager">
-        <div>
+        <div class="text">
             <img [src]="company">&nbsp; &nbsp;
             <h1 id="yazam"> מנהל החברה:</h1>
         </div>
         <div class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurName"></div>
-        <div>
+        <div class="text">
             <img [src]="phone" alt="phone">&nbsp; &nbsp;
             <h1>טלפון מנהל: </h1>
         </div>
         <a class="text" href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurPhone}} " [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurPhone"></a>
-        <div>
+        <div class="text">
             <img [src]="email" alt="email">&nbsp; &nbsp;
             <h1>מייל מנהל: </h1>
         </div>
         <a class="text" href="mailto:{{entrepreneurDetails.entrepreneur.EntrepreneurMail}}" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurMail"></a>
     </div>
     <div class="SecretaryDetalis">
-        <div>
+        <div class="text">
             <img [src]="secretary" alt="">&nbsp; &nbsp;
             <h1>מזכירה ראשית: </h1>
         </div>
         <div class="text" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretary"></div>
-        <div>
+        <div class="text">
             <img [src]="phone">&nbsp; &nbsp;
-            <h1 id="yazam">טלפון מזכירה ראשית: </h1>
+            <h1 >טלפון מזכירה ראשית: </h1>
         </div>
         <a class="text" href="tel:{{entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone}}" [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryPhone"></a>
-        <div>
+        <div class="text">
             <img [src]="email">&nbsp; &nbsp;
             <h1 id="yazam">מייל מזכירה ראשית: </h1>
         </div>
         <a class="text" href="mailto:{{entrepreneurDetails.entrepreneur.EntrepreneurSecretaryMail}}"  [innerText]="entrepreneurDetails.entrepreneur.EntrepreneurSecretaryMail"></a>
     </div>
-</section>
+</div>

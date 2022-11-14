@@ -1,9 +1,10 @@
 <!-- <lib-table [columns]="columns$ | async"  [rows]="entrepreneur$ | async"></lib-table>  -->
 <div *ngFor="let e of entrepreneurService.entrepreneur$ | async">
     <div class="entrepreneur">
-        <span [innerText]="e.EntrepreneurCompany" 
+        <ion-button size="small" fill="outline"     
+        [innerText]="e.EntrepreneurCompany" 
         (click)="getEntrepreneurDetalis(e,$event)"
         (contextmenu)="delete($event)"
-       > </span>&nbsp;&nbsp;&nbsp;
+       > </ion-button>&nbsp;&nbsp;&nbsp;
     </div>
 </div>

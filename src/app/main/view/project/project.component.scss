@@ -8,18 +8,19 @@
     }
     .h1 {
         font-size: 65px;
-        margin-top: -30px;
+        margin-bottom: 150px;
     }
-    .div {
-        font-size: 36px;
-        margin-top: -50px;
-    }
+   .mainDiv{
+      flex-direction: column !important;
+   }
     div {
         font-size: 25px;
-        margin-top: -20px;
-    }
+     }
     .hide{
         visibility: hidden;
+    }
+    .details{
+        margin-top: -80px;
     }
 }
 img {

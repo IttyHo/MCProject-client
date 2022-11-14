@@ -5,20 +5,20 @@
     // height: max-content !important;
     // width: max-content !important;
     max-width: 100% !important;
-
+    margin-right: 75px;
     // .dropdown{     
     //     // top:-200px;      
     //     height:80px;
     //     flex:0 0 auto;
-    //     justify-content: flex-start;
     //  }
-     span {
+    ion-button {
         position: relative;
         flex: 1 1 auto;
-        font-size: 3rem;
+        font-size: 2rem;
         flex-direction: row !important;
-        border: 2.5px $dark-gray dotted;
-        color: $dark-gray;       
+        border: 2.5px $dark-gray ;
+        color: $dark-gray;  
+        // background-color: $dark-gray;     
     }
     .counselor{
         padding: 3px;
@@ -33,4 +33,7 @@
 }
 p{
  visibility: hidden;
+}
+::ng-deep .deleteDialog{
+    visibility: hidden;
 }

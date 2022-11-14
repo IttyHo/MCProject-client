@@ -1,13 +1,16 @@
 <section>
 <div>
   <form [formGroup]="formGroup">
-    <mat-form-field class="formLabel required matInput">
-      <input matInput type="text" placeholder=" סוג היועץ" formControlName="counselorType">
-    </mat-form-field>
+    <ion-item>
+      <ion-label fill="solid" class="formLabel required matInput"
+       position="floating"></ion-label>
+      <ion-input type="text" placeholder=" סוג היועץ" 
+      formControlName="counselorType"></ion-input>
+    </ion-item>
   </form>
 </div>
 <div class="buttons">
-  <button mat-button class="mat-button" type="submit" (click)="save()">אישור</button>
-  <button mat-button class="mat-button" type="submit" (click)="reset()">ביטול</button>
+  <ion-button class="mat-button" type="submit" color="success" fill="clear" (click)="save()">אישור</ion-button>
+  <ion-button class="mat-button" type="submit" color="danger" fill="clear"  (click)="reset()">ביטול</ion-button>
 </div>
 </section>

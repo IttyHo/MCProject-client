@@ -6,10 +6,13 @@
     input {
         margin-right: 50px;
     }
-    mat-dialog-container{
-        border: 5px darkcyan dashed;
-        // margin: -16px -16px !important;
+    // mat-dialog-container{
+    //     border: 5px darkcyan dashed;
+    //     // margin: -16px -16px !important;
 
+    // }
+    ion-input{
+        margin-bottom: -55px;
     }
     .buttons {
         position: absolute;
@@ -19,5 +22,10 @@
 ::ng-deep .mat-form-field-label{
     width: 143px;
     color: crimson;
+}
 
+.dialog {
+    mat-dialog-container {
+        visibility: visible;
+    }
 }

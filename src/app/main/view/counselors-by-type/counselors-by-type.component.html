@@ -1,11 +1,10 @@
-<!-- <a href="mailto:{{emailAddress}}">לשליחת אימייל</a> -->
 <div class="div">
     <div *ngFor="let c of counselorService.counselors$|async">
         <div class="counselor">
-            <span [innerText]="c.CounselorOfficeName" 
+            <ion-button size="small" fill="outline" [innerText]="c.CounselorOfficeName"
             (click)="getCounselorOfficeDetails(c.CounselorOfficeName)"
-            (contextmenu)="f($event)"
-            ></span> &nbsp;&nbsp;&nbsp;
+            (contextmenu)="delete($event)"
+        ></ion-button>   &nbsp;&nbsp;&nbsp;
         </div>
     </div>
 </div>

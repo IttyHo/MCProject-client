@@ -20,6 +20,8 @@ import { OneCounselorModule } from './one-counselor/one-counselor.module';
 import { CounselorsByTypeModule } from './counselors-by-type/counselors-by-type.module';
 import { AddCounselorModule } from './add-counselor/add-counselor.module';
 import { AddCounselorTypeModule } from './add-counselor-type/add-counselor-type.module';
+import { IonicModule } from '@ionic/angular';
+import { OrdersModule } from './orders/orders.module';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { AddCounselorTypeModule } from './add-counselor-type/add-counselor-type.
     OneEntrepreneurModule,
     OneCounselorModule,
     CounselorsByTypeModule,
-    AddCounselorTypeModule
+    AddCounselorTypeModule,
+    IonicModule,
+    OrdersModule
   ],
   exports: [ViewComponent],
 

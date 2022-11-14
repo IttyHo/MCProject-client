@@ -7,6 +7,7 @@ import { DirectivesModule } from 'directives';
 import { FormsModule } from '@angular/forms';
 // import { AddProjectModule } from 'src/app/main/view/add-project/add-project.module';
 import { ClockModule } from '../clock/clock.module';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ClockModule } from '../clock/clock.module';
     MatDialogModule,
     FormsModule,
     ClockModule,
+    IonicModule
   ],
   exports:[TableComponent],
 })

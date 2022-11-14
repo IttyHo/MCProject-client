@@ -18,7 +18,7 @@ export class ProjectComponent implements OnInit {
   companyImg = { imgPath: environment.imgesPath, img: '/company.png' };
   TypeImg = { imgPath: environment.imgesPath, img: '/TypOfPermittion.png' };
   rovaImg = { imgPath: environment.imgesPath, img: '/village.png' };
-
+dialog
   rova = this.rovaImg.imgPath + this.rovaImg.img
   company = this.companyImg.imgPath + this.companyImg.img
   email = this.emailImg.imgPath + this.emailImg.img
@@ -36,10 +36,10 @@ export class ProjectComponent implements OnInit {
     public projectDetalis: ProjectDetailsService,
     private entrepreneurDetails: EntrepreneurDetailsService,
     private entrepreneurService: GetEntrepreneurService,
-    // public title:MatTit
-  ) { }
+   ) { }
 
   ngOnInit() {
+    this.dialog=document.querySelector('.dialog')
     this.getEntrepreneurs();
     console.log(this.selectedService.project);
   }
@@ -48,8 +48,6 @@ export class ProjectComponent implements OnInit {
     this.send.emit(se);
   }
   entrepreneurDetail(entrepreneur) {
-    // console.log(entrepreneur, "///////////////////////////////////////");
-    // console.log(this.entrepreneurs, "*********************************");
     this.selectedService.updateSelected('oneEntrepreneur');
     this.entrepreneurs.forEach(el => {
       // console.log(el);
@@ -58,7 +56,6 @@ export class ProjectComponent implements OnInit {
       }
     })
     // console.log(this.oneEntrepreneur, "one1111111111111111111");
-
     this.entrepreneurDetails.entrepreneur = this.oneEntrepreneur;
     // console.log(this.entrepreneurDetails.entrepreneur, "details");
   }

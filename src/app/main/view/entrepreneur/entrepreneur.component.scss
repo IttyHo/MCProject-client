@@ -8,7 +8,15 @@
     // // margin: 100px;
     // font-size: 2.5rem;
     // justify-content: space-around;
-
+    ion-button {
+        position: relative;
+        flex: 1 1 auto;
+        font-size: 2rem;
+        flex-direction: row !important;
+        border: 2.5px $dark-gray ;
+        color: $dark-gray;  
+        // background-color: $dark-gray;     
+    }
     .entrepreneur {
     //     display: flex;
     //     flex-direction: row !important;
@@ -29,4 +37,8 @@ span {
     border: 2.5px $dark-gray dotted;
     color: $dark-gray;
     padding: 3px;
+}
+
+::ng-deep .deleteDialog{
+    visibility: hidden;
 }

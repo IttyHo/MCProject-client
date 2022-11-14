@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, PatternValidator, Validators } from '@angular/forms';
-import { Observable, NEVER } from 'rxjs';
-import { async } from 'rxjs/internal/scheduler/async';
 import { map, tap } from 'rxjs/operators';
 import { GetCounselorService } from 'services';
 import { Cunselor } from 'types';
@@ -24,9 +22,10 @@ export class AddCounselorTypeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('i am in add counselor by type');
+
     this.initForm()
   }
-  // counselorType
   initForm() {
     this.formGroup = this.formBuilder.group({
       counselorType: ['', [Validators.required, Validators.pattern('[א-ת]*$')]]

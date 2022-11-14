@@ -581,7 +581,7 @@
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.counselors$ = rxjs.NEVER;
             _this.counselors = [];
-            _this.historyDeletedCounselos = [];
+            // historyDeletedCounselors=[]
             _this.counselorToDelete = null;
             return _this;
         }
@@ -678,13 +678,15 @@
     }(HttpServiceBase));
     if (false) {
         /** @type {?} */
+        GetCounselorService.prototype.aaaaa;
+        /** @type {?} */
+        GetCounselorService.prototype.cunselorsType;
+        /** @type {?} */
         GetCounselorService.prototype.counselors$;
         /** @type {?} */
         GetCounselorService.prototype.counselors;
         /** @type {?} */
         GetCounselorService.prototype.cunselorsOfficeType$;
-        /** @type {?} */
-        GetCounselorService.prototype.historyDeletedCounselos;
         /** @type {?} */
         GetCounselorService.prototype.counselorToDelete;
     }

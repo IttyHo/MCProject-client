@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CunselorsComponent } from './cunselors.component';
 import { TableModule } from 'components';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -9,8 +10,8 @@ import { TableModule } from 'components';
   declarations: [CunselorsComponent],
   imports: [
     CommonModule,
-    TableModule
-
+    TableModule,
+    IonicModule
   ],
   exports:[CunselorsComponent]
 })

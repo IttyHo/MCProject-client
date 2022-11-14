@@ -6,11 +6,12 @@ import { HttpServiceBase } from './http-service.base';
 @Injectable({ providedIn: 'root' })
 
 export class GetCounselorService extends HttpServiceBase {
-
+ aaaaa:any;
+  cunselorsType:any;
   counselors$: Observable<Cunselor[]> = NEVER;
   counselors:Cunselor[]=[];
-  cunselorsOfficeType$:Observable<Cunselor[]>
-  historyDeletedCounselos=[]
+  cunselorsOfficeType$:Observable<any>
+  // historyDeletedCounselors=[]
   counselorToDelete:any=null
   private get _serverUrl(): string {
     return `${this.config.ips.servicePath}counselor/`;

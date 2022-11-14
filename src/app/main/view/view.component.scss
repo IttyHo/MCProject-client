@@ -1,6 +1,7 @@
 @import './../../../style/elements.scss';
 :host{     
     display: flex;
+   
         section{
             width:79vw;
             height: 95vh;
@@ -27,13 +28,11 @@
         //    bottom: 80vh;        
         //    height:80px;
         //    flex:0 0 auto;
-        //    justify-content: flex-start;
         // }
         // .views{
         //     flex:1 1 auto;
         //     height: max-content !important;
         //     width: max-content !important;
-           
         // }   
         .cl{
             width: 150px;
@@ -47,6 +46,10 @@
               box-sizing: border-box;
               position: absolute;
           }
+}
+::ng-deep .dialog{
+    min-height: min-content;
+    overflow: hidden; 
 }
 ::ng-deep .mat-select-panel{
     display:flex;
@@ -81,3 +84,15 @@ app-date-and-clock{
 .mat-select-panel.custom-select .mat-option{
     height:100px;
 }
+ion-button {
+    position: relative;
+    flex: 1 1 auto;
+    font-size: 1rem;
+    flex-direction: row !important;
+    // border: 2.5px $dark-gray ;
+    color: $dark-gray;  
+}
+.cdk-overlay-pane{
+    visibility: hidden;
+}
+  

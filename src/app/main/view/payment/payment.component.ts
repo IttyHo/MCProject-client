@@ -1,7 +1,7 @@
-import { stripSummaryForJitFileSuffix } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { DeleteElementComponent } from '../../components/delete-element/delete-element.component';
+import { AnimationController } from '@ionic/angular';
+import { SubscriptionService } from '../../services/subscription.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -11,29 +11,33 @@ export class PaymentComponent implements OnInit {
   handlerMessage = '';
   roleMessage = '';
   flag:Boolean=false;
-  // constructor(private alertController: AlertController,
-  //             private modalCtrl:ModalController
-  //             ) { }
+  constructor(private animationCtrl: AnimationController) {}
+  ngOnInit() {}
+  enterAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot;
 
-  ngOnInit() {
-    }
-    message = 'This modal example uses the modalController to present and dismiss modals.';
+    const backdropAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('ion-backdrop')!)
+      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
 
-    constructor(private modalCtrl: ModalController) {}
-  
-    async openModal() {
-      const modal = await this.modalCtrl.create({
-        component: DeleteElementComponent,
-      });
-      modal.present();
-  
-      const { data, role } = await modal.onWillDismiss();
-  
-      if (role === 'confirm') {
-        console.log(role,"rrrrroooooooooollllllllleeeee");
-        console.log(data,"dddddaaaaaaaatttttaaaa");
-        
-        this.message = `Hello, ${data}!`;
-      }
-    }
-  }
+    const wrapperAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('.modal-wrapper')!)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'scale(0)' },
+        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+      ]);
+
+    return this.animationCtrl
+      .create()
+      .addElement(baseEl)
+      .easing('ease-out')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
+
+  leaveAnimation = (baseEl: HTMLElement) => {
+    return this.enterAnimation(baseEl).direction('reverse');
+  };
+}

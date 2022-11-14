@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule,  MatFormFieldModule, MatIconModule,
    MatInputModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { PipesModule } from 'pipes';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -21,6 +22,7 @@ import { PipesModule } from 'pipes';
     MatOptionModule,
     MatSelectModule,
     PipesModule,
+    IonicModule
     ],
   exports:[AddProjectComponent],
   entryComponents:[AddProjectComponent]

@@ -385,7 +385,7 @@ var GetCounselorService = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.counselors$ = NEVER;
         _this.counselors = [];
-        _this.historyDeletedCounselos = [];
+        // historyDeletedCounselors=[]
         _this.counselorToDelete = null;
         return _this;
     }
@@ -482,13 +482,15 @@ var GetCounselorService = /** @class */ (function (_super) {
 }(HttpServiceBase));
 if (false) {
     /** @type {?} */
+    GetCounselorService.prototype.aaaaa;
+    /** @type {?} */
+    GetCounselorService.prototype.cunselorsType;
+    /** @type {?} */
     GetCounselorService.prototype.counselors$;
     /** @type {?} */
     GetCounselorService.prototype.counselors;
     /** @type {?} */
     GetCounselorService.prototype.cunselorsOfficeType$;
-    /** @type {?} */
-    GetCounselorService.prototype.historyDeletedCounselos;
     /** @type {?} */
     GetCounselorService.prototype.counselorToDelete;
 }

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { DialogComponent } from 'ng-clock-picker-lib/lib/classes/abstract-dialog';
 import { Menu } from 'types';
 import { SelectedNevigationService } from '../services/selected-nevigation.service';
 import { SubscriptionService } from '../services/subscription.service';
@@ -36,6 +37,8 @@ export class ViewComponent implements OnInit {
           height: '625px',
           width: '550px',
           disableClose: true,
+          panelClass:'dialog'
+
         })
         break;
       case 'יועצים':
@@ -43,26 +46,29 @@ export class ViewComponent implements OnInit {
           height: '163px',
           width: '200px',
           disableClose: true,
-        
+          panelClass:'dialog',
+
         })
         break;
       case 'יזמים':
         this.subscriptionService.dialogRef = this.dialog.open(AddEntrepreneurComponent, {
-          height: '630px',
+          height: '550px',
           width: '550px',
           disableClose: true,
+          panelClass:'dialog'
+
         })
         break;
       case 'CounselorsByType':
         this.subscriptionService.dialogRef = this.dialog.open(AddCounselorComponent, {
-          height: '630px',
+          height: '400px',
           width: '550px',
           disableClose: true,
+          panelClass:'dialog'
         })
         break;
 
-      default:
-        break;
+      
     } 
   }
 }

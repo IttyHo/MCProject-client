@@ -1,16 +1,21 @@
-
-<h1  [innerText]="selectedService.project.ProjectName" class="h1"></h1>
+<div class="mainDiv">
+<h1 [innerText]="selectedService.project.ProjectName" class="h1"></h1>
+<div class="details"></div>
 <div>
-    <img [src]="rova" >&nbsp; &nbsp;
-    <h1 >רובע:  </h1></div>
-    <div class="text" [innerText]="selectedService.project.ProjectRova"></div> 
-    <div>
-<img [src]="company" title="לפרטי היזם" (click)="entrepreneurDetail(selectedService.project.EntrepreneurName)">&nbsp; &nbsp;
-<h1 >חברה ויזם מבצע: </h1></div>
-<div class="text" [innerText]="selectedService.project.ProjectCompany"> </div>
-<div> 
-<img [src]="Type" alt="">&nbsp; &nbsp;
-<h1> סוג פרויקט:  </h1></div>
-<div class="text" [innerText]="selectedService.project.ProjectTypeName"></div> 
-
+    <img [src]="rova">&nbsp; &nbsp;
+    <h1>רובע: </h1>
+</div>
+<span class="text" [innerText]="selectedService.project.ProjectRova"></span>
+<div>
+    <img [src]="company" title="לפרטי היזם"
+        (click)="entrepreneurDetail(selectedService.project.EntrepreneurName)">&nbsp; &nbsp;
+    <h1>חברה ויזם מבצע: </h1>
+</div>
+<span class="text" [innerText]="selectedService.project.EntrepreneurCompany"></span>
+<div>
+    <img [src]="Type" alt="">&nbsp; &nbsp;
+    <h1> סוג פרויקט: </h1>
+</div>
+<span class="text" [innerText]="selectedService.project.ProjectTypeName"></span>
+</div>
 <div class="hide">{{entrepreneur$|async}}</div>

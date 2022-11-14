@@ -1,11 +1,18 @@
+@import '../../../../style/elements.scss';
+
 :host {
     display: flex;
     flex-direction: column;
-    border: 5px darkcyan dashed ;
+    // border: 1.5px darkcyan dashed;
+    min-width: 5px;
+    overflow: hidden;
+    padding: -5px;
+    background-color: $light-gray;
 
-    .hide{
+    .hide {
         visibility: hidden;
     }
+
     form {
         // width: 45vw !important;
         // height: 90vh !important;
@@ -13,17 +20,19 @@
         // left: 500px;
         display: flex;
         flex-direction: row-reverse;
-        margin:15px !important;
-    
-        .data{
+        // margin: 15px !important;
+
+        .data {
             display: flex;
             flex-direction: column;
-            margin:15px !important;
+            margin: 15px !important;
         }
+
         .mat-button {
             margin-top: -60vh;
             width: 6vw;
         }
+
         .formLabel {
             margin-bottom: -2px;
             // text-align: right !important;
@@ -53,25 +62,36 @@
             color: red;
         }
 
-          .buttons{
+        .buttons {
             position: absolute;
             // background-color: #c00000;
             margin-bottom: -300px;
             left: 30vw;
-                  }
+        }
+
         //   mat-button{
         //     top: 50vh;
         //     background-color: aquamarine;
         //   }
     }
+
     // .save{
     //     // cursor: not-allowed;
     // }
- 
-} 
- img{
+
+}
+
+img {
     width: 1.5rem;
     height: 1.5rem;
-    margin-top:2vh ;
-    margin-right:28vw ;
-   }
+    margin-top: 2vh;
+    margin-right: 28vw;
+}
+
+.dialog {
+    mat-dialog-container {
+        visibility: visible;
+        min-height: min-content;
+        overflow: hidden;
+    }
+}
