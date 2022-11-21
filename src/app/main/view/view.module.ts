@@ -13,7 +13,7 @@ import { ProjectModule } from './project/project.module';
 import { DateAndClockModule } from './date-and-clock/date-and-clock.module';
 import { DirectivesModule } from 'directives';
 import { AddProjectModule } from './add-project/add-project.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddEntrepreneurModule } from './add-entrepreneur/add-entrepreneur.module';
 import { OneEntrepreneurModule } from './one-entrepreneur/one-entrepreneur.module';
 import { OneCounselorModule } from './one-counselor/one-counselor.module';
@@ -22,6 +22,7 @@ import { AddCounselorModule } from './add-counselor/add-counselor.module';
 import { AddCounselorTypeModule } from './add-counselor-type/add-counselor-type.module';
 import { IonicModule } from '@ionic/angular';
 import { OrdersModule } from './orders/orders.module';
+import { UpdateConselorModule } from './update-conselor/update-conselor.module';
 
 
 @NgModule({
@@ -52,7 +53,9 @@ import { OrdersModule } from './orders/orders.module';
     CounselorsByTypeModule,
     AddCounselorTypeModule,
     IonicModule,
-    OrdersModule
+    OrdersModule,
+    ReactiveFormsModule,
+    UpdateConselorModule
   ],
   exports: [ViewComponent],
 

@@ -94,7 +94,8 @@
     margin-right: 10px !important;
 }
 
-.cdk-overlay-pane{
-    visibility: hidden;
-}
+::ng-deep #cdk-overlay-2{ 
+    top: 375px;
+    }   
+
      

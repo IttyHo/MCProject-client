@@ -8,19 +8,23 @@ import { environment } from 'src/environments/environment';
 import { GetOptionsService, ConfigurationService } from 'services';
 import { DirectivesModule } from 'directives';
 import { IonicModule } from '@ionic/angular';
-
+import { CounselorsByTypeComponent } from './main/view/counselors-by-type/counselors-by-type.component';
+import { UpdateConselorComponent } from './main/view/update-conselor/update-conselor.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+ 
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent, ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule, 
     MainModule,
     DirectivesModule,
-    IonicModule
+    IonicModule,
+    ReactiveFormsModule,
+    FormsModule
  ],
   providers: [
     {provide: APP_INITIALIZER, useFactory: initOptions, deps: [GetOptionsService], multi: true},
@@ -28,6 +32,7 @@ import { IonicModule } from '@ionic/angular';
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  entryComponents:[CounselorsByTypeComponent],
 
 })
 export class AppModule { }

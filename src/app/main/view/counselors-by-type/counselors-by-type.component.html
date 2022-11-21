@@ -2,10 +2,22 @@
     <div *ngFor="let c of counselorService.counselors$|async">
         <div class="counselor">
             <ion-button size="small" fill="outline" [innerText]="c.CounselorOfficeName"
-            (click)="getCounselorOfficeDetails(c.CounselorOfficeName)"
-            (contextmenu)="delete($event)"
-        ></ion-button>   &nbsp;&nbsp;&nbsp;
+                (click)="getCounselorOfficeDetails(c.CounselorOfficeName)" (contextmenu)="delete($event)">
+                <div [matMenuTriggerFor]="contextMenu" style="pointer-events: none;"></div>
+            </ion-button> &nbsp;&nbsp;&nbsp;
         </div>
     </div>
 </div>
 <span class="hide">{{entrepreneur$|async}}</span>
+<section id="section">
+    <mat-menu class="matmenu" #contextMenu="matMenu"  >
+        <ng-template class="matMenuContent" matMenuContent>
+            <div class="flextion">
+                <div mat-menu-item (click)="onContextMenuUpdate('update')">
+                    <img [src]="update" >
+                </div>
+                <div mat-menu-item (click)="onContextMenuDelete('delete')">מחיקה</div>
+            </div>
+        </ng-template>
+    </mat-menu>
+</section>

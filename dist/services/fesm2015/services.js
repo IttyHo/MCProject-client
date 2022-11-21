@@ -383,6 +383,17 @@ class GetCounselorService extends HttpServiceBase {
      * @param {?} counselor
      * @return {?}
      */
+    updateCounselor$(counselor) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'updateCounselor',
+            body: counselor
+        }));
+    }
+    /**
+     * @param {?} counselor
+     * @return {?}
+     */
     deleteCounselor$(counselor) {
         return this.post$(new HttpRequestModel({
             url: this._serverUrl,
@@ -397,7 +408,7 @@ GetCounselorService.decorators = [
 /** @nocollapse */ GetCounselorService.ngInjectableDef = ɵɵdefineInjectable({ factory: function GetCounselorService_Factory() { return new GetCounselorService(ɵɵinject(HttpClient), ɵɵinject(ConfigurationService)); }, token: GetCounselorService, providedIn: "root" });
 if (false) {
     /** @type {?} */
-    GetCounselorService.prototype.aaaaa;
+    GetCounselorService.prototype.counselorToUpdate;
     /** @type {?} */
     GetCounselorService.prototype.cunselorsType;
     /** @type {?} */

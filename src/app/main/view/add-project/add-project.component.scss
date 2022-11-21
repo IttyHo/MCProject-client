@@ -1,7 +1,7 @@
 @import './../../../../style/main.scss';
 
 :host {
-    border: 5px darkcyan dashed;
+    // border: 5px darkcyan dashed;
     display: flex;
     flex-direction: column !important;
     direction: ltr !important;
@@ -77,7 +77,7 @@
         width: 1.5rem;
         height: 1.5rem;
         margin-top: 2vh;
-        margin-right: 28vw;
+        margin-right: 300px;
     }
     .buttons {
         position: absolute;

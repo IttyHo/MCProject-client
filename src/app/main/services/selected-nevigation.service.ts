@@ -9,6 +9,7 @@ export class SelectedNevigationService {
   project:Project;
   entrepreneur:Entrepreneur;
   selectedCounselor;
+  selectedItem;
   counselor:Cunselor;
   counselorType:{TypeName:string,TypeId:number};
   children:[]

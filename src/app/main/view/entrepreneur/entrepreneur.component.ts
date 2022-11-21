@@ -49,7 +49,7 @@ export class EntrepreneurComponent implements OnInit {
   }
   func(en) {
     this.entrepreneurService.entrepreneurs.forEach(async el => {
-      if (el.EntrepreneurCompany === en) {
+      if (el.EntrepreneurCompany.toUpperCase() === en) {
         this.entrepreneurDetails.entrepreneurToDelete = el
         this.subscriptionService.Type='יזם'
         this.subscriptionService.detail=el.EntrepreneurCompany

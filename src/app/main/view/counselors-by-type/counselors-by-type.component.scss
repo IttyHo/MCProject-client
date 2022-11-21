@@ -1,13 +1,22 @@
 @import '../../../../style//elements.scss';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 :host{
     ion-button {
         position: relative;
         flex: 1 1 auto;
         font-size: 2rem;
-        flex-direction: row !important;
+        flex-direction: row ;
         border: 2.5px $dark-gray ;
         color: $dark-gray;  
-        // background-color: $dark-gray;     
+        // background-color: $dark-gray;  
+           
+    }
+   .section{
+        margin-right: 100px !important;
+      }
+      .mat-menu-panel.matmenu {
+        margin-top: -100px;
     }
 }
 span {
@@ -22,3 +31,16 @@ span {
  ::ng-deep .deleteDialog{
         visibility: hidden;
     }
+   ::ng-deep .flextion{
+        display: flex;
+        flex-direction: column !important;
+        right: 100px !important;
+
+    }
+    ::ng-deep .matmenu{
+        margin-right: 100px;
+     }
+img{
+    width: 1.5rem;
+    height: 1.5rem;
+}

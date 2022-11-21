@@ -659,6 +659,21 @@
          * @param {?} counselor
          * @return {?}
          */
+        GetCounselorService.prototype.updateCounselor$ = /**
+         * @param {?} counselor
+         * @return {?}
+         */
+        function (counselor) {
+            return this.post$(new types.HttpRequestModel({
+                url: this._serverUrl,
+                action: 'updateCounselor',
+                body: counselor
+            }));
+        };
+        /**
+         * @param {?} counselor
+         * @return {?}
+         */
         GetCounselorService.prototype.deleteCounselor$ = /**
          * @param {?} counselor
          * @return {?}
@@ -678,7 +693,7 @@
     }(HttpServiceBase));
     if (false) {
         /** @type {?} */
-        GetCounselorService.prototype.aaaaa;
+        GetCounselorService.prototype.counselorToUpdate;
         /** @type {?} */
         GetCounselorService.prototype.cunselorsType;
         /** @type {?} */

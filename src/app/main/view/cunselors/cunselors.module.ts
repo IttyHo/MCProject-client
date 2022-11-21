@@ -13,6 +13,7 @@ import { IonicModule } from '@ionic/angular';
     TableModule,
     IonicModule
   ],
+  entryComponents:[CunselorsComponent],
   exports:[CunselorsComponent]
 })
 export class CunselorsModule { }

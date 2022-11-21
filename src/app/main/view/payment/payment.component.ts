@@ -1,43 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
-import { AnimationController } from '@ionic/angular';
-import { SubscriptionService } from '../../services/subscription.service';
+import { Component,  OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material';
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-  handlerMessage = '';
-  roleMessage = '';
-  flag:Boolean=false;
-  constructor(private animationCtrl: AnimationController) {}
-  ngOnInit() {}
-  enterAnimation = (baseEl: HTMLElement) => {
-    const root = baseEl.shadowRoot;
+  
+ngOnInit() {}
+  
+  items = [
+    { id: 1, name: "אפשרות א" },
+    { id: 2, name: "אפשרות ב" },
+    { id: 3, name: "אפשרות ג" }
+  ];
 
-    const backdropAnimation = this.animationCtrl
-      .create()
-      .addElement(root.querySelector('ion-backdrop')!)
-      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+  @ViewChild(MatMenuTrigger,{static: false})
+  contextMenu: MatMenuTrigger;
 
-    const wrapperAnimation = this.animationCtrl
-      .create()
-      .addElement(root.querySelector('.modal-wrapper')!)
-      .keyframes([
-        { offset: 0, opacity: '0', transform: 'scale(0)' },
-        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
-      ]);
+  onContextMenu(event: MouseEvent, item: Item) {
+    event.preventDefault();
+    this.contextMenu.openMenu();
+  }
 
-    return this.animationCtrl
-      .create()
-      .addElement(baseEl)
-      .easing('ease-out')
-      .duration(500)
-      .addAnimation([backdropAnimation, wrapperAnimation]);
-  };
+  onContextMenuUpdate(item: Item) {
+    alert(`Click on Update `);
+  }
 
-  leaveAnimation = (baseEl: HTMLElement) => {
-    return this.enterAnimation(baseEl).direction('reverse');
-  };
+  onContextMenuDelete(item: Item) {
+    alert(`Click on Delete for `);
+  }
 }
+
+export interface Item {
+  id: number;
+  name: string;
+}
+ 

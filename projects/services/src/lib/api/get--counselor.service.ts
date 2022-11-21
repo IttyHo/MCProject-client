@@ -6,7 +6,7 @@ import { HttpServiceBase } from './http-service.base';
 @Injectable({ providedIn: 'root' })
 
 export class GetCounselorService extends HttpServiceBase {
- aaaaa:any;
+ counselorToUpdate:any;
   cunselorsType:any;
   counselors$: Observable<Cunselor[]> = NEVER;
   counselors:Cunselor[]=[];
@@ -45,6 +45,13 @@ export class GetCounselorService extends HttpServiceBase {
   return this.post$(new HttpRequestModel({
     url: this._serverUrl,
     action: 'addCounselor',
+    body: counselor
+}));
+}
+updateCounselor$(counselor:Cunselor):Observable<boolean>{
+  return this.post$(new HttpRequestModel({
+    url: this._serverUrl,
+    action: 'updateCounselor',
     body: counselor
 }));
 }

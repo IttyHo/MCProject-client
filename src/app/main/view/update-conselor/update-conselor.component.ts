@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { GetCounselorService } from 'services';
 import { environment } from 'src/environments/environment';
@@ -7,24 +7,16 @@ import { SelectedNevigationService } from '../../services/selected-nevigation.se
 import { SubscriptionService } from '../../services/subscription.service';
 
 @Component({
-  selector: 'app-add-counselor',
-  templateUrl: './add-counselor.component.html',
-  styleUrls: ['./add-counselor.component.scss']
+  selector: 'app-update-conselor',
+  templateUrl: './update-conselor.component.html',
+  styleUrls: ['./update-conselor.component.scss']
 })
-export class AddCounselorComponent implements OnInit {
+export class UpdateConselorComponent implements OnInit {
+  updateImg={imgPath:environment.imgesPath,img:'/pen.png'};
   xImg={imgPath:environment.imgesPath,img: '/close.png'};
   x=this.xImg.imgPath+this.xImg.img
+  update=this.updateImg.imgPath+this.updateImg.img
   formGroup: FormGroup;
-  // counselorType=[
-  //             {value: 1, viewValue: 'נגישות'},
-  //             {value: 2, viewValue: 'אינסטלציה'},
-  //             {value: 3, viewValue: 'מיזוג אויר'},
-  //             {value: 4, viewValue: 'חשמל'},
-  //             {value: 5, viewValue: 'פיתוח'},
-  //             {value: 6, viewValue: 'קונסטרוקציה'},
-  //             {value: 7, viewValue: 'תנועה'},
-  //             {value: 8, viewValue: 'בטיחות'}
-  //           ];
 
   constructor(
     public formBuilder: FormBuilder,
@@ -41,17 +33,17 @@ export class AddCounselorComponent implements OnInit {
 
   initForm() {
     this.formGroup = this.formBuilder.group({
-      CounselorOfficeName: ['', Validators.required],
-      CounselorOfficeAdress: ['', [Validators.required]],
-      CounselorOfficePhone: ['', Validators.required],
+      CounselorOfficeId: [this.counselorService.counselorToUpdate.CounselorOfficeId, Validators.required],
+      CounselorOfficeName: [this.counselorService.counselorToUpdate.CounselorOfficeName, Validators.required],
+      CounselorOfficeAdress: [this.counselorService.counselorToUpdate.CounselorOfficeAdress, Validators.required],
+      CounselorOfficePhone: [this.counselorService.counselorToUpdate.CounselorOfficePhone, Validators.required],
       CounselorOfficeType:[this.selectedService.counselorType.TypeId,Validators.required],
-      CounselorOfficeManager:['',Validators.required],
-      CounselorOfficeManagerPhone:['',Validators.required],
-      CounselorOfficeManagerMail:['',Validators.required],
-      CounselorOfficeMainSecretary:['',Validators.required],
-      CounselorOfficeMainSecretaryPhone:['',Validators.required],
-      CounselorOfficeMainSecretaryMail:['',Validators.required],
-
+      CounselorOfficeManager:[this.counselorService.counselorToUpdate.CounselorOfficeManager,Validators.required],
+      CounselorOfficeManagerPhone:[this.counselorService.counselorToUpdate.CounselorOfficeManagerPhone,Validators.required],
+      CounselorOfficeManagerMail:[this.counselorService.counselorToUpdate.CounselorOfficeManagerMail,Validators.required],
+      CounselorOfficeMainSecretary:[this.counselorService.counselorToUpdate.CounselorOfficeMainSecretary,Validators.required],
+      CounselorOfficeMainSecretaryPhone:[this.counselorService.counselorToUpdate.CounselorOfficeMainSecretaryPhone,Validators.required],
+      CounselorOfficeMainSecretaryMail:[this.counselorService.counselorToUpdate.CounselorOfficeMainSecretaryMail,Validators.required],
     });
   }
   cancel(){
@@ -73,7 +65,7 @@ export class AddCounselorComponent implements OnInit {
     console.log('is dirty? ', this.formGroup.dirty);
     console.log('is valid? ', this.formGroup.valid);
     this.subscriptionService.value=this.formGroup.value;
-    this.counselorService.addCounselor$(this.formGroup.value).pipe(
+    this.counselorService.updateCounselor$(this.formGroup.value).pipe(
       map(_ => this.counselorService.counselors$=this.counselorService.getCounselorList$(this.selectedService.counselorType.TypeName))
     )
     .subscribe(
