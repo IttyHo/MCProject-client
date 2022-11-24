@@ -1,1 +1,64 @@
-<p>update-entrepreneur works!</p>
+<img [src]="x" (click)="cancel()">
+<form [formGroup]="formGroup">
+  <div class="data">
+    <ion-item>
+      <ion-label position="floating"> שם החברה היוזמת</ion-label>
+      <ion-input clearInput   formControlName="EntrepreneurCompany"></ion-input>
+    </ion-item>
+    <ion-item  >
+      <ion-label position="floating"> שם היזם</ion-label>
+      <ion-input clearInput   formControlName="EntrepreneurName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" > כתובת החברה </ion-label>
+      <ion-input clearInput  formControlName="EntrepreneurCompanyAddress"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">כתובת החברה למשלוח דואר</ion-label>
+      <ion-input clearInput   formControlName="EntrepreneurCompanyAddressToSend">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">טלפון החברה</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurCompanyPhone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מייל החברה</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurCompanyMail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> פקס החברה</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurCompanyFax"></ion-input>
+    </ion-item>
+  </div>
+  <div class="data">
+    <ion-item>
+      <ion-label position="floating"> טלפון היזם</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurPhone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מייל היזם</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurMail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> כתובת המשרד</ion-label>
+      <ion-input clearInput formControlName="OfficeAdress"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מזכירה ראשית</ion-label>
+      <ion-input clearInput  formControlName="EntrepreneurSecretary"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> טלפון מזכירה ראשית</ion-label>
+      <ion-input clearInput formControlName="EntrepreneurSecretaryPhone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> מייל מזכירה ראשית</ion-label>
+      <ion-input clearInput  formControlName="EntrepreneurSecretaryMail"></ion-input>
+    </ion-item>
+  </div>
+</form>
+<div class="buttons">
+  <ion-button class="mat-button" type="submit" color="success" fill="clear" (click)="save()">אישור</ion-button>
+  <ion-button class="mat-button" type="submit" color="danger" fill="clear" (click)="reset()">ביטול</ion-button>
+</div>

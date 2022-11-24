@@ -1,48 +1,26 @@
+@import '../../../../style/elements.scss';
+
 :host {
     display: flex;
-    flex-direction: row !important;
-    // border: 2px darkcyan dashed;
-    min-width: 50px;
-    min-height: 50px;
+    flex-direction: column;
+    // border: 1.5px darkcyan dashed;
+    min-width: 5px;
     overflow: hidden;
+    padding: -5px;
+    background-color: $light-gray;
 
     .hide {
         visibility: hidden;
     }
 
-    // ion-input{
-    //     direction: rtl;
-    // }
-    // ion-list{
-    //     display: flex;
-    //     flex-direction: column !important;
-    // }
-    .item-highlight {
-        color: black;
-    }
-    // .ion-option{
-    //      width: 200px;
-    // }
-    // ion-input{
-    //     margin-bottom: -55px;
-    // }
     form {
-        margin-right: -5px !important;
+        // width: 45vw !important;
+        // height: 90vh !important;
+        // right: -170vw;
+        // left: 500px;
         display: flex;
         flex-direction: row-reverse;
-
-        .top {
-            display: flex;
-            flex-direction: column !important;
-            margin-left: 15px !important;
-            // margin-bottom: 43px;
-        }
-
-        .bottom {
-            display: flex;
-            flex-direction: column !important;
-            // margin-right: 65px !important;
-        }
+        // margin: 15px !important;
 
         .data {
             display: flex;
@@ -50,12 +28,14 @@
             margin: 15px !important;
         }
 
-        mat-select {
-            text-align: center;
+        .mat-button {
+            margin-top: -60vh;
+            width: 6vw;
         }
 
         .formLabel {
             margin-bottom: -2px;
+            // text-align: right !important;
 
             &.required {
                 position: relative;
@@ -63,12 +43,13 @@
                 &:after {
                     position: absolute;
                     top: 0;
-                    // left: -8px;
+                    left: -8px;
                     color: #f90707;
                 }
             }
         }
 
+      
         .ng-valid {
             border-color: rgb(145, 236, 7);
         }
@@ -81,21 +62,44 @@
 
         .buttons {
             position: absolute;
-            left: 700px;
-            bottom: 180px;
+             margin-bottom: -300px;
+            left: 30vw;
         }
+
+       
+    }
+
+   
+
+}
+
+img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 2vh;
+    margin-right: 28vw;
+}
+
+.dialog {
+    mat-dialog-container {
+        visibility: visible;
+        min-height: min-content;
+        overflow: hidden;
     }
 }
 
-.img {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-top: -250px;
-    margin-right: 10px !important;
+#cdk-overlay-1 {
+    left: 500px;
+    bottom: 150px;
+    display: flex;
+    flex-direction: row !important;
+    position: absolute !important;
 }
 
-::ng-deep #cdk-overlay-2{ 
-    top: 375px;
-    }   
-
-     
+.cdk-overlay-pane {
+    left: 500px;
+    bottom: 150px;
+    display: flex;
+    flex-direction: row !important;
+    position: absolute !important;
+}

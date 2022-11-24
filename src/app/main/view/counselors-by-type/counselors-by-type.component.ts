@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatMenuTrigger } from '@angular/material';
 import { Observable, NEVER } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
@@ -23,7 +23,8 @@ export class CounselorsByTypeComponent implements OnInit {
   en = {}
   updateImg={imgPath:environment.imgesPath,img:'/pen.png'};
   update=this.updateImg.imgPath+this.updateImg.img
-
+  deleteImg = { imgPath: environment.imgesPath, img: '/delete.png' };
+  delete = this.deleteImg.imgPath + this.deleteImg.img
   constructor(
     public selectedService: SelectedNevigationService,
     public counselorService: GetCounselorService,
@@ -42,18 +43,41 @@ export class CounselorsByTypeComponent implements OnInit {
  
   @ViewChild(MatMenuTrigger,{static: false})
   contextMenu: MatMenuTrigger;
-  delete(e) {
+
+  @ViewChild("block", { static: false }) block: ElementRef;
+
+ 
+  on(item: any) {
+    console.log("item = ", item.target.getBoundingClientRect());
+  }
+
+  Delete(e) {
+    console.log(e);
+    console.log(e.x,e.y);
+
     e.preventDefault();
      if (e.srcElement.localName == 'ion-button') {
       console.log(e.srcElement);
       this.en = e.srcElement.innerText;
       console.log(this.en, "logging");
-      var menu = document.getElementById('section')
-      // menu.style.display = '';
+      let m = document.getElementById('section')
+      // menu.style.display = '';    
+      // this.block.nativeElement.removeAt(m)
+      // m.style.x=e.x;
+      // m.style.y=e.y;
+        m.style.left = e.x;
+        m.style.top = e.y;
+      // this.block.nativeElement.appendChild(m);
+
+      // m.setAttribute
+      // e.offsetX=e.x
+      // e.offsetY=e.y
+      console.log(m.style);
+      
       // menu.style.position = 'absolute';
       // menu.style.left = 305 + 'px';
-      // menu
-      .style.top = 105 + 'px';
+      // .style.offset=(953,95);
+  
       // menu .style.backgroundColor='crimson';
       this.contextMenu.openMenu();
     }
@@ -69,17 +93,7 @@ export class CounselorsByTypeComponent implements OnInit {
     this.func(this.en);
 
   }
-  // delete(e) {
-  //   e.preventDefault()
-  //   console.log(e,"eeeeeeee");
-  //   if (e.srcElement.localName == 'ion-button') {
-  //     console.log(e.srcElement);
-  //     this.en = e.srcElement.innerText;
-  //     console.log(this.en, "logging");
-  //     this.func(this.en);
-  //   }
-     
-  // }
+   
   func(en) {
     this.counselorService.counselors.forEach(el => {
       if (el.CounselorOfficeName.toUpperCase() === en) {
@@ -100,8 +114,8 @@ export class CounselorsByTypeComponent implements OnInit {
           
           this.counselorService.counselorToUpdate=el
           this.subscriptionService.dialogRef = this.dialog.open(UpdateConselorComponent, {
-            height: '400px',
-            width: '550px',
+            height: '450px',
+             width: '550px',
             disableClose: true,
             data:true,
             panelClass:'update'

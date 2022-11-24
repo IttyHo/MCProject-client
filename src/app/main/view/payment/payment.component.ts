@@ -1,4 +1,4 @@
-import { Component,  OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material';
 
 @Component({
@@ -7,34 +7,32 @@ import { MatMenuTrigger } from '@angular/material';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-  
-ngOnInit() {}
-  
-  items = [
-    { id: 1, name: "אפשרות א" },
-    { id: 2, name: "אפשרות ב" },
-    { id: 3, name: "אפשרות ג" }
-  ];
 
-  @ViewChild(MatMenuTrigger,{static: false})
-  contextMenu: MatMenuTrigger;
+  ngOnInit() { }
 
-  onContextMenu(event: MouseEvent, item: Item) {
-    event.preventDefault();
-    this.contextMenu.openMenu();
-  }
 
-  onContextMenuUpdate(item: Item) {
-    alert(`Click on Update `);
-  }
+  constructor() { 
+	document.onclick = this.hideMenu;
+	document.oncontextmenu = this.rightClick;
+	}
+ hideMenu() {
+		document.getElementById("contextMenu")
+				.style.display = "none"
+	}
 
-  onContextMenuDelete(item: Item) {
-    alert(`Click on Delete for `);
-  }
+	rightClick(e) {
+		e.preventDefault();
+
+		if (document.getElementById("contextMenu")
+				.style.display == "block")
+			this.hideMenu();
+		else{
+			var menu = document.getElementById("contextMenu")
+
+			menu.style.display = 'block';
+			menu.style.left = e.pageX + "px";
+			menu.style.top = e.pageY + "px";
+		}
+	}
+
 }
-
-export interface Item {
-  id: number;
-  name: string;
-}
- 

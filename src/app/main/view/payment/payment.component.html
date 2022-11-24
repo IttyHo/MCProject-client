@@ -1,11 +1,12 @@
-<mat-list>
-	<mat-list-item *ngFor="let item of items" (contextmenu)="onContextMenu($event, item)">
-    <div [matMenuTriggerFor]="contextMenu" style="pointer-events: none;">{{ item.name }}</div>
-	</mat-list-item>
-</mat-list>
-<mat-menu #contextMenu="matMenu">
-	<ng-template matMenuContent let-item="item">
-		<button mat-menu-item (click)="onContextMenuUpdate(item)">עריכה</button>
-		<button mat-menu-item (click)="onContextMenuDelete(item)">מחיקה</button>
-	</ng-template>
-</mat-menu>
+<div id="contextMenu" class="context-menu"
+	style="display: none">
+	<ul>
+		<li><a href="#">Element-1</a></li>
+		<li><a href="#">Element-2</a></li>
+		<li><a href="#">Element-3</a></li>
+		<li><a href="#">Element-4</a></li>
+		<li><a href="#">Element-5</a></li>
+		<li><a href="#">Element-6</a></li>
+		<li><a href="#">Element-7</a></li>
+	</ul>
+</div>

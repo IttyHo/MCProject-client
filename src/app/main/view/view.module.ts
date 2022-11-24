@@ -23,6 +23,7 @@ import { AddCounselorTypeModule } from './add-counselor-type/add-counselor-type.
 import { IonicModule } from '@ionic/angular';
 import { OrdersModule } from './orders/orders.module';
 import { UpdateConselorModule } from './update-conselor/update-conselor.module';
+import { UpdateEntrepreneurModule } from './update-entrepreneur/update-entrepreneur.module';
 
 
 @NgModule({
@@ -55,7 +56,9 @@ import { UpdateConselorModule } from './update-conselor/update-conselor.module';
     IonicModule,
     OrdersModule,
     ReactiveFormsModule,
-    UpdateConselorModule
+    UpdateConselorModule,
+    UpdateEntrepreneurModule,
+
   ],
   exports: [ViewComponent],
 

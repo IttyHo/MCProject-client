@@ -13,6 +13,7 @@ export class SelectedNevigationService {
   counselor:Cunselor;
   counselorType:{TypeName:string,TypeId:number};
   children:[]
+  location={x:Number,y:Number}
   constructor() { }
 
   updateSelected(selected){

@@ -37,7 +37,7 @@ export class UpdateConselorComponent implements OnInit {
       CounselorOfficeName: [this.counselorService.counselorToUpdate.CounselorOfficeName, Validators.required],
       CounselorOfficeAdress: [this.counselorService.counselorToUpdate.CounselorOfficeAdress, Validators.required],
       CounselorOfficePhone: [this.counselorService.counselorToUpdate.CounselorOfficePhone, Validators.required],
-      CounselorOfficeType:[this.selectedService.counselorType.TypeId,Validators.required],
+      CounselorOfficeType:[this.counselorService.counselorToUpdate.counselorType.TypeId,Validators.required],
       CounselorOfficeManager:[this.counselorService.counselorToUpdate.CounselorOfficeManager,Validators.required],
       CounselorOfficeManagerPhone:[this.counselorService.counselorToUpdate.CounselorOfficeManagerPhone,Validators.required],
       CounselorOfficeManagerMail:[this.counselorService.counselorToUpdate.CounselorOfficeManagerMail,Validators.required],
@@ -68,9 +68,7 @@ export class UpdateConselorComponent implements OnInit {
     this.counselorService.updateCounselor$(this.formGroup.value).pipe(
       map(_ => this.counselorService.counselors$=this.counselorService.getCounselorList$(this.selectedService.counselorType.TypeName))
     )
-    .subscribe(
-      // this.counselorService.getCounselorList$('').subscribe()
-    );
+    .subscribe();
    this.reset()
   }
   reset() {
@@ -83,11 +81,4 @@ export class UpdateConselorComponent implements OnInit {
       console.log("i am closed");
     }
   }
-//   removeSecretary(index: number) {
-//     // this.phoneList.removeAt(index);
-//  }
-
-//  addSecretary() {
-//   //  this.phoneList.push(new FormControl(''));
-//  }
 }

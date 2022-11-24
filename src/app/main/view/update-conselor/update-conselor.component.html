@@ -1,6 +1,6 @@
 <img class="img" [src]="x" (click)="cancel()">
 <form [formGroup]="formGroup">
-  <div class="top">
+  <div class="data">
     <ion-item>
       <ion-label position="floating"></ion-label>
       <ion-input clearInput type="text" placeholder=" שם היועץ" formControlName="CounselorOfficeName"></ion-input>
@@ -11,9 +11,9 @@
     </ion-item>
     
     <ion-item>
-      <ion-label position="floating"></ion-label> 
+      <ion-label position="disabled"></ion-label> 
       <ion-option class="ion-option"  formControlName="CounselorOfficeType" ></ion-option>
-      <ion-input [innerText]="selectedService.counselorType.TypeName"></ion-input>
+      <ion-input [innerText]="selectedService.counselorType.TypeName" disabled></ion-input>
   </ion-item>
     <ion-item>
     <ion-label position="floating"></ion-label>
@@ -25,7 +25,7 @@
   </ion-item>
 </div>
 
-<div class="bottom">
+<div class="data">
     <ion-item>
       <ion-label position="floating"></ion-label>
     <ion-input clearInput class="formLabel required matInput" type="text" placeholder="טלפון מנהל המשרד" formControlName="CounselorOfficeManagerPhone"></ion-input>
@@ -47,12 +47,12 @@
       <ion-label position="floating"></ion-label>
     <ion-input clearInput class="formLabel required matInput" type="text" placeholder="מייל מזכירה ראשית" formControlName="CounselorOfficeMainSecretaryMail"></ion-input>
     </ion-item>
-     
+     </div>
+</form>
 
 <div class="buttons">
   <ion-button class="mat-button" type="submit" color="success" fill="clear" (click)="save()">אישור</ion-button>
   <ion-button class="mat-button" type="submit" color="danger" fill="clear"  (click)="reset()">ביטול</ion-button>
 </div>
- </div>
+ 
 
-</form>

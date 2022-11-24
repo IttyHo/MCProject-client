@@ -14,6 +14,13 @@ export class GetEntrepreneurService extends HttpServiceBase {
   entrepreneur$:Observable<Entrepreneur[]>;
   entrepreneurs:Entrepreneur[]=[];
 
+  updateEntrepreneur$(entrepreneur:Entrepreneur):Observable<boolean>{
+    return this.post$(new HttpRequestModel({
+      url: this._serverUrl,
+      action: 'updateEntrepreneur',
+      body: entrepreneur
+  }));
+  }
 
   getEntrepreneurList$(): Observable<Entrepreneur[]> {
     return this.get$(new HttpRequestModel({

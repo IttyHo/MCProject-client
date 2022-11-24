@@ -508,6 +508,17 @@ class GetEntrepreneurService extends HttpServiceBase {
         return `${this.config.ips.servicePath}entrepreneur/`;
     }
     /**
+     * @param {?} entrepreneur
+     * @return {?}
+     */
+    updateEntrepreneur$(entrepreneur) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'updateEntrepreneur',
+            body: entrepreneur
+        }));
+    }
+    /**
      * @return {?}
      */
     getEntrepreneurList$() {
@@ -574,6 +585,8 @@ if (false) {
     EntrepreneurDetailsService.prototype.entrepreneur;
     /** @type {?} */
     EntrepreneurDetailsService.prototype.entrepreneurToDelete;
+    /** @type {?} */
+    EntrepreneurDetailsService.prototype.entrepreneurToUpdate;
     /** @type {?} */
     EntrepreneurDetailsService.prototype.delete;
 }

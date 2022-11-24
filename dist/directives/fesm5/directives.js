@@ -1,4 +1,4 @@
-import { Injectable, ɵɵdefineInjectable, Component, Directive, ElementRef, Input, HostListener, NgModule } from '@angular/core';
+import { Injectable, ɵɵdefineInjectable, Component, Directive, ElementRef, Input, HostListener, ViewChild, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /**
@@ -110,6 +110,41 @@ if (false) {
 
 /**
  * @fileoverview added by tsickle
+ * Generated from: lib/find-location.directive.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+// import { SelectedNevigationService } from 'src/app/main/services/selected-nevigation.service';
+var FindLocationDirective = /** @class */ (function () {
+    function FindLocationDirective() {
+    }
+    /**
+     * @return {?}
+     */
+    FindLocationDirective.prototype.ngAfterViewChecked = /**
+     * @return {?}
+     */
+    function () {
+        /** @type {?} */
+        var datas = this.block.nativeElement.getBoundingClientRect();
+        console.log("datas = ", datas);
+    };
+    FindLocationDirective.decorators = [
+        { type: Directive, args: [{ selector: '[libFindLocation]' },] }
+    ];
+    FindLocationDirective.propDecorators = {
+        block: [{ type: ViewChild, args: ["block", { static: false },] }]
+    };
+    return FindLocationDirective;
+}());
+if (false) {
+    /** @type {?} */
+    FindLocationDirective.prototype.x;
+    /** @type {?} */
+    FindLocationDirective.prototype.block;
+}
+
+/**
+ * @fileoverview added by tsickle
  * Generated from: lib/directives.module.ts
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
@@ -118,12 +153,13 @@ var DirectivesModule = /** @class */ (function () {
     }
     DirectivesModule.decorators = [
         { type: NgModule, args: [{
-                    declarations: [DirectivesComponent, CopyDirective],
+                    declarations: [DirectivesComponent, CopyDirective, FindLocationDirective],
                     imports: [
                         CommonModule
                     ],
                     exports: [DirectivesComponent,
-                        CopyDirective]
+                        CopyDirective,
+                        FindLocationDirective]
                 },] }
     ];
     return DirectivesModule;
@@ -141,5 +177,5 @@ var DirectivesModule = /** @class */ (function () {
  * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { DirectivesComponent, DirectivesModule, DirectivesService, CopyDirective as ɵa };
+export { DirectivesComponent, DirectivesModule, DirectivesService, CopyDirective as ɵa, FindLocationDirective as ɵb };
 //# sourceMappingURL=directives.js.map

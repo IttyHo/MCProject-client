@@ -621,6 +621,21 @@ var GetEntrepreneurService = /** @class */ (function (_super) {
         configurable: true
     });
     /**
+     * @param {?} entrepreneur
+     * @return {?}
+     */
+    GetEntrepreneurService.prototype.updateEntrepreneur$ = /**
+     * @param {?} entrepreneur
+     * @return {?}
+     */
+    function (entrepreneur) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'updateEntrepreneur',
+            body: entrepreneur
+        }));
+    };
+    /**
      * @return {?}
      */
     GetEntrepreneurService.prototype.getEntrepreneurList$ = /**
@@ -700,6 +715,8 @@ if (false) {
     EntrepreneurDetailsService.prototype.entrepreneur;
     /** @type {?} */
     EntrepreneurDetailsService.prototype.entrepreneurToDelete;
+    /** @type {?} */
+    EntrepreneurDetailsService.prototype.entrepreneurToUpdate;
     /** @type {?} */
     EntrepreneurDetailsService.prototype.delete;
 }

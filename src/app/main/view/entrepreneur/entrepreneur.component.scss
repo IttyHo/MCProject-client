@@ -42,3 +42,20 @@ span {
 ::ng-deep .deleteDialog{
     visibility: hidden;
 }
+::ng-deep .flextion{
+    display: flex;
+    flex-direction: column !important;
+    right: 100px !important;
+
+}
+::ng-deep .matmenu{
+    margin-right: 100px;
+ }
+img{
+width: 1.5rem;
+height: 1.5rem;
+
+}
+.ddd{
+    background-color: cadetblue;
+}

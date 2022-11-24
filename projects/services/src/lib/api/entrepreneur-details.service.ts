@@ -7,6 +7,8 @@ import { Entrepreneur } from 'types';
 export class EntrepreneurDetailsService {
   entrepreneur={}
   entrepreneurToDelete:any
-delete:any;
+  entrepreneurToUpdate:any
+
+  delete:any;
   constructor() { }
 }

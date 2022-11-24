@@ -113,6 +113,41 @@
 
     /**
      * @fileoverview added by tsickle
+     * Generated from: lib/find-location.directive.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    // import { SelectedNevigationService } from 'src/app/main/services/selected-nevigation.service';
+    var FindLocationDirective = /** @class */ (function () {
+        function FindLocationDirective() {
+        }
+        /**
+         * @return {?}
+         */
+        FindLocationDirective.prototype.ngAfterViewChecked = /**
+         * @return {?}
+         */
+        function () {
+            /** @type {?} */
+            var datas = this.block.nativeElement.getBoundingClientRect();
+            console.log("datas = ", datas);
+        };
+        FindLocationDirective.decorators = [
+            { type: core.Directive, args: [{ selector: '[libFindLocation]' },] }
+        ];
+        FindLocationDirective.propDecorators = {
+            block: [{ type: core.ViewChild, args: ["block", { static: false },] }]
+        };
+        return FindLocationDirective;
+    }());
+    if (false) {
+        /** @type {?} */
+        FindLocationDirective.prototype.x;
+        /** @type {?} */
+        FindLocationDirective.prototype.block;
+    }
+
+    /**
+     * @fileoverview added by tsickle
      * Generated from: lib/directives.module.ts
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
@@ -121,12 +156,13 @@
         }
         DirectivesModule.decorators = [
             { type: core.NgModule, args: [{
-                        declarations: [DirectivesComponent, CopyDirective],
+                        declarations: [DirectivesComponent, CopyDirective, FindLocationDirective],
                         imports: [
                             common.CommonModule
                         ],
                         exports: [DirectivesComponent,
-                            CopyDirective]
+                            CopyDirective,
+                            FindLocationDirective]
                     },] }
         ];
         return DirectivesModule;
@@ -136,6 +172,7 @@
     exports.DirectivesModule = DirectivesModule;
     exports.DirectivesService = DirectivesService;
     exports.ɵa = CopyDirective;
+    exports.ɵb = FindLocationDirective;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
