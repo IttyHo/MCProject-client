@@ -12,7 +12,9 @@ export class SubscriptionService {
   detail: any = null;
   counselorType: any
   value: {}
-  role
+  role;
+  show = false
+
 
   constructor() { }
 

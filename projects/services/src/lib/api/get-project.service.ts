@@ -9,6 +9,7 @@ import { HttpServiceBase } from './http-service.base';
 })
 export class GetProjectService extends HttpServiceBase {
 selectedProject:any;
+projectToUpdate;
 projectToDelete:any=null
 project$: Observable<Project[]> = NEVER;
 projects: Project[] = [];
@@ -30,6 +31,14 @@ projects: Project[] = [];
       action: 'addProject',
       body: project
   }));
+}
+
+updateProject$(project:Project):Observable<boolean>{
+  return this.post$(new HttpRequestModel({
+    url: this._serverUrl,
+    action: 'updateProject',
+    body: project
+}));
 }
 
 deleteProject$(project:Project):Observable<boolean>{

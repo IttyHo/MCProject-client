@@ -2,7 +2,6 @@
     <app-logo> </app-logo>
     <div *ngFor="let item of menuOption">
         <app-button-menu [option]="item" (click)="changeSelected(item)">
-          
         </app-button-menu> 
         <span class="project" *ngIf="selectedService[item.displayKey] " (click)="selectedObjectDetails(item.displayKey)"  [innerText]="selectedService[item.displayKey][item.displayValue]"> </span>
     </div>

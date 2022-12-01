@@ -1,35 +1,48 @@
 @import '../.././../../../src/style/main.scss';
 @import '../.././../../../src/style/elements.scss';
 
-:host {
+// :host {
+.example-container.mat-elevation-z8 {
+
   display: flex;
   flex-direction: column;
   overflow: hidden !important;
-
-  .example-container.mat-elevation-z8 {
-    overflow-y: auto;
-  }
+  overflow-y: scroll;
 
   mat-table {
     overflow: hidden;
     overflow-y: auto;
+
+    mat-header-cell {
+      width: 150px;
+      // flex: none;
+      justify-content: center;
+      border-top: 1px solid;
+      border-right: 1px solid;
+      border-bottom: 1px solid;
+      cursor: col-resize;
+      font-size: larger;
+      font-weight: bold;
+      text-shadow: 3px;
+    }
+
+    mat-cell {
+      border-right: 1px solid;
+      border-bottom: 1px solid;
+    }
+
+    // .newButton {
+    //   top: 250px;
+    // }
+  
+
+  .header-row {
+    background: #c0c545;
+    color: #fff;
+    font-size: 18px;
   }
 
-  .newButton {
-    top: 250px;
-  }
 }
-
-mat-cell,
-mat-footer-cell,
-mat-header-cell {
-  width: 150px;
-  // flex: none;
-  justify-content: center;
-}
-
-::ng-deep .mat-elevation-z8 {
-  overflow: scroll !important;
 }
 
 // ::ng-deep .mat-table mat-cell:first-child {
@@ -50,29 +63,31 @@ mat-header-cell {
 //   padding-right: 0px;
 // }
 
-.mat-table mat-header-cell {
-  border-top: 1px solid;
-  border-right: 1px solid;
-  border-bottom: 1px solid;
-  cursor: col-resize;
-  font-size: larger;
-  font-weight: bold;
-  text-shadow: 3px;
-}
+// .mat-table mat-header-cell {
+//   border-top: 1px solid;
+//   border-right: 1px solid;
+//   border-bottom: 1px solid;
+//   cursor: col-resize;
+//   font-size: larger;
+//   font-weight: bold;
+//   text-shadow: 3px;
+// }
 
-.mat-table mat-cell {
-  border-right: 1px solid;
-  border-bottom: 1px solid;
-}
-.header-row {
-  background: #c0c545;
-  color: #fff;
-  font-size: 18px;
-}
+// .mat-table mat-cell {
+//   border-right: 1px solid;
+//   border-bottom: 1px solid;
+// }
+
+// .header-row {
+//   background: #c0c545;
+//   color: #fff;
+//   font-size: 18px;
+// }
 
 ion-col {
   border: 1px solid #ECEEEF;
 }
+
 // .newButton{
 //   top: 250px;
 // }

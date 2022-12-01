@@ -1,5 +1,5 @@
 <lib-table [columns]="columns$ | async"  [rows]="projectService.project$ | async"
 (dbClick)="selectProject($event)"
-(contextmenu)="f($event)"
->
+(contextmenu)="Delete($event)"
+ >
 </lib-table>

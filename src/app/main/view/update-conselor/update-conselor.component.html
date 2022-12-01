@@ -9,11 +9,10 @@
       <ion-label position="floating"></ion-label>
     <ion-input  clearInput  placeholder="כתובת חברת הייעוץ" formControlName="CounselorOfficeAdress"></ion-input>
     </ion-item>
-    
     <ion-item>
       <ion-label position="disabled"></ion-label> 
-      <ion-option class="ion-option"  formControlName="CounselorOfficeType" ></ion-option>
-      <ion-input [innerText]="selectedService.counselorType.TypeName" disabled></ion-input>
+      <ion-option class="ion-option"  ></ion-option>
+      <ion-input [innerText]="selectedService.counselorType.TypeName"></ion-input>
   </ion-item>
     <ion-item>
     <ion-label position="floating"></ion-label>
@@ -24,13 +23,11 @@
     <ion-input clearInput class="formLabel required matInput" type="text" placeholder="מנהל המשרד" formControlName="CounselorOfficeManager"></ion-input>
   </ion-item>
 </div>
-
 <div class="data">
     <ion-item>
       <ion-label position="floating"></ion-label>
     <ion-input clearInput class="formLabel required matInput" type="text" placeholder="טלפון מנהל המשרד" formControlName="CounselorOfficeManagerPhone"></ion-input>
     </ion-item>
-  
     <ion-item>
       <ion-label position="floating"></ion-label>
     <ion-input clearInput class="formLabel required matInput"  type="text" placeholder="מייל מנהל המשרד" formControlName="CounselorOfficeManagerMail"></ion-input>

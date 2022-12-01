@@ -1,22 +1,27 @@
-[   
+[
     {
-        "header":"שם הפרויקט", 
-        "name":"ProjectName"
+        "header": "Project ID",
+        "name": "ProjectId",
+        "class":"pID"
     },
     {
-        "header":"כתובת", 
-        "name":"ProjectAdress"
-    } ,   
-    {
-        "header":"סוג הפרויקט", 
-        "name":"ProjectTypeName"
-    }  ,
-    {
-        "header":"שם היזם", 
-        "name":"EntrepreneurName"
+        "header": "שם הפרויקט",
+        "name": "ProjectName"
     },
     {
-        "header":"רובע", 
-        "name":"ProjectRova"
-    } 
+        "header": "כתובת",
+        "name": "ProjectAdress"
+    },
+    {
+        "header": "סוג הפרויקט",
+        "name": "ProjectTypeName"
+    },
+    {
+        "header": "שם היזם",
+        "name": "EntrepreneurName"
+    },
+    {
+        "header": "רובע",
+        "name": "ProjectRova"
+    }
 ]

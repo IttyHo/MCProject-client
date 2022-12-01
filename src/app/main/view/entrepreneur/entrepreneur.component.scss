@@ -1,61 +1,90 @@
 @import './../../../../style/elements.scss';
 
-:host {
+// :host{
+.div {
     display: flex;
- max-width: 100%;
+    max-width: 100%;
     flex-wrap: wrap;
+    position: relative;
+
+    .for {
+        position: relative;
+
+        .entrepreneur {
+            //     display: flex;
+            //     flex-direction: row !important;
+            //     flex-wrap: wrap;
+            //     border: 2.5px $dark-gray dotted;
+            //     color: $dark-gray;
+            margin: 3px;
+            padding: 3px;
+            // position: relative;
+
+            ion-button {
+                // position: relative;
+                flex: 1 1 auto;
+                font-size: 2rem;
+                flex-direction: row;
+                // border: 2.5px $dark-gray ;
+                color: $dark-gray;
+                // background-color: $dark-gray;     
+            }
+        }
+
+        .menu {
+            flex-direction: row;
+            position: absolute;
+            display: none;
+
+            img {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            &.show {
+                display: block;
+            }
+        }
+    }
+
     // flex-direction: row;
     // // margin: 100px;
     // font-size: 2.5rem;
     // justify-content: space-around;
-    ion-button {
+
+    span {
+        visibility: hidden;
         position: relative;
         flex: 1 1 auto;
-        font-size: 2rem;
+        font-size: 2.5rem;
         flex-direction: row !important;
-        border: 2.5px $dark-gray ;
-        color: $dark-gray;  
-        // background-color: $dark-gray;     
-    }
-    .entrepreneur {
-    //     display: flex;
-    //     flex-direction: row !important;
-    //     flex-wrap: wrap;
-    //     border: 2.5px $dark-gray dotted;
-    //     color: $dark-gray;
-        margin : 3px;
+        flex-wrap: wrap !important;
+        border: 2.5px $dark-gray dotted;
+        color: $dark-gray;
         padding: 3px;
-     }
+    }
 }
 
-span {
-    position: relative;
-    flex: 1 1 auto;
-    font-size: 2.5rem;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    border: 2.5px $dark-gray dotted;
-    color: $dark-gray;
-    padding: 3px;
-}
+// #section{
+// position: absolute;
+// .mat-menu-content {
+//     margin-right: 100px;
 
-::ng-deep .deleteDialog{
+//     .flextion {
+//         display: flex;
+//         flex-direction: row;
+
+//         // right: 100px !important;
+//         img {
+//             width: 1.5rem;
+//             height: 1.5rem;
+
+//         }
+//     }
+// }
+// }
+::ng-deep .deleteDialog {
     visibility: hidden;
 }
-::ng-deep .flextion{
-    display: flex;
-    flex-direction: column !important;
-    right: 100px !important;
 
-}
-::ng-deep .matmenu{
-    margin-right: 100px;
- }
-img{
-width: 1.5rem;
-height: 1.5rem;
-
-}
-.ddd{
-    background-color: cadetblue;
-}
+// }

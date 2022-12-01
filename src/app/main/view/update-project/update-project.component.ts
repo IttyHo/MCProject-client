@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { map, tap } from 'rxjs/operators';
-import { EntrepreneurDetailsService, GetEntrepreneurService, ValidatorsService } from 'services';
+import { map } from 'rxjs/operators';
+import { GetEntrepreneurService, ValidatorsService, EntrepreneurDetailsService } from 'services';
 import { environment } from 'src/environments/environment';
 import { SubscriptionService } from '../../services/subscription.service';
 
 @Component({
-  selector: 'app-update-entrepreneur',
-  templateUrl: './update-entrepreneur.component.html',
-  styleUrls: ['./update-entrepreneur.component.scss']
+  selector: 'app-update-project',
+  templateUrl: './update-project.component.html',
+  styleUrls: ['./update-project.component.scss']
 })
-export class UpdateEntrepreneurComponent implements OnInit {
-
+export class UpdateProjectComponent implements OnInit {
   xImg={imgPath:environment.imgesPath,img: '/close.png'};
   x=this.xImg.imgPath+this.xImg.img
   formGroup: FormGroup;
@@ -75,3 +74,4 @@ export class UpdateEntrepreneurComponent implements OnInit {
     }
   }
 }
+

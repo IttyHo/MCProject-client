@@ -1,19 +1,17 @@
  
 <div class="mat-elevation-z8 mat-table">
   <mat-table [dataSource]="dataSource" >
-  <ng-container *ngFor="let column of columns" [matColumnDef]=  "column.name">
+  <ng-container *ngFor="let column of columns"  [matColumnDef]=  "column.name">
  
-      <mat-header-cell *matHeaderCellDef [innerText]="column.header"> </mat-header-cell>
-       <mat-cell *matCellDef="let element" > 
-            <span [innerText]="element[column.name]" libCopy></span> 
-
+      <mat-header-cell *matHeaderCellDef [innerText]="column.header" [ngStyle]="{display:getProperty(column)}"> </mat-header-cell>
+       <mat-cell *matCellDef="let element" [ngStyle]="{display:getProperty(column)}" > 
+            <span [innerText]="element[column.name]"  libCopy></span> 
        </mat-cell> 
      
   </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns" ></mat-header-row>  
     <mat-row *matRowDef="let row; columns: displayedColumns;"  (dblclick)="getRecord(row)"></mat-row>
       
-    <!-- (contextmenu)="f($event)" -->
     </mat-table>  
 
 <!-- <div class="paginator">

@@ -27,7 +27,6 @@ export class UpdateConselorComponent implements OnInit {
 
   ngOnInit() {
     console.log('i am in add counselor');
-    
     this.initForm();
   }
 
@@ -37,7 +36,7 @@ export class UpdateConselorComponent implements OnInit {
       CounselorOfficeName: [this.counselorService.counselorToUpdate.CounselorOfficeName, Validators.required],
       CounselorOfficeAdress: [this.counselorService.counselorToUpdate.CounselorOfficeAdress, Validators.required],
       CounselorOfficePhone: [this.counselorService.counselorToUpdate.CounselorOfficePhone, Validators.required],
-      CounselorOfficeType:[this.counselorService.counselorToUpdate.counselorType.TypeId,Validators.required],
+      CounselorOfficeType:[this.selectedService.counselorType.TypeId,Validators.required],
       CounselorOfficeManager:[this.counselorService.counselorToUpdate.CounselorOfficeManager,Validators.required],
       CounselorOfficeManagerPhone:[this.counselorService.counselorToUpdate.CounselorOfficeManagerPhone,Validators.required],
       CounselorOfficeManagerMail:[this.counselorService.counselorToUpdate.CounselorOfficeManagerMail,Validators.required],
@@ -48,7 +47,8 @@ export class UpdateConselorComponent implements OnInit {
   }
   cancel(){
     console.log("cancel");
-    this.subscriptionService.dialogRef.close()
+    this.reset()
+
   }
   emailValidator(control) {
     if (
@@ -68,10 +68,11 @@ export class UpdateConselorComponent implements OnInit {
     this.counselorService.updateCounselor$(this.formGroup.value).pipe(
       map(_ => this.counselorService.counselors$=this.counselorService.getCounselorList$(this.selectedService.counselorType.TypeName))
     )
-    .subscribe();
+   .subscribe();
    this.reset()
   }
   reset() {
+    this.subscriptionService.show= false
     this.subscriptionService.close = true;
     console.log(this.subscriptionService.close, "before close");
     if (this.subscriptionService.close) {

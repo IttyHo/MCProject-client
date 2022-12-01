@@ -465,6 +465,17 @@ class GetProjectService extends HttpServiceBase {
      * @param {?} project
      * @return {?}
      */
+    updateProject$(project) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'updateProject',
+            body: project
+        }));
+    }
+    /**
+     * @param {?} project
+     * @return {?}
+     */
     deleteProject$(project) {
         return this.post$(new HttpRequestModel({
             url: this._serverUrl,
@@ -482,6 +493,8 @@ GetProjectService.decorators = [
 if (false) {
     /** @type {?} */
     GetProjectService.prototype.selectedProject;
+    /** @type {?} */
+    GetProjectService.prototype.projectToUpdate;
     /** @type {?} */
     GetProjectService.prototype.projectToDelete;
     /** @type {?} */

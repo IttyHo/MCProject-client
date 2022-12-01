@@ -46,7 +46,18 @@ export class TableComponent implements OnInit, OnChanges {
       this.dbClick.emit(row);   
   }
 
-
+  getProperty(column){
+    console.log(column);
+    if(column.name==='ProjectId')
+      return 'none';
+    
+  }
    
-
+  getProperties(columns){
+columns.forEach(column => {
+     console.log(column);
+    if(column.name==='ProjectId')
+      return 'none';
+    });
+  }
 }

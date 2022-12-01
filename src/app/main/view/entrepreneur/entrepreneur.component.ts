@@ -46,24 +46,26 @@ export class EntrepreneurComponent implements OnInit {
 
   @ViewChild("block", { static: false }) block: ElementRef;
 
- 
   on(item: any) {
     console.log("item = ", item.target.getBoundingClientRect());
   }
   Delete(e) {
+    this.subscriptionService.show= true
+    e.preventDefault()
     console.log(e);
     console.log(e.x,e.y);
-    document.getElementById("ionButton").style.width= "850px";
+    // document.getElementById("ionButton").style.position= "absolute";
+    // document.getElementById("section").offsetLeft= e.x;
+
     this.selectedService.location.x=e.x;
     this.selectedService.location.y=e.y;
     console.log(this.selectedService.location.x+"     location x");
     console.log(this.selectedService.location.y+"     location y");
 
-    e.preventDefault()
     if (e.srcElement.localName == 'ion-button') {
       this.en = e.srcElement.innerText;
       console.log(this.en, "logging");
-      this.contextMenu.openMenu();
+      // this.contextMenu.openMenu();
     }
   }
   onContextMenuUpdate(item) {
@@ -95,7 +97,7 @@ export class EntrepreneurComponent implements OnInit {
         else {
           this.entrepreneurDetails.entrepreneurToUpdate = el
           this.subscriptionService.dialogRef = this.dialog.open(UpdateEntrepreneurComponent, {
-            height: '500px',
+            height: '560px',
             width: '550px',
             disableClose: true,
             data: true,

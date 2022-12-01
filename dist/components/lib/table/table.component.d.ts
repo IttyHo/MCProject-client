@@ -12,4 +12,6 @@ export declare class TableComponent implements OnInit, OnChanges {
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     getRecord(row: any): void;
+    getProperty(column: any): string;
+    getProperties(columns: any): void;
 }

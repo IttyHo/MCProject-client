@@ -25,6 +25,7 @@ export class CounselorsByTypeComponent implements OnInit {
   update=this.updateImg.imgPath+this.updateImg.img
   deleteImg = { imgPath: environment.imgesPath, img: '/delete.png' };
   delete = this.deleteImg.imgPath + this.deleteImg.img
+  show = false
   constructor(
     public selectedService: SelectedNevigationService,
     public counselorService: GetCounselorService,
@@ -52,34 +53,36 @@ export class CounselorsByTypeComponent implements OnInit {
   }
 
   Delete(e) {
+    this.subscriptionService.show= true
     console.log(e);
     console.log(e.x,e.y);
+    // document.querySelector('ion-button').style.opacity='0.25';
+    e.preventDefault(); 
 
-    e.preventDefault();
      if (e.srcElement.localName == 'ion-button') {
       console.log(e.srcElement);
       this.en = e.srcElement.innerText;
       console.log(this.en, "logging");
-      let m = document.getElementById('section')
-      // menu.style.display = '';    
+    //  document.querySelector('.menu').style.backgroundColor = "red";;
+      // m.style.display = '';    
       // this.block.nativeElement.removeAt(m)
       // m.style.x=e.x;
       // m.style.y=e.y;
-        m.style.left = e.x;
-        m.style.top = e.y;
+        // m.style.left = e.x;
+        // m.style.top = e.y;
       // this.block.nativeElement.appendChild(m);
 
       // m.setAttribute
       // e.offsetX=e.x
       // e.offsetY=e.y
-      console.log(m.style);
+      // console.log(m.style);
       
       // menu.style.position = 'absolute';
       // menu.style.left = 305 + 'px';
       // .style.offset=(953,95);
   
       // menu .style.backgroundColor='crimson';
-      this.contextMenu.openMenu();
+      // this.contextMenu.openMenu();
     }
   }
   onContextMenuUpdate(item) {
@@ -97,6 +100,7 @@ export class CounselorsByTypeComponent implements OnInit {
   func(en) {
     this.counselorService.counselors.forEach(el => {
       if (el.CounselorOfficeName.toUpperCase() === en) {
+        console.log(el);
         if(this.selectedService.selectedItem==='delete'){
         this.counselorService.counselorToDelete = el
         this.subscriptionService.Type='יועץ';

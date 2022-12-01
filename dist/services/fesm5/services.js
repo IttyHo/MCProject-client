@@ -567,6 +567,21 @@ var GetProjectService = /** @class */ (function (_super) {
      * @param {?} project
      * @return {?}
      */
+    GetProjectService.prototype.updateProject$ = /**
+     * @param {?} project
+     * @return {?}
+     */
+    function (project) {
+        return this.post$(new HttpRequestModel({
+            url: this._serverUrl,
+            action: 'updateProject',
+            body: project
+        }));
+    };
+    /**
+     * @param {?} project
+     * @return {?}
+     */
     GetProjectService.prototype.deleteProject$ = /**
      * @param {?} project
      * @return {?}
@@ -589,6 +604,8 @@ var GetProjectService = /** @class */ (function (_super) {
 if (false) {
     /** @type {?} */
     GetProjectService.prototype.selectedProject;
+    /** @type {?} */
+    GetProjectService.prototype.projectToUpdate;
     /** @type {?} */
     GetProjectService.prototype.projectToDelete;
     /** @type {?} */

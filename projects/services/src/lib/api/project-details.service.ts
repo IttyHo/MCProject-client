@@ -6,6 +6,5 @@ import { Project } from 'types';
 })
 export class ProjectDetailsService {
 project:Project
-
   constructor() { }
 }
