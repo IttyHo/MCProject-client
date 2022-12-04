@@ -21,7 +21,11 @@ export class ProjectsComponent implements OnInit {
   
   columns$: Observable<Column[]> = NEVER;
   en = {}
-  projectDetails
+  projectDetails;
+  deleteImg = { imgPath: environment.imgesPath, img: '/delete.png' };
+  updateImg = { imgPath: environment.imgesPath, img: '/pen.png' };
+  update = this.updateImg.imgPath + this.updateImg.img
+  delete = this.deleteImg.imgPath + this.deleteImg.img
   constructor(
     public projectService: GetProjectService,
     private readColumns: ReadColumnsService,
@@ -52,30 +56,9 @@ export class ProjectsComponent implements OnInit {
         e.srcElement.localName ==="span") {
       this.en = e.srcElement.innerText;
       console.log(this.projectDetails[0], "logging");
-      // this.func(this.projectDetails[1]);
     }
-
   }
-  // func(en) {
-  //   en=en.toLowerCase();
-  //   this.projectService.projects.forEach(el => {
-  //     if (el.ProjectAdress === en) {
-  //       this.projectService.projectToDelete=el;
-  //       this.subscriptionService.Type='פרויקט';
-  //       this.subscriptionService.detail=el.ProjectAdress
-  //       this.projectService.projectToDelete=el
-  //       console.log(this.projectService.projectToDelete," this.projectService.projectToDelete");
-  //       this.subscriptionService.dialogRef = this.dialog.open(DeleteElementComponent, {
-  //         height: '0px',
-  //         width: '0px',
-  //         disableClose: true, 
-  //         panelClass:'deleteDialog'
-          
-  //       })   
-  //     }
-  //   })
-  // }
-  onContextMenuUpdate(item) {
+ onContextMenuUpdate(item) {
     this.selectedService.selectedItem=item;
     console.log("to update");
     this.func(this.en);

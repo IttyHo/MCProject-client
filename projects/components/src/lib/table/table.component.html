@@ -4,7 +4,7 @@
   <ng-container *ngFor="let column of columns"  [matColumnDef]=  "column.name">
  
       <mat-header-cell *matHeaderCellDef [innerText]="column.header" [ngStyle]="{display:getProperty(column)}"> </mat-header-cell>
-       <mat-cell *matCellDef="let element" [ngStyle]="{display:getProperty(column)}" > 
+       <mat-cell *matCellDef="let element" [ngStyle]="{display:getProperty(column),width:getWidth(column)}" > 
             <span [innerText]="element[column.name]"  libCopy></span> 
        </mat-cell> 
      

@@ -1,21 +1,16 @@
 @import '../.././../../../src/style/main.scss';
 @import '../.././../../../src/style/elements.scss';
 
-// :host {
-.example-container.mat-elevation-z8 {
-
+ .mat-elevation-z8 {
   display: flex;
   flex-direction: column;
-  overflow: hidden !important;
-  overflow-y: scroll;
+  overflow: hidden;
+  overflow-y: auto;
 
   mat-table {
-    overflow: hidden;
-    overflow-y: auto;
-
+ 
     mat-header-cell {
       width: 150px;
-      // flex: none;
       justify-content: center;
       border-top: 1px solid;
       border-right: 1px solid;
@@ -24,6 +19,7 @@
       font-size: larger;
       font-weight: bold;
       text-shadow: 3px;
+      font-size: larger;
     }
 
     mat-cell {
@@ -31,72 +27,12 @@
       border-bottom: 1px solid;
     }
 
-    // .newButton {
-    //   top: 250px;
-    // }
-  
-
-  .header-row {
-    background: #c0c545;
-    color: #fff;
-    font-size: 18px;
+    mat-header-row {
+       color: #fff;
+      font-size: 18px;
+    }
+ 
   }
-
-}
 }
 
-// ::ng-deep .mat-table mat-cell:first-child {
-//   padding-left: 0px;
-//   // border-left: 1px ;
-// }
-
-// .mat-table mat-cell:last-child {
-//   padding-right: 0px;
-// }
-
-// .mat-table mat-header-cell:first-child {
-//   padding-left: 0px;
-//   border-left: 1px solid;
-// }
-
-// .mat-table mat-header-cell:last-child {
-//   padding-right: 0px;
-// }
-
-// .mat-table mat-header-cell {
-//   border-top: 1px solid;
-//   border-right: 1px solid;
-//   border-bottom: 1px solid;
-//   cursor: col-resize;
-//   font-size: larger;
-//   font-weight: bold;
-//   text-shadow: 3px;
-// }
-
-// .mat-table mat-cell {
-//   border-right: 1px solid;
-//   border-bottom: 1px solid;
-// }
-
-// .header-row {
-//   background: #c0c545;
-//   color: #fff;
-//   font-size: 18px;
-// }
-
-ion-col {
-  border: 1px solid #ECEEEF;
-}
-
-// .newButton{
-//   top: 250px;
-// }
-.mat-button-base {
-  top: 37vh !important;
-  box-sizing: border-box;
-  position: relative;
-}
-
-// .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
-//   top:250px !important;
-// }
+ 

@@ -1,63 +1,63 @@
 import { Component, OnInit, Input, ViewChild, ViewEncapsulation, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { Column } from 'types'; 
-import {   MatPaginator, MatTableDataSource } from '@angular/material';
+import { Column } from 'types';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 
- 
+
 
 @Component({
   selector: 'lib-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class TableComponent implements OnInit, OnChanges {
-  @Input() columns:Column[];
-  @Input() rows:any[];
+  @Input() columns: Column[];
+  @Input() rows: any[];
   @Output() dbClick = new EventEmitter<any>();
-  displayedColumns: string[] =[]
-  dataSource 
-    
-    
+  displayedColumns: string[] = []
+  dataSource
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   constructor(
     // public dialog: MatDialog
-    ) { }
+  ) { }
 
   ngOnInit() {
     setTimeout(() => {
-      this.displayedColumns = this.columns.map(({name}) => name   )
+      this.displayedColumns = this.columns.map(({ name }) => name)
     }, 200);
-      
-    
-     this.dataSource = new MatTableDataSource<any>(this.rows);
+
+
+    this.dataSource = new MatTableDataSource<any>(this.rows);
     this.dataSource.paginator = this.paginator;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-     const {rows} = changes;
-     if(rows){
-       this.dataSource = new MatTableDataSource<any>(rows.currentValue);
-       this.dataSource.paginator = this.paginator;
-     }
+    const { rows } = changes;
+    if (rows) {
+      this.dataSource = new MatTableDataSource<any>(rows.currentValue);
+      this.dataSource.paginator = this.paginator;
+    }
   }
 
-  getRecord(row){
-      this.dbClick.emit(row);   
+  getRecord(row) {
+    this.dbClick.emit(row);
   }
 
-  getProperty(column){
-    console.log(column);
-    if(column.name==='ProjectId')
+  getProperty(column) {
+    if (column.name === 'ProjectId')
       return 'none';
-    
   }
-   
-  getProperties(columns){
-columns.forEach(column => {
-     console.log(column);
-    if(column.name==='ProjectId')
-      return 'none';
+  getWidth(column){
+    if(column.name === 'ProjectRova')
+      return '100px';
+  }
+  getProperties(columns) {
+    columns.forEach(column => {
+      if (column.name === 'ProjectId')
+           return 'none';
     });
   }
 }
