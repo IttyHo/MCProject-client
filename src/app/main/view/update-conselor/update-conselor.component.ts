@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { map } from 'rxjs/operators';
 import { GetCounselorService } from 'services';
 import { environment } from 'src/environments/environment';
@@ -22,10 +23,13 @@ export class UpdateConselorComponent implements OnInit {
     public formBuilder: FormBuilder,
     private subscriptionService: SubscriptionService,
     public counselorService:GetCounselorService,
-    public selectedService:SelectedNevigationService
+    public selectedService:SelectedNevigationService,
+    private title:Title
+
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('עריכת יועץ')
     console.log('i am in add counselor');
     this.initForm();
   }

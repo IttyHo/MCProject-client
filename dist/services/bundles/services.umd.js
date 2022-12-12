@@ -715,9 +715,11 @@
         __extends(GetProjectService, _super);
         function GetProjectService() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.projectToUpdate = null;
             _this.projectToDelete = null;
             _this.project$ = rxjs.NEVER;
             _this.projects = [];
+            _this.projectTitle = 'פרויקטים';
             return _this;
         }
         Object.defineProperty(GetProjectService.prototype, "_serverUrl", {
@@ -808,6 +810,8 @@
         GetProjectService.prototype.project$;
         /** @type {?} */
         GetProjectService.prototype.projects;
+        /** @type {?} */
+        GetProjectService.prototype.projectTitle;
     }
 
     /**

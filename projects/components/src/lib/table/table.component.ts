@@ -54,10 +54,4 @@ export class TableComponent implements OnInit, OnChanges {
     if(column.name === 'ProjectRova')
       return '100px';
   }
-  getProperties(columns) {
-    columns.forEach(column => {
-      if (column.name === 'ProjectId')
-           return 'none';
-    });
-  }
 }

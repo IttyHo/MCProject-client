@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { AllPipesModule } from 'pipes';
 import { NEVER, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
@@ -32,9 +33,12 @@ export class AddProjectComponent implements OnInit {
     public projectService:GetProjectService,
     public hasErrors:AllPipesModule,
     private validatorService:ValidatorsService,
+    private title:Title
+
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('הוספת פרויקט')
     console.log('i am in add project');
     this.getEntrepreneurs();
     this.initForm();

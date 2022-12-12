@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { map, tap } from 'rxjs/operators';
 import { EntrepreneurDetailsService, GetEntrepreneurService, ValidatorsService } from 'services';
 import { environment } from 'src/environments/environment';
@@ -23,10 +24,12 @@ export class UpdateEntrepreneurComponent implements OnInit {
     public entrepreneurService:GetEntrepreneurService,
     private validatorsService:ValidatorsService,
     public entrepreneurDetails: EntrepreneurDetailsService,
+    private title:Title
 
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('עריכת יזם')
     console.log('i am in add entrepreneur');
     this.initForm();
   }

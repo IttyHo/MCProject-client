@@ -1,6 +1,6 @@
 import { Injectable, ɵɵdefineInjectable, Component, NgZone, ChangeDetectorRef, NgModule, EventEmitter, ViewEncapsulation, Input, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableDataSource, MatPaginator, MatPaginatorModule, MatButtonModule, MatDialogModule } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatPaginatorModule, MatButtonModule, MatDialogModule, MatFormFieldModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { DirectivesModule } from 'directives';
 import { FormsModule } from '@angular/forms';
@@ -247,24 +247,6 @@ var TableComponent = /** @class */ (function () {
         if (column.name === 'ProjectRova')
             return '100px';
     };
-    /**
-     * @param {?} columns
-     * @return {?}
-     */
-    TableComponent.prototype.getProperties = /**
-     * @param {?} columns
-     * @return {?}
-     */
-    function (columns) {
-        columns.forEach((/**
-         * @param {?} column
-         * @return {?}
-         */
-        function (column) {
-            if (column.name === 'ProjectId')
-                return 'none';
-        }));
-    };
     TableComponent.decorators = [
         { type: Component, args: [{
                     selector: 'lib-table',
@@ -432,7 +414,8 @@ var TableModule = /** @class */ (function () {
                         MatDialogModule,
                         FormsModule,
                         ClockModule,
-                        IonicModule
+                        IonicModule,
+                        MatFormFieldModule
                     ],
                     exports: [TableComponent],
                 },] }

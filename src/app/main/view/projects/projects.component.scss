@@ -1,4 +1,23 @@
- 
+// lib-table{
+
+// }
+.menu {
+    flex-direction: row;
+    position: absolute;
+    display: none;
+    right: 400px;
+
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &.show {
+        display: block;
+    }
+}
+
+
 ::ng-deep .deleteDialog{
     visibility: hidden;
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { GetProjectService } from 'services';
 import { Observable, NEVER } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
@@ -7,9 +7,10 @@ import { environment } from 'src/environments/environment';
 import { Column, Project } from 'types';
 import { SelectedNevigationService } from '../../services/selected-nevigation.service';
 import { SubscriptionService } from '../../services/subscription.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatMenuTrigger } from '@angular/material';
 import { DeleteElementComponent } from '../../components/delete-element/delete-element.component';
 import { UpdateProjectComponent } from '../update-project/update-project.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-projects',
@@ -21,7 +22,7 @@ export class ProjectsComponent implements OnInit {
   
   columns$: Observable<Column[]> = NEVER;
   en = {}
-  projectDetails;
+  projectDetails
   deleteImg = { imgPath: environment.imgesPath, img: '/delete.png' };
   updateImg = { imgPath: environment.imgesPath, img: '/pen.png' };
   update = this.updateImg.imgPath + this.updateImg.img
@@ -31,9 +32,19 @@ export class ProjectsComponent implements OnInit {
     private readColumns: ReadColumnsService,
     private selectedService: SelectedNevigationService,
     public subscriptionService:SubscriptionService,
-    public dialog:MatDialog
+    public dialog:MatDialog,
+    private title:Title
   ) { }
+  @ViewChild(MatMenuTrigger, { static: false })
+  contextMenu: MatMenuTrigger;
+
+  @ViewChild("block", { static: false }) block: ElementRef;
+
+  on(item: any) {
+    console.log("item = ", item.target.getBoundingClientRect());
+  }
   ngOnInit() {
+    this.title.setTitle('פרויקטים')
     this.projectService.project$ = this.projectService.getProjectList$().pipe(
       map(project => this.projectService.projects = project),
       tap(project => console.log('projects:', project)),
@@ -55,7 +66,9 @@ export class ProjectsComponent implements OnInit {
     if (e.srcElement.localName === "mat-cell"||
         e.srcElement.localName ==="span") {
       this.en = e.srcElement.innerText;
-      console.log(this.projectDetails[0], "logging");
+      console.log(this.projectDetails[0].slice(1,this.projectDetails[0].length), "logging");
+        //  this.contextMenu.openMenu();
+
     }
   }
  onContextMenuUpdate(item) {
@@ -71,7 +84,7 @@ export class ProjectsComponent implements OnInit {
 
   func(en) {
     this.projectService.projects.forEach(async el => {
-      if (el.ProjectId === en) {
+      if (el.ProjectAdress === en) {
         if (this.selectedService.selectedItem === 'delete') {
           this.projectService.projectToDelete = el
           this.subscriptionService.Type = 'פרויקט'
@@ -83,14 +96,14 @@ export class ProjectsComponent implements OnInit {
             panelClass: 'deleteDialog'
           })
         }
-        else {
-          this.projectService.projectToUpdate = el
-          this.subscriptionService.dialogRef = this.dialog.open(UpdateProjectComponent, {
-            height: '560px',
-            width: '550px',
-            disableClose: true,
-            data: true,
-            panelClass: 'update'
+    else {
+        this.projectService.projectToUpdate = el
+        this.subscriptionService.dialogRef = this.dialog.open(UpdateProjectComponent, {
+          height: '560px',
+          width: '600px',
+          disableClose: true,
+          data: true,
+          panelClass: 'update'
 
           })
         }

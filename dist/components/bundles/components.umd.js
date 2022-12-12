@@ -245,24 +245,6 @@
             if (column.name === 'ProjectRova')
                 return '100px';
         };
-        /**
-         * @param {?} columns
-         * @return {?}
-         */
-        TableComponent.prototype.getProperties = /**
-         * @param {?} columns
-         * @return {?}
-         */
-        function (columns) {
-            columns.forEach((/**
-             * @param {?} column
-             * @return {?}
-             */
-            function (column) {
-                if (column.name === 'ProjectId')
-                    return 'none';
-            }));
-        };
         TableComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'lib-table',
@@ -430,7 +412,8 @@
                             material.MatDialogModule,
                             forms.FormsModule,
                             ClockModule,
-                            angular.IonicModule
+                            angular.IonicModule,
+                            material.MatFormFieldModule
                         ],
                         exports: [TableComponent],
                     },] }

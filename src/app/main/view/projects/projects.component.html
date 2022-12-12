@@ -1,15 +1,11 @@
-<lib-table [columns]="columns$ | async"  [rows]="projectService.project$ | async"
-(dbClick)="selectProject($event)"
-(contextmenu)="Delete($event)"
- >
- <div class="menu" 
-             [ngClass]="{show: subscriptionService.show}">
-            <div mat-menu-item (click)="onContextMenuUpdate('update')">
-                <img [src]="update">
-            </div>
-            <div mat-menu-item (click)="onContextMenuDelete('delete')">
-                <img [src]="delete">
-
-            </div>
-        </div>
+<lib-table [columns]="columns$ | async" [rows]="projectService.project$ | async" (dbClick)="selectProject($event)"
+    (contextmenu)="Delete($event)" (block)="on($event)">
 </lib-table>
+<div class="menu" [ngClass]="{show: subscriptionService.show}">
+    <div mat-menu-item (click)="onContextMenuUpdate('update')">
+        <img [src]="update">
+    </div>
+    <div mat-menu-item (click)="onContextMenuDelete('delete')">
+        <img [src]="delete">
+    </div>
+</div>

@@ -1,57 +1,52 @@
 @import '../../../../style/elements.scss';
 
-:host {
+.all {
     display: flex;
-    flex-direction: column;
-    // border: 1.5px darkcyan dashed;
-    min-width: 5px;
-    overflow: hidden;
-    padding: -5px;
-    background-color: $light-gray;
-
-    .hide {
-        visibility: hidden;
+    flex-direction: column ;
+    direction: ltr ;
+    // overflow: hidden ;
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top: 2vh;
+        margin-right: 300px;
     }
-
     form {
-        // width: 45vw !important;
-        // height: 90vh !important;
-        // right: -170vw;
-        // left: 500px;
-        display: flex;
-        flex-direction: row-reverse;
-        // margin: 15px !important;
+        margin-top: -90vw ;
 
-        .data {
+        .mat-option-trigger {
+            min-height: 32.5vw;
+        }
+
+        margin-bottom: 10px;
+        margin: 15px ;
+        display: flex;
+        flex-direction: column ;
+
+        .mat-select-panel.custom-select .mat-option {
+            height: 100px;
+        }
+
+        .details {
             display: flex;
             flex-direction: column;
-            margin: 15px !important;
-        }
+            margin: 15px;
+            .formLabel {
+                margin-bottom: -2px;
 
-        .mat-button {
-            margin-top: -60vh;
-            width: 6vw;
-        }
+                &.required {
+                    position: relative;
 
-        .formLabel {
-            margin-bottom: -2px;
-            // text-align: right !important;
-
-            &.required {
-                position: relative;
-
-                &:after {
-                    position: absolute;
-                    top: 0;
-                    left: -8px;
-                    color: #f90707;
+                    &:after {
+                        position: absolute;
+                        top: 0;
+                        // left: -8px;
+                        color: #f90707;
+                    }
                 }
             }
         }
 
-        //   .ng-invalid {
-        //     // border-color: #c00000;
-        //   }
         .ng-valid {
             border-color: rgb(145, 236, 7);
         }
@@ -62,50 +57,24 @@
             color: red;
         }
 
+
         .buttons {
             position: absolute;
-            // background-color: #c00000;
-            margin-bottom: -300px;
-            left: 30vw;
+            margin-top: 402px;
+            //  top: 50px;
+            // left: 30vw;
         }
-
-        //   mat-button{
-        //     top: 50vh;
-        //     background-color: aquamarine;
-        //   }
     }
-
-    // .save{
-    //     // cursor: not-allowed;
-    // }
-
 }
 
-img {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-top: 2vh;
-    margin-right: 28vw;
-}
+
+
 
 .dialog {
     mat-dialog-container {
         visibility: visible;
-        min-height: min-content;
-        overflow: hidden;
     }
 }
-
-#cdk-overlay-1 {
-    left: 500px;
-    bottom: 150px;
-    display: block;
-    position: absolute !important;
-}
-
-.cdk-overlay-pane {
-    left: 500px;
-    bottom: 150px;
-    display: flex;
-    position: absolute !important;
+.hide{
+    visibility: hidden;
 }

@@ -429,9 +429,11 @@ if (false) {
 class GetProjectService extends HttpServiceBase {
     constructor() {
         super(...arguments);
+        this.projectToUpdate = null;
         this.projectToDelete = null;
         this.project$ = NEVER;
         this.projects = [];
+        this.projectTitle = 'פרויקטים';
     }
     /**
      * @private
@@ -501,6 +503,8 @@ if (false) {
     GetProjectService.prototype.project$;
     /** @type {?} */
     GetProjectService.prototype.projects;
+    /** @type {?} */
+    GetProjectService.prototype.projectTitle;
 }
 
 /**

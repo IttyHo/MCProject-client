@@ -13,9 +13,9 @@ import { NgClockPickerLibModule } from 'ng-clock-picker-lib';
     CommonModule,
     DirectivesModule,
     BrowserModule,
-     NgClockPickerLibModule,
-     ReactiveFormsModule,
-     FormsModule,
+    NgClockPickerLibModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports:[DateAndClockComponent]
 })

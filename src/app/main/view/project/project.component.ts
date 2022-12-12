@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { EntrepreneurDetailsService, GetEntrepreneurService, ProjectDetailsService } from 'services';
@@ -36,9 +37,11 @@ dialog
     public projectDetalis: ProjectDetailsService,
     private entrepreneurDetails: EntrepreneurDetailsService,
     private entrepreneurService: GetEntrepreneurService,
+    private title:Title
    ) { }
 
   ngOnInit() {
+    this.title.setTitle('פרויקט בודד')
     this.dialog=document.querySelector('.dialog')
     this.getEntrepreneurs();
     console.log(this.selectedService.project);
@@ -50,14 +53,11 @@ dialog
   entrepreneurDetail(entrepreneur) {
     this.selectedService.updateSelected('oneEntrepreneur');
     this.entrepreneurs.forEach(el => {
-      // console.log(el);
       if (el.EntrepreneurName == entrepreneur) {
         this.oneEntrepreneur = el;
       }
     })
-    // console.log(this.oneEntrepreneur, "one1111111111111111111");
     this.entrepreneurDetails.entrepreneur = this.oneEntrepreneur;
-    // console.log(this.entrepreneurDetails.entrepreneur, "details");
   }
 
   getEntrepreneurs() {

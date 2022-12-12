@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableComponent } from './table.component';
 import {MatTableModule} from '@angular/material/table';
-import { MatButtonModule, MatDialogModule, MatPaginatorModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatPaginatorModule } from '@angular/material';
 import { DirectivesModule } from 'directives';
 import { FormsModule } from '@angular/forms';
 // import { AddProjectModule } from 'src/app/main/view/add-project/add-project.module';
@@ -21,7 +21,8 @@ import { IonicModule } from '@ionic/angular';
     MatDialogModule,
     FormsModule,
     ClockModule,
-    IonicModule
+    IonicModule,
+    MatFormFieldModule
   ],
   exports:[TableComponent],
 })

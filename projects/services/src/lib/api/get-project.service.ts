@@ -9,10 +9,11 @@ import { HttpServiceBase } from './http-service.base';
 })
 export class GetProjectService extends HttpServiceBase {
 selectedProject:any;
-projectToUpdate;
+projectToUpdate:any=null;
 projectToDelete:any=null
 project$: Observable<Project[]> = NEVER;
 projects: Project[] = [];
+projectTitle='פרויקטים'
   private get _serverUrl(): string {
     return `${this.config.ips.servicePath}project/`;
   }

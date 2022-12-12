@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatMenuTrigger } from '@angular/material';
+import { Title } from '@angular/platform-browser';
 import { Observable, NEVER } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { GetCounselorService } from 'services';
@@ -30,10 +31,13 @@ export class CounselorsByTypeComponent implements OnInit {
     public selectedService: SelectedNevigationService,
     public counselorService: GetCounselorService,
     private dialog: MatDialog,
-    private subscriptionService:SubscriptionService
+    private subscriptionService:SubscriptionService,
+    private title:Title
+
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('יועץ')
     this.counselorService.counselors$ = this.counselorService.getCounselorList$(this.selectedService.counselorType.TypeName)
       .pipe(
         map(result => this.counselorService.counselors = result),

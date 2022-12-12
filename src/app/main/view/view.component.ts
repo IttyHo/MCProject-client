@@ -30,6 +30,10 @@ export class ViewComponent implements OnInit {
     console.log(item + "    item");
     this.selectedService.selectedCounselor = item;
   }
+  clicking(){
+    console.log('i am in clicking');
+    this.subscriptionService.show=false;
+  }
   openDialog() {
     switch (this.selectedService.selected) {
       case 'פרויקטים':

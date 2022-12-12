@@ -14,5 +14,4 @@ export declare class TableComponent implements OnInit, OnChanges {
     getRecord(row: any): void;
     getProperty(column: any): string;
     getWidth(column: any): string;
-    getProperties(columns: any): void;
 }

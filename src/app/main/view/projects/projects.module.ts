@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProjectsComponent } from './projects.component';
 import { TableModule } from 'components';
 import { DeleteElementModule } from '../../components/delete-element/delete-element.module';
+import { UpdateProjectModule } from '../update-project/update-project.module';
 
 
 
@@ -11,8 +12,10 @@ import { DeleteElementModule } from '../../components/delete-element/delete-elem
   imports: [
     CommonModule,
     TableModule,
-    DeleteElementModule
+    DeleteElementModule,
+    UpdateProjectModule
   ],
+  entryComponents:[ProjectsComponent],
   exports:[ProjectsComponent]
 })
 export class ProjectsModule { }
