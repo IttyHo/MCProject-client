@@ -56,17 +56,18 @@ export class ProjectsComponent implements OnInit {
     this.selectedService.updateSelected('oneProject');
   }
   Delete(e) {
+    const {event,row}  = e;
     this.subscriptionService.show= true
-    console.log(e);
-    this.projectDetails=JSON.stringify(e.srcElement.parentElement.innerText)
-    e.preventDefault()
-    console.log(this.projectDetails);
+    console.log(row);
+    // this.projectDetails=JSON.stringify(e.srcElement.parentElement.innerText)
+    // e.preventDefault()
+    console.log(row);
     
-    this.projectDetails=this.projectDetails.split('\\n');
+    // this.projectDetails=this.projectDetails.split('\\n');
     if (e.srcElement.localName === "mat-cell"||
         e.srcElement.localName ==="span") {
       this.en = e.srcElement.innerText;
-      console.log(this.projectDetails[0].slice(1,this.projectDetails[0].length), "logging");
+      // console.log(this.projectDetails[0].slice(1,this.projectDetails[0].length), "logging");
         //  this.contextMenu.openMenu();
 
     }

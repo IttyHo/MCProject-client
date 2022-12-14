@@ -169,6 +169,7 @@
     var TableComponent = /** @class */ (function () {
         function TableComponent() {
             this.dbClick = new core.EventEmitter();
+            this.delete = new core.EventEmitter();
             this.displayedColumns = [];
         }
         /**
@@ -245,10 +246,24 @@
             if (column.name === 'ProjectRova')
                 return '100px';
         };
+        /**
+         * @param {?} event
+         * @param {?} row
+         * @return {?}
+         */
+        TableComponent.prototype.onDelete = /**
+         * @param {?} event
+         * @param {?} row
+         * @return {?}
+         */
+        function (event, row) {
+            event.preventDefault();
+            this.delete.emit({ event: event, row: row });
+        };
         TableComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'lib-table',
-                        template: " \r\n<div class=\"mat-elevation-z8 mat-table\">\r\n  <mat-table [dataSource]=\"dataSource\" >\r\n  <ng-container *ngFor=\"let column of columns\"  [matColumnDef]=  \"column.name\">\r\n \r\n      <mat-header-cell *matHeaderCellDef [innerText]=\"column.header\" [ngStyle]=\"{display:getProperty(column)}\"> </mat-header-cell>\r\n       <mat-cell *matCellDef=\"let element\" [ngStyle]=\"{display:getProperty(column),width:getWidth(column)}\" > \r\n            <span [innerText]=\"element[column.name]\"  libCopy></span> \r\n       </mat-cell> \r\n     \r\n  </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\" ></mat-header-row>  \r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"  (dblclick)=\"getRecord(row)\"></mat-row>\r\n      \r\n    </mat-table>  \r\n\r\n<!-- <div class=\"paginator\">\r\n  <mat-paginator  [pageSizeOptions]=\"[5, 10, 20]\"  showFirstLastButtons ></mat-paginator>  \r\n  </div> -->\r\n</div>\r\n\r\n ",
+                        template: " \r\n<div class=\"mat-elevation-z8 mat-table\">\r\n  <mat-table [dataSource]=\"dataSource\" >\r\n  <ng-container *ngFor=\"let column of columns\"  [matColumnDef]=  \"column.name\">\r\n \r\n      <mat-header-cell *matHeaderCellDef [innerText]=\"column.header\" [ngStyle]=\"{display:getProperty(column)}\"> </mat-header-cell>\r\n       <mat-cell *matCellDef=\"let element\" [ngStyle]=\"{display:getProperty(column),width:getWidth(column)}\" > \r\n            <span [innerText]=\"element[column.name]\"  libCopy></span> \r\n       </mat-cell> \r\n     \r\n  </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\" ></mat-header-row>  \r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (contextmenu)=\"onDelete($event,row)\"  (dblclick)=\"getRecord(row)\"></mat-row>\r\n      \r\n    </mat-table>  \r\n\r\n<!-- <div class=\"paginator\">\r\n  <mat-paginator  [pageSizeOptions]=\"[5, 10, 20]\"  showFirstLastButtons ></mat-paginator>  \r\n  </div> -->\r\n</div>\r\n\r\n ",
                         encapsulation: core.ViewEncapsulation.None,
                         styles: ["body{font-family:\"Segoe UI\",Tahoma,Geneva,Verdana,sans-serif;direction:rtl}body *{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:flex;justify-content:center;align-items:center;text-decoration:none}body a{color:#000}body .mat-select-panel.custom-select .mat-option{height:100px}.mat-elevation-z8{display:flex;flex-direction:column;overflow:hidden;overflow-y:auto}.mat-elevation-z8 mat-table mat-header-cell{width:150px;justify-content:center;border-top:1px solid;border-right:1px solid;border-bottom:1px solid;cursor:col-resize;font-weight:700;text-shadow:3px;font-size:larger}.mat-elevation-z8 mat-table mat-cell{border-right:1px solid;border-bottom:1px solid}.mat-elevation-z8 mat-table mat-header-row{color:#fff;font-size:18px}"]
                     }] }
@@ -259,6 +274,8 @@
             columns: [{ type: core.Input }],
             rows: [{ type: core.Input }],
             dbClick: [{ type: core.Output }],
+            delete: [{ type: core.Output }],
+            contextMenu: [{ type: core.ViewChild, args: [material.MatMenuTrigger, { static: false },] }],
             paginator: [{ type: core.ViewChild, args: [material.MatPaginator, { static: true },] }]
         };
         return TableComponent;
@@ -271,9 +288,13 @@
         /** @type {?} */
         TableComponent.prototype.dbClick;
         /** @type {?} */
+        TableComponent.prototype.delete;
+        /** @type {?} */
         TableComponent.prototype.displayedColumns;
         /** @type {?} */
         TableComponent.prototype.dataSource;
+        /** @type {?} */
+        TableComponent.prototype.contextMenu;
         /** @type {?} */
         TableComponent.prototype.paginator;
     }

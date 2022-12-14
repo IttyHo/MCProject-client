@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ViewEncapsulation, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Column } from 'types';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatMenuTrigger, MatPaginator, MatTableDataSource } from '@angular/material';
 
 
 
@@ -14,10 +14,12 @@ export class TableComponent implements OnInit, OnChanges {
   @Input() columns: Column[];
   @Input() rows: any[];
   @Output() dbClick = new EventEmitter<any>();
+  @Output() delete = new EventEmitter<any>();
   displayedColumns: string[] = []
   dataSource
 
-
+  @ViewChild(MatMenuTrigger, { static: false })
+  contextMenu: MatMenuTrigger;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   constructor(
@@ -53,5 +55,10 @@ export class TableComponent implements OnInit, OnChanges {
   getWidth(column){
     if(column.name === 'ProjectRova')
       return '100px';
+  }
+
+  onDelete(event,row){
+    event.preventDefault()
+    this.delete.emit({event,row})
   }
 }

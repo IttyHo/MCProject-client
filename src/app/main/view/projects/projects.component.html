@@ -1,5 +1,5 @@
 <lib-table [columns]="columns$ | async" [rows]="projectService.project$ | async" (dbClick)="selectProject($event)"
-    (contextmenu)="Delete($event)" (block)="on($event)" class="libTable">
+    (delete)="Delete($event)" (block)="on($event)" class="libTable">
 </lib-table>
 <div class="menu" [ngClass]="{show: subscriptionService.show}">
     <div mat-menu-item (click)="onContextMenuUpdate('update')">

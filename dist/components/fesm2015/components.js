@@ -1,6 +1,6 @@
 import { Injectable, ɵɵdefineInjectable, Component, NgZone, ChangeDetectorRef, NgModule, EventEmitter, ViewEncapsulation, Input, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableDataSource, MatPaginator, MatPaginatorModule, MatButtonModule, MatDialogModule, MatFormFieldModule } from '@angular/material';
+import { MatTableDataSource, MatMenuTrigger, MatPaginator, MatPaginatorModule, MatButtonModule, MatDialogModule, MatFormFieldModule } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
 import { DirectivesModule } from 'directives';
 import { FormsModule } from '@angular/forms';
@@ -154,6 +154,7 @@ ComponentsModule.decorators = [
 class TableComponent {
     constructor() {
         this.dbClick = new EventEmitter();
+        this.delete = new EventEmitter();
         this.displayedColumns = [];
     }
     /**
@@ -207,11 +208,20 @@ class TableComponent {
         if (column.name === 'ProjectRova')
             return '100px';
     }
+    /**
+     * @param {?} event
+     * @param {?} row
+     * @return {?}
+     */
+    onDelete(event, row) {
+        event.preventDefault();
+        this.delete.emit({ event, row });
+    }
 }
 TableComponent.decorators = [
     { type: Component, args: [{
                 selector: 'lib-table',
-                template: " \r\n<div class=\"mat-elevation-z8 mat-table\">\r\n  <mat-table [dataSource]=\"dataSource\" >\r\n  <ng-container *ngFor=\"let column of columns\"  [matColumnDef]=  \"column.name\">\r\n \r\n      <mat-header-cell *matHeaderCellDef [innerText]=\"column.header\" [ngStyle]=\"{display:getProperty(column)}\"> </mat-header-cell>\r\n       <mat-cell *matCellDef=\"let element\" [ngStyle]=\"{display:getProperty(column),width:getWidth(column)}\" > \r\n            <span [innerText]=\"element[column.name]\"  libCopy></span> \r\n       </mat-cell> \r\n     \r\n  </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\" ></mat-header-row>  \r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"  (dblclick)=\"getRecord(row)\"></mat-row>\r\n      \r\n    </mat-table>  \r\n\r\n<!-- <div class=\"paginator\">\r\n  <mat-paginator  [pageSizeOptions]=\"[5, 10, 20]\"  showFirstLastButtons ></mat-paginator>  \r\n  </div> -->\r\n</div>\r\n\r\n ",
+                template: " \r\n<div class=\"mat-elevation-z8 mat-table\">\r\n  <mat-table [dataSource]=\"dataSource\" >\r\n  <ng-container *ngFor=\"let column of columns\"  [matColumnDef]=  \"column.name\">\r\n \r\n      <mat-header-cell *matHeaderCellDef [innerText]=\"column.header\" [ngStyle]=\"{display:getProperty(column)}\"> </mat-header-cell>\r\n       <mat-cell *matCellDef=\"let element\" [ngStyle]=\"{display:getProperty(column),width:getWidth(column)}\" > \r\n            <span [innerText]=\"element[column.name]\"  libCopy></span> \r\n       </mat-cell> \r\n     \r\n  </ng-container>\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\" ></mat-header-row>  \r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\" (contextmenu)=\"onDelete($event,row)\"  (dblclick)=\"getRecord(row)\"></mat-row>\r\n      \r\n    </mat-table>  \r\n\r\n<!-- <div class=\"paginator\">\r\n  <mat-paginator  [pageSizeOptions]=\"[5, 10, 20]\"  showFirstLastButtons ></mat-paginator>  \r\n  </div> -->\r\n</div>\r\n\r\n ",
                 encapsulation: ViewEncapsulation.None,
                 styles: ["body{font-family:\"Segoe UI\",Tahoma,Geneva,Verdana,sans-serif;direction:rtl}body *{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:flex;justify-content:center;align-items:center;text-decoration:none}body a{color:#000}body .mat-select-panel.custom-select .mat-option{height:100px}.mat-elevation-z8{display:flex;flex-direction:column;overflow:hidden;overflow-y:auto}.mat-elevation-z8 mat-table mat-header-cell{width:150px;justify-content:center;border-top:1px solid;border-right:1px solid;border-bottom:1px solid;cursor:col-resize;font-weight:700;text-shadow:3px;font-size:larger}.mat-elevation-z8 mat-table mat-cell{border-right:1px solid;border-bottom:1px solid}.mat-elevation-z8 mat-table mat-header-row{color:#fff;font-size:18px}"]
             }] }
@@ -222,6 +232,8 @@ TableComponent.propDecorators = {
     columns: [{ type: Input }],
     rows: [{ type: Input }],
     dbClick: [{ type: Output }],
+    delete: [{ type: Output }],
+    contextMenu: [{ type: ViewChild, args: [MatMenuTrigger, { static: false },] }],
     paginator: [{ type: ViewChild, args: [MatPaginator, { static: true },] }]
 };
 if (false) {
@@ -232,9 +244,13 @@ if (false) {
     /** @type {?} */
     TableComponent.prototype.dbClick;
     /** @type {?} */
+    TableComponent.prototype.delete;
+    /** @type {?} */
     TableComponent.prototype.displayedColumns;
     /** @type {?} */
     TableComponent.prototype.dataSource;
+    /** @type {?} */
+    TableComponent.prototype.contextMenu;
     /** @type {?} */
     TableComponent.prototype.paginator;
 }
