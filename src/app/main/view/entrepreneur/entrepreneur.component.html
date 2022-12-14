@@ -3,7 +3,6 @@
         <div class="entrepreneur">
             <ion-button size="small" fill="outline" [innerText]="e.EntrepreneurCompany"
                 (click)="getEntrepreneurDetalis(e,$event)" (contextmenu)="Delete($event)" (block)="on($event)">
-                <!-- <div class="myMenu" [matMenuTriggerFor]="contextMenu"></div> -->
             </ion-button>
         </div>
         <div class="menu" *ngIf="e.EntrepreneurCompany.toUpperCase() === en"

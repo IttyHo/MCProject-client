@@ -52,7 +52,7 @@ export class UpdateProjectComponent implements OnInit {
       ProjectName: [this.projectService.projectToUpdate.ProjectName, [Validators.required,Validators.minLength(2),this.validatorService.textValidators]],
       ProjectCompany: [this.projectService.projectToUpdate.ProjectCompany, [Validators.required,]],
       ProjectAdress: [this.projectService.projectToUpdate.ProjectAdress, [Validators.required,]],
-      ProjectType:[this.projectService.projectToUpdate.projectType,[Validators.required,]],
+      ProjectType:[this.projectService.projectToUpdate.projectTypeName,[Validators.required,]],
       EntrepreneurId:[this.projectService.projectToUpdate.EntrepreneurId,[Validators.required,]],
       ProjectRova:[this.projectService.projectToUpdate.ProjectRova,[Validators.required,]],
     });

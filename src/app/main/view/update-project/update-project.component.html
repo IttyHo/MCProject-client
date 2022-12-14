@@ -5,9 +5,11 @@
       <mat-form-field class="formLabel required matInput">
         <input matInput type="text" placeholder=" שם הפרויקט" formControlName="ProjectName">
       </mat-form-field>
+
       <mat-form-field class="formLabel required matInput">
         <input matInput type="text" placeholder="כתובת הפרויקט" formControlName="ProjectAdress">
       </mat-form-field>
+
       <mat-form-field class="formLabel required matInput">
         <mat-select placeholder="סוג הפרויקט" formControlName="ProjectType">
           <mat-option *ngFor="let t of projectType" [value]="t.value" [innerText]="t.viewValue">
@@ -20,13 +22,14 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-select panelClass="custom-select" placeholder="רובע" formControlName="ProjectRova">
+        <mat-select panelClass="custom-select" placeholder="רובע" formControlName="ProjectRova" >
           <mat-option *ngFor="let r of rova" [value]="r" [innerText]="r">
           </mat-option>
         </mat-select>
       </mat-form-field>
+      
       <mat-form-field>
-        <mat-select panelClass="custom-select" placeholder=" יזם מבצע " formControlName="EntrepreneurId">
+        <mat-select panelClass="custom-select" placeholder=" יזם מבצע " formControlName="EntrepreneurId" [value]="projectService.projectToUpdate.EntrepreneurId">
           <mat-option *ngFor="let entrepreneur of entrepreneur$|async" [value]="entrepreneur.EntrepreneurId"
             [innerText]="entrepreneur.EntrepreneurName">
           </mat-option>
