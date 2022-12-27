@@ -1,3 +1,4 @@
+Itty Horowitz is the writer of this project
 # EmptyProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.10.
